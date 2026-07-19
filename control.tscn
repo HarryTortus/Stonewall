@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://gwadhibinenx"]
 
+[ext_resource type="Script" uid="uid://2ostbx13h4u4" path="res://control.gd" id="1_0fbet"]
+
 [node name="Control" type="Control" unique_id=1413454092]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0fbet")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1501640861]
 layout_mode = 1
@@ -15,3 +18,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1779607242]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=170502303]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "This is A Game"
+horizontal_alignment = 1
+
+[node name="ButtonSettings" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1951386966]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+focus_mode = 0
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
