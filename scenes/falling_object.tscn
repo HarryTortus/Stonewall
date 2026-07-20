@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bt4gpwexfjplh"]
+
+[ext_resource type="Script" uid="uid://dw4275yokv0p" path="res://scenes/falling_object.gd" id="1_ue6sm"]
+[ext_resource type="Texture2D" uid="uid://bcg2jhk3fgq4d" path="res://icon.svg" id="1_vp4w2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fgc0h"]
+friction = 0.5
+bounce = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdmyw"]
+size = Vector2(128, 128)
+
+[node name="FallingObject" type="RigidBody2D" unique_id=648301411]
+physics_material_override = SubResource("PhysicsMaterial_fgc0h")
+script = ExtResource("1_ue6sm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1499969939]
+texture = ExtResource("1_vp4w2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980551599]
+shape = SubResource("RectangleShape2D_wdmyw")

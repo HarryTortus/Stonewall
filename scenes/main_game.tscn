@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dtgkgpwbsx5ix"]
+
+[ext_resource type="PackedScene" uid="uid://bt4gpwexfjplh" path="res://scenes/falling_object.tscn" id="1_s3esy"]
+[ext_resource type="Script" uid="uid://c6k5d3xap33w1" path="res://scripts/main_game.gd" id="2_n8b2x"]
+
+[node name="MainGame" type="Node2D" unique_id=1114634166]
+script = ExtResource("2_n8b2x")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1961393567]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=165348234]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.08577915, 0.45449877, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1635627590]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 52
+text = "GAMEPLAY RUNNING"
+horizontal_alignment = 1
+
+[node name="FallingObject" parent="." unique_id=648301411 instance=ExtResource("1_s3esy")]
