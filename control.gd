@@ -1,15 +1,24 @@
 extends Control
 
+@onready var main_menu: VBoxContainer = %MainMenuContainer
+@onready var settings_menu: VBoxContainer = %SettingsMenuContainer
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	main_menu.show()
+	settings_menu.hide()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_button_settings_pressed() -> void:
-	pass # Replace with function body.
+	main_menu.hide()
+	settings_menu.show()
+
+func _on_button_back_pressed() -> void:
+	settings_menu.hide()
+	main_menu.show()
+
+
+func _on_h_slider_value_changed(value: float) -> void:
+	# Call our global persistent script!
+	AudioManager.set_master_volume(value)
