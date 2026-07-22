@@ -7,9 +7,6 @@
 friction = 0.5
 bounce = 0.2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdmyw"]
-size = Vector2(128, 128)
-
 [node name="FallingObject" type="RigidBody2D" unique_id=648301411]
 physics_material_override = SubResource("PhysicsMaterial_fgc0h")
 script = ExtResource("1_ue6sm")
@@ -17,5 +14,5 @@ script = ExtResource("1_ue6sm")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1499969939]
 texture = ExtResource("1_vp4w2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980551599]
-shape = SubResource("RectangleShape2D_wdmyw")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1765345274]
+polygon = PackedVector2Array(-63, -52, -54, -63, 52, -63, 64, -51, 64, 51, 53, 62, -52, 62, -63, 51)
