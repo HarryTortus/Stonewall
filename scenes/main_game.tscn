@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://dtgkgpwbsx5ix"]
 
-[ext_resource type="PackedScene" uid="uid://bt4gpwexfjplh" path="res://scenes/falling_object.tscn" id="1_s3esy"]
+[ext_resource type="PackedScene" uid="uid://d3g7b01g8fax8" path="res://scenes/stones/stone1.tscn" id="2_2l77h"]
 [ext_resource type="Texture2D" uid="uid://bcg2jhk3fgq4d" path="res://icon.svg" id="2_d2op2"]
 [ext_resource type="Script" uid="uid://c6k5d3xap33w1" path="res://scripts/main_game.gd" id="2_n8b2x"]
+[ext_resource type="PackedScene" uid="uid://brsclq2efyjop" path="res://scenes/stones/stone2.tscn" id="3_nqdth"]
+[ext_resource type="PackedScene" uid="uid://dd60uoevqlmry" path="res://scenes/stones/stone3.tscn" id="4_5cypo"]
+[ext_resource type="PackedScene" uid="uid://hq78qademf4q" path="res://scenes/stones/stone4.tscn" id="5_o6v7o"]
+[ext_resource type="PackedScene" uid="uid://8w8fw0th87q2" path="res://scenes/stones/stone5.tscn" id="6_wjob3"]
+[ext_resource type="PackedScene" uid="uid://c7dnw4ex6i7fi" path="res://scenes/stones/stone6.tscn" id="7_8xp80"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5h11f"]
 size = Vector2(730, 20)
@@ -15,6 +20,9 @@ size = Vector2(20, 1087)
 
 [node name="MainGame" type="Node2D" unique_id=1114634166]
 script = ExtResource("2_n8b2x")
+rotate_speed = 2.0
+stone_scenes = Array[PackedScene]([ExtResource("2_2l77h"), ExtResource("3_nqdth"), ExtResource("4_5cypo"), ExtResource("5_o6v7o"), ExtResource("6_wjob3"), ExtResource("7_8xp80")])
+global_stone_scale = Vector2(0.25, 0.25)
 
 [node name="Container" type="StaticBody2D" parent="." unique_id=220810507]
 
@@ -75,9 +83,6 @@ custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 3
 icon = ExtResource("2_d2op2")
-
-[node name="FallingObject" parent="." unique_id=648301411 instance=ExtResource("1_s3esy")]
-side_margin = 30.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1961393567]
 layer = -1
