@@ -4,7 +4,7 @@ extends RigidBody2D
 signal stone_landed
 
 ## Distance from the top edge of the screen
-@export var top_margin: float = 80.0
+@export var top_margin: float = 100.0
 
 ## Distance (in pixels) from the screen edges to block movement
 @export var side_margin: float = 30.0 
@@ -15,19 +15,6 @@ var original_collision_layer: int = 1
 var original_collision_mask: int = 1
 
 func _ready() -> void:
-	var viewport_size: Vector2 = get_viewport_rect().size
-	var sprite: Sprite2D = get_node_or_null("Sprite2D")
-	var half_height: float = 32.0
-
-	if sprite and sprite.texture != null:
-		half_height = (sprite.texture.get_size().y * sprite.scale.y) / 2.0
-
-	# Center horizontally and spawn cleanly below top edge
-	position = Vector2(
-		viewport_size.x / 2.0,
-		top_margin + half_height
-	)
-
 	# Save original collision settings
 	original_collision_layer = collision_layer
 	original_collision_mask = collision_mask
@@ -49,6 +36,22 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 
+## Called by main_game AFTER adding to tree
+func setup_spawn() -> void:
+	var viewport_size: Vector2 = get_viewport_rect().size
+	var sprite: Sprite2D = get_node_or_null("Sprite2D")
+	var half_height: float = 32.0
+
+	if sprite and sprite.texture != null:
+		half_height = (sprite.texture.get_size().y * sprite.scale.y) / 2.0
+
+	# Position centered horizontally and top_margin down from top
+	position = Vector2(
+		viewport_size.x / 2.0,
+		top_margin + half_height
+	)
+
+
 ## Detects collision with floor or other stones AFTER dropping
 func _on_body_entered(_body: Node) -> void:
 	if has_started_falling and not has_signaled_landing:
@@ -63,11 +66,10 @@ func move_hover(amount: float) -> void:
 		_clamp_to_screen_bounds()
 
 
-## Rotate smoothly while frozen
+## Rotate smoothly using transform rotation (no physics solver conflict)
 func rotate_hover(amount: float) -> void:
 	if freeze:
-		rotation += amount
-		_clamp_to_screen_bounds()
+		global_rotation += amount
 
 
 ## Clamps stone position cleanly within viewport edges
@@ -76,14 +78,12 @@ func _clamp_to_screen_bounds() -> void:
 	var half_width: float = 32.0
 
 	if sprite and sprite.texture != null:
-		# Account for sprite scale when calculating width
 		half_width = (sprite.texture.get_size().x * sprite.scale.x) / 2.0
 
 	var viewport_width: float = get_viewport_rect().size.x
 	var min_x: float = side_margin + half_width
 	var max_x: float = viewport_width - side_margin - half_width
 
-	# Ensure min_x isn't greater than max_x if a stone is large
 	if min_x < max_x:
 		position.x = clamp(position.x, min_x, max_x)
 	else:
@@ -98,6 +98,5 @@ func start_falling() -> void:
 	collision_layer = original_collision_layer
 	collision_mask = original_collision_mask
 	
-	freeze_mode = RigidBody2D.FREEZE_MODE_STATIC
 	freeze = false
 	gravity_scale = 1.0

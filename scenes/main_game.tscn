@@ -58,30 +58,35 @@ layout_mode = 2
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 icon = ExtResource("2_d2op2")
 
 [node name="ButtonRotateLeft" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer" unique_id=341498008]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 icon = ExtResource("2_d2op2")
 
 [node name="ButtonDrop" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer" unique_id=748643021]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 icon = ExtResource("2_d2op2")
 
 [node name="ButtonRotateRight" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer" unique_id=90415034]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 icon = ExtResource("2_d2op2")
 
 [node name="ButtonRight" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer" unique_id=790328937]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 icon = ExtResource("2_d2op2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1961393567]
