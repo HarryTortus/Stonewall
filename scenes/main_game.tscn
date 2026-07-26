@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://dtgkgpwbsx5ix"]
+
+[ext_resource type="PackedScene" uid="uid://d3g7b01g8fax8" path="res://scenes/stones/stone1.tscn" id="2_2l77h"]
+[ext_resource type="Texture2D" uid="uid://bcg2jhk3fgq4d" path="res://icon.svg" id="2_d2op2"]
+[ext_resource type="Script" uid="uid://c6k5d3xap33w1" path="res://scripts/main_game.gd" id="2_n8b2x"]
+[ext_resource type="PackedScene" uid="uid://brsclq2efyjop" path="res://scenes/stones/stone2.tscn" id="3_nqdth"]
+[ext_resource type="PackedScene" uid="uid://dd60uoevqlmry" path="res://scenes/stones/stone3.tscn" id="4_5cypo"]
+[ext_resource type="PackedScene" uid="uid://hq78qademf4q" path="res://scenes/stones/stone4.tscn" id="5_o6v7o"]
+[ext_resource type="PackedScene" uid="uid://8w8fw0th87q2" path="res://scenes/stones/stone5.tscn" id="6_wjob3"]
+[ext_resource type="PackedScene" uid="uid://c7dnw4ex6i7fi" path="res://scenes/stones/stone6.tscn" id="7_8xp80"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h11f"]
+size = Vector2(1160, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nbp6"]
+size = Vector2(314, 1086)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ft2n7"]
+size = Vector2(442, 1087)
+
+[node name="MainGame" type="Node2D" unique_id=1114634166]
+script = ExtResource("2_n8b2x")
+move_speed = 400.0
+rotate_speed = 2.0
+stone_scenes = Array[PackedScene]([ExtResource("2_2l77h"), ExtResource("3_nqdth"), ExtResource("4_5cypo"), ExtResource("5_o6v7o"), ExtResource("6_wjob3"), ExtResource("7_8xp80")])
+global_stone_scale = Vector2(0.25, 0.25)
+
+[node name="Container" type="StaticBody2D" parent="." unique_id=220810507]
+
+[node name="FloorShape" type="CollisionShape2D" parent="Container" unique_id=820916916]
+position = Vector2(382, 1075)
+shape = SubResource("RectangleShape2D_5h11f")
+
+[node name="LeftWallShape" type="CollisionShape2D" parent="Container" unique_id=366364136]
+position = Vector2(-147, 533)
+shape = SubResource("RectangleShape2D_3nbp6")
+
+[node name="RightWallShape" type="CollisionShape2D" parent="Container" unique_id=1119688685]
+position = Vector2(931, 533.5)
+shape = SubResource("RectangleShape2D_ft2n7")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=80796513]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2" unique_id=1667812380]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/MarginContainer" unique_id=772664202]
+layout_mode = 2
+
+[node name="ButtonLeft" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer" unique_id=942454256]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+icon = ExtResource("2_d2op2")
+
+[node name="ButtonRotateLeft" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer" unique_id=341498008]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+icon = ExtResource("2_d2op2")
+
+[node name="ButtonDrop" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer" unique_id=748643021]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+icon = ExtResource("2_d2op2")
+
+[node name="ButtonRotateRight" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer" unique_id=90415034]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+icon = ExtResource("2_d2op2")
+
+[node name="ButtonRight" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer" unique_id=790328937]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+icon = ExtResource("2_d2op2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1961393567]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=165348234]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.08577915, 0.45449877, 0, 1)
+
+[connection signal="button_down" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonLeft" to="." method="_on_button_left_button_down"]
+[connection signal="button_up" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonLeft" to="." method="_on_button_left_button_up"]
+[connection signal="button_down" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonRotateLeft" to="." method="_on_button_rotate_left_button_down"]
+[connection signal="button_up" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonRotateLeft" to="." method="_on_button_rotate_left_button_up"]
+[connection signal="pressed" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonDrop" to="." method="_on_button_drop_pressed"]
+[connection signal="button_down" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonRotateRight" to="." method="_on_button_rotate_right_button_down"]
+[connection signal="button_up" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonRotateRight" to="." method="_on_button_rotate_right_button_up"]
+[connection signal="button_down" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonRight" to="." method="_on_button_right_button_down"]
+[connection signal="button_up" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonRight" to="." method="_on_button_right_button_up"]
