@@ -1,0 +1,18 @@
+[33m545ff13[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: checkout: moving from menu-layout to main
+[33mf776c84[m[33m ([m[1;31morigin/menu-layout[m[33m, [m[1;32mmenu-layout[m[33m)[m HEAD@{1}: checkout: moving from main to menu-layout
+[33m545ff13[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{2}: checkout: moving from gameplay to main
+[33m3c28c1f[m[33m ([m[1;31morigin/gameplay[m[33m, [m[1;32mgameplay[m[33m)[m HEAD@{3}: commit: Side collisions working
+[33md41802e[m HEAD@{4}: commit: Buttons function well mostly
+[33m264f7ee[m HEAD@{5}: commit: TestStones Added
+[33m70a00af[m HEAD@{6}: commit: Working object drop
+[33mfe0dae0[m HEAD@{7}: commit: working falling object on game scene
+[33m545ff13[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{8}: checkout: moving from menu-layout to gameplay
+[33mf776c84[m[33m ([m[1;31morigin/menu-layout[m[33m, [m[1;32mmenu-layout[m[33m)[m HEAD@{9}: checkout: moving from dev to menu-layout
+[33m3faebd6[m HEAD@{10}: checkout: moving from menu-layout to dev
+[33mf776c84[m[33m ([m[1;31morigin/menu-layout[m[33m, [m[1;32mmenu-layout[m[33m)[m HEAD@{11}: commit: Working volume slider and script
+[33m3faebd6[m HEAD@{12}: checkout: moving from dev to menu-layout
+[33m3faebd6[m HEAD@{13}: checkout: moving from main to dev
+[33m3faebd6[m HEAD@{14}: pull --ff --recurse-submodules --progress origin: Merge made by the 'ort' strategy.
+[33m30cc42b[m HEAD@{15}: commit: PreMenu clean
+[33mc735173[m HEAD@{16}: commit: Godot project creation
+[33md088cde[m HEAD@{17}: commit (initial): Initial commit
