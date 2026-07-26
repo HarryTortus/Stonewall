@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sb7kpem2cpfo"
-path="res://.godot/imported/TestStone4.png-b929ed33acd6ef636331b4fd3cab19dc.ctex"
+uid="uid://d2e6ww2lag3qi"
+path="res://.godot/imported/RotateRight3.png-f49d093b6f0286c8b2aa186bf5721d7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/TestStone4.png"
-dest_files=["res://.godot/imported/TestStone4.png-b929ed33acd6ef636331b4fd3cab19dc.ctex"]
+source_file="res://art/RotateRight3.png"
+dest_files=["res://.godot/imported/RotateRight3.png-f49d093b6f0286c8b2aa186bf5721d7c.ctex"]
 
 [params]
 

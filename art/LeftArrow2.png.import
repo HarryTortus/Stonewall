@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sb7kpem2cpfo"
-path="res://.godot/imported/TestStone4.png-b929ed33acd6ef636331b4fd3cab19dc.ctex"
+uid="uid://bga5htq1g21r4"
+path="res://.godot/imported/LeftArrow2.png-558496e4315e92c5b5c0c5eb5d2ddb11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/TestStone4.png"
-dest_files=["res://.godot/imported/TestStone4.png-b929ed33acd6ef636331b4fd3cab19dc.ctex"]
+source_file="res://art/LeftArrow2.png"
+dest_files=["res://.godot/imported/LeftArrow2.png-558496e4315e92c5b5c0c5eb5d2ddb11.ctex"]
 
 [params]
 

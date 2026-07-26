@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sb7kpem2cpfo"
-path="res://.godot/imported/TestStone4.png-b929ed33acd6ef636331b4fd3cab19dc.ctex"
+uid="uid://ba5aunakuwfdj"
+path="res://.godot/imported/GrassClump3.png-f19bdb1985e991eaf3397e9fad17ffb1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/TestStone4.png"
-dest_files=["res://.godot/imported/TestStone4.png-b929ed33acd6ef636331b4fd3cab19dc.ctex"]
+source_file="res://art/GrassClump3.png"
+dest_files=["res://.godot/imported/GrassClump3.png-f19bdb1985e991eaf3397e9fad17ffb1.ctex"]
 
 [params]
 

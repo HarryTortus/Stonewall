@@ -4,11 +4,11 @@ extends RigidBody2D
 signal stone_landed
 
 ## Distance from the top edge of the screen (Lower number = Higher spawn)
-@export var top_margin: float = 120.0
+@export var top_margin: float = 260.0
 
 ## Left and Right wall boundaries in screen pixels (adjust these to match your container graphics!)
-@export var wall_left_x: float = 20.0
-@export var wall_right_x: float = 700.0 # Set this to match your right wall position!
+@export var wall_left_x: float = 50.0
+@export var wall_right_x: float = 1030.0 # Set this to match your right wall position!
 
 var has_started_falling: bool = false
 var has_signaled_landing: bool = false
