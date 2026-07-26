@@ -10,16 +10,17 @@
 [ext_resource type="PackedScene" uid="uid://c7dnw4ex6i7fi" path="res://scenes/stones/stone6.tscn" id="7_8xp80"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5h11f"]
-size = Vector2(730, 20)
+size = Vector2(1160, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3nbp6"]
-size = Vector2(20, 1086)
+size = Vector2(314, 1086)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ft2n7"]
-size = Vector2(20, 1087)
+size = Vector2(442, 1087)
 
 [node name="MainGame" type="Node2D" unique_id=1114634166]
 script = ExtResource("2_n8b2x")
+move_speed = 400.0
 rotate_speed = 2.0
 stone_scenes = Array[PackedScene]([ExtResource("2_2l77h"), ExtResource("3_nqdth"), ExtResource("4_5cypo"), ExtResource("5_o6v7o"), ExtResource("6_wjob3"), ExtResource("7_8xp80")])
 global_stone_scale = Vector2(0.25, 0.25)
@@ -27,15 +28,15 @@ global_stone_scale = Vector2(0.25, 0.25)
 [node name="Container" type="StaticBody2D" parent="." unique_id=220810507]
 
 [node name="FloorShape" type="CollisionShape2D" parent="Container" unique_id=820916916]
-position = Vector2(360, 1060)
+position = Vector2(382, 1075)
 shape = SubResource("RectangleShape2D_5h11f")
 
 [node name="LeftWallShape" type="CollisionShape2D" parent="Container" unique_id=366364136]
-position = Vector2(0, 533)
+position = Vector2(-147, 533)
 shape = SubResource("RectangleShape2D_3nbp6")
 
 [node name="RightWallShape" type="CollisionShape2D" parent="Container" unique_id=1119688685]
-position = Vector2(720, 533.5)
+position = Vector2(931, 533.5)
 shape = SubResource("RectangleShape2D_ft2n7")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=80796513]
