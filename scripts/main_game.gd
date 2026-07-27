@@ -90,3 +90,8 @@ func _on_button_drop_pressed() -> void:
 		move_dir = 0.0
 		rotate_dir = 0.0
 		current_stone.start_falling()
+
+
+func _on_button_menu_pressed() -> void:
+	print("Button was clicked!") # Add this line
+	get_tree().change_scene_to_file("res://scenes/control.tscn")
