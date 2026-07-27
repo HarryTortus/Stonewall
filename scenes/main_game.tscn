@@ -39,6 +39,44 @@
 [ext_resource type="Texture2D" uid="uid://q6qudn73g300" path="res://art/SingleGrass4.png" id="28_urnot"]
 [ext_resource type="Texture2D" uid="uid://dss0tcjg37t3a" path="res://art/SingleGrass3.png" id="29_4e2rb"]
 
+[sub_resource type="Animation" id="Animation_q875d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sky:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4536, -516)]
+}
+
+[sub_resource type="Animation" id="Animation_dvo3n"]
+resource_name = "sky_drift"
+length = 960.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sky:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 480, 960),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-4536, -516), Vector2(-739.00024, -449), Vector2(-4536, -516)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1vioj"]
+_data = {
+&"RESET": SubResource("Animation_q875d"),
+&"sky_drift": SubResource("Animation_dvo3n")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5h11f"]
 size = Vector2(1927, 533.5)
 
@@ -93,10 +131,10 @@ layer = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -3405.0002
-offset_top = -418.00003
-offset_right = -1000.00024
-offset_bottom = -984.0
+offset_left = -4536.0
+offset_top = -516.0
+offset_right = -2131.0
+offset_bottom = -1082.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.75, 1.75)
@@ -116,6 +154,10 @@ grow_vertical = 2
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("9_5cypo")
 stretch_mode = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1724007938]
+libraries/ = SubResource("AnimationLibrary_1vioj")
+autoplay = &"sky_drift"
 
 [node name="Container" type="StaticBody2D" parent="." unique_id=220810507]
 
