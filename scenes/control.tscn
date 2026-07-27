@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://gwadhibinenx"]
 
-[ext_resource type="Script" uid="uid://2ostbx13h4u4" path="res://control.gd" id="1_0fbet"]
+[ext_resource type="Script" uid="uid://2ostbx13h4u4" path="res://scripts/control.gd" id="1_0fbet"]
 
 [node name="Control" type="Control" unique_id=1413454092]
 layout_mode = 3
@@ -41,6 +41,14 @@ focus_mode = 0
 theme_override_font_sizes/font_size = 48
 text = "Settings"
 
+[node name="ButtonPlay" type="Button" parent="MarginContainer/MainMenuContainer" unique_id=266068736]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+focus_mode = 0
+theme_override_font_sizes/font_size = 48
+text = "Play"
+
 [node name="SettingsMenuContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1631239103]
 unique_name_in_owner = true
 visible = false
@@ -74,5 +82,6 @@ theme_override_font_sizes/font_size = 58
 text = "Back"
 
 [connection signal="pressed" from="MarginContainer/MainMenuContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/MainMenuContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
 [connection signal="value_changed" from="MarginContainer/SettingsMenuContainer/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/SettingsMenuContainer/ButtonBack" to="." method="_on_button_back_pressed"]
