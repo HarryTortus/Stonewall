@@ -41,6 +41,9 @@ func setup_spawn() -> void:
 	var center_x: float = (wall_left_x + wall_right_x) / 2.0
 	position = Vector2(center_x, top_margin)
 
+	# Add a random rotation between 0 and 360 degrees
+	rotation_degrees = randf_range(0.0, 360.0)
+
 
 func _on_body_entered(_body: Node) -> void:
 	if has_started_falling and not has_signaled_landing:

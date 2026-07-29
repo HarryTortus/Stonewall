@@ -34,10 +34,33 @@
 [ext_resource type="PackedScene" uid="uid://cisg2hx4pgxyd" path="res://scenes/stones/stone23.tscn" id="24_5noht"]
 [ext_resource type="Texture2D" uid="uid://dojfdjg71boau" path="res://art/GrassClump1.png" id="24_307no"]
 [ext_resource type="Texture2D" uid="uid://cstkslca6j5hr" path="res://art/LeftArrow7.png" id="24_rr87q"]
+[ext_resource type="PackedScene" uid="uid://bwjqhkdv6yjdo" path="res://scenes/stones/stone24.tscn" id="25_g2o8j"]
 [ext_resource type="Texture2D" uid="uid://ba5aunakuwfdj" path="res://art/GrassClump3.png" id="25_rr87q"]
 [ext_resource type="Texture2D" uid="uid://d1ntsy6w8nt6l" path="res://art/GrassClump2.png" id="26_dp0eu"]
+[ext_resource type="PackedScene" uid="uid://b4urohgknwe73" path="res://scenes/stones/stone25.tscn" id="26_oojmo"]
+[ext_resource type="PackedScene" uid="uid://dxea1siy1hce6" path="res://scenes/stones/stone26.tscn" id="27_5noht"]
+[ext_resource type="PackedScene" uid="uid://cyg815fjun3bt" path="res://scenes/stones/stone27.tscn" id="28_oojmo"]
 [ext_resource type="Texture2D" uid="uid://q6qudn73g300" path="res://art/SingleGrass4.png" id="28_urnot"]
 [ext_resource type="Texture2D" uid="uid://dss0tcjg37t3a" path="res://art/SingleGrass3.png" id="29_4e2rb"]
+[ext_resource type="PackedScene" uid="uid://dun418m05b7x2" path="res://scenes/stones/stone28.tscn" id="29_krfhu"]
+[ext_resource type="PackedScene" uid="uid://chyri42dt111n" path="res://scenes/stones/stone29.tscn" id="30_x3a3x"]
+[ext_resource type="PackedScene" uid="uid://bftl6x42gdkr2" path="res://scenes/stones/stone30.tscn" id="31_sgocm"]
+[ext_resource type="PackedScene" uid="uid://brxdforiectv6" path="res://scenes/stones/stone31.tscn" id="32_pk1le"]
+[ext_resource type="PackedScene" uid="uid://br04ol0oc5qn5" path="res://scenes/stones/stone32.tscn" id="33_1al3e"]
+[ext_resource type="PackedScene" uid="uid://b6vewdtemhtf1" path="res://scenes/stones/stone33.tscn" id="34_sh8gf"]
+[ext_resource type="PackedScene" uid="uid://co78hsrrptfnv" path="res://scenes/stones/stone34.tscn" id="35_4h0lf"]
+[ext_resource type="PackedScene" uid="uid://dcbva4xnpvrd1" path="res://scenes/stones/stone35.tscn" id="36_3ikos"]
+[ext_resource type="PackedScene" uid="uid://bkwkyijbndb0e" path="res://scenes/stones/stone36.tscn" id="37_pjtuq"]
+[ext_resource type="PackedScene" uid="uid://rrj0mlyvbrtw" path="res://scenes/stones/stone37.tscn" id="38_3f3c0"]
+[ext_resource type="PackedScene" uid="uid://dtjf3atkf38y3" path="res://scenes/stones/stone38.tscn" id="39_7q0na"]
+[ext_resource type="PackedScene" uid="uid://o6d5w1qrgxuh" path="res://scenes/stones/stone39.tscn" id="40_aduj5"]
+[ext_resource type="PackedScene" uid="uid://b5vxvi8l5yh0k" path="res://scenes/stones/stone40.tscn" id="41_l8gia"]
+[ext_resource type="PackedScene" uid="uid://dat04c3ijj1la" path="res://scenes/stones/stone41.tscn" id="42_ids5a"]
+[ext_resource type="PackedScene" uid="uid://pqotmi84vnyy" path="res://scenes/stones/stone42.tscn" id="43_qr7ox"]
+[ext_resource type="PackedScene" uid="uid://cb4ahk6a183vu" path="res://scenes/stones/stone43.tscn" id="44_3fkkw"]
+[ext_resource type="Texture2D" uid="uid://dnwvc1ycko0tu" path="res://art/backgroundgrass3.png" id="47_x3a3x"]
+[ext_resource type="Texture2D" uid="uid://bga5htq1g21r4" path="res://art/LeftArrow2.png" id="55_pk1le"]
+[ext_resource type="Texture2D" uid="uid://b60btb72ndj32" path="res://art/BackgroundGrass2.png" id="60_sgocm"]
 
 [sub_resource type="Animation" id="Animation_q875d"]
 length = 0.001
@@ -119,7 +142,7 @@ size = Vector2(384, 3038)
 [node name="MainGame" type="Node2D" unique_id=1114634166]
 script = ExtResource("2_n8b2x")
 move_speed = 500.0
-stone_scenes = Array[PackedScene]([ExtResource("2_2l77h"), ExtResource("3_nqdth"), ExtResource("4_5cypo"), ExtResource("5_o6v7o"), ExtResource("6_wjob3"), ExtResource("7_8xp80"), ExtResource("8_ihbck"), ExtResource("9_vnsdt"), ExtResource("10_yu8cv"), ExtResource("11_ibnub"), ExtResource("12_5wboo"), ExtResource("13_cybgu"), ExtResource("14_wdxbp"), ExtResource("15_on6n6"), ExtResource("16_x3ega"), ExtResource("17_urnot"), ExtResource("18_4e2rb"), ExtResource("19_q875d"), ExtResource("20_dvo3n"), ExtResource("21_1vioj"), ExtResource("22_g2o8j"), ExtResource("23_oojmo"), ExtResource("24_5noht")])
+stone_scenes = Array[PackedScene]([ExtResource("2_2l77h"), ExtResource("3_nqdth"), ExtResource("4_5cypo"), ExtResource("5_o6v7o"), ExtResource("6_wjob3"), ExtResource("7_8xp80"), ExtResource("8_ihbck"), ExtResource("9_vnsdt"), ExtResource("10_yu8cv"), ExtResource("11_ibnub"), ExtResource("12_5wboo"), ExtResource("13_cybgu"), ExtResource("14_wdxbp"), ExtResource("15_on6n6"), ExtResource("16_x3ega"), ExtResource("17_urnot"), ExtResource("18_4e2rb"), ExtResource("19_q875d"), ExtResource("20_dvo3n"), ExtResource("21_1vioj"), ExtResource("22_g2o8j"), ExtResource("23_oojmo"), ExtResource("24_5noht"), ExtResource("25_g2o8j"), ExtResource("26_oojmo"), ExtResource("27_5noht"), ExtResource("28_oojmo"), ExtResource("29_krfhu"), ExtResource("30_x3a3x"), ExtResource("31_sgocm"), ExtResource("32_pk1le"), ExtResource("33_1al3e"), ExtResource("34_sh8gf"), ExtResource("35_4h0lf"), ExtResource("36_3ikos"), ExtResource("37_pjtuq"), ExtResource("38_3f3c0"), ExtResource("39_7q0na"), ExtResource("40_aduj5"), ExtResource("41_l8gia"), ExtResource("42_ids5a"), ExtResource("43_qr7ox"), ExtResource("44_3fkkw")])
 global_stone_scale = Vector2(0.4, 0.4)
 metadata/_edit_vertical_guides_ = [50.0, 1030.0, 540.0]
 metadata/_edit_horizontal_guides_ = [2134.0]
@@ -142,6 +165,7 @@ texture = ExtResource("8_nqdth")
 stretch_mode = 4
 
 [node name="Grass1" type="TextureRect" parent="CanvasLayer" unique_id=811266523]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -153,6 +177,35 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("9_5cypo")
+stretch_mode = 4
+
+[node name="Grass2" type="TextureRect" parent="CanvasLayer" unique_id=154233259]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1102.0
+offset_top = 1329.0
+offset_right = 958.0
+offset_bottom = 506.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("47_x3a3x")
+stretch_mode = 4
+
+[node name="Grass3" type="TextureRect" parent="CanvasLayer" unique_id=1284859224]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = 1781.0
+offset_right = 1961.0
+offset_bottom = 958.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("60_sgocm")
 stretch_mode = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1724007938]
@@ -319,7 +372,24 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_5iqjx")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_bx8n8")
 icon = ExtResource("24_rr87q")
 
+[node name="ButtonSaveWall" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer/Control" unique_id=232746435]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+offset_left = 866.0
+offset_top = -2172.0
+offset_right = 1339.0
+offset_bottom = -1799.0
+rotation = -1.5707964
+scale = Vector2(0.35, 0.35)
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5h11f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5iqjx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bx8n8")
+icon = ExtResource("55_pk1le")
+
 [node name="GrassClump" type="TextureRect" parent="CanvasLayer2/MarginContainer/HBoxContainer/Control" unique_id=1149644572]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -334,6 +404,7 @@ texture = ExtResource("24_307no")
 stretch_mode = 4
 
 [node name="GrassClump2" type="TextureRect" parent="CanvasLayer2/MarginContainer/HBoxContainer/Control" unique_id=2104015556]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -348,6 +419,7 @@ texture = ExtResource("25_rr87q")
 stretch_mode = 4
 
 [node name="GrassClump3" type="TextureRect" parent="CanvasLayer2/MarginContainer/HBoxContainer/Control" unique_id=1411642465]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -362,6 +434,7 @@ texture = ExtResource("26_dp0eu")
 stretch_mode = 4
 
 [node name="GrassClump4" type="TextureRect" parent="CanvasLayer2/MarginContainer/HBoxContainer/Control" unique_id=1748158302]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -382,16 +455,17 @@ layer = 9
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 145.0
-offset_top = 1811.0
-offset_right = -690.0
-offset_bottom = -373.0
+offset_left = 488.0
+offset_top = 1900.0
+offset_right = -347.0
+offset_bottom = -284.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("15_yu8cv")
 stretch_mode = 4
 
 [node name="SingleGrass2" type="TextureRect" parent="CanvasLayer3" unique_id=1196122060]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -409,16 +483,17 @@ stretch_mode = 4
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 895.0
-offset_top = 1814.0
-offset_right = -45.0
-offset_bottom = -265.0
+offset_left = 191.0
+offset_top = 1773.0
+offset_right = -749.0
+offset_bottom = -306.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("29_4e2rb")
 stretch_mode = 4
 
 [node name="Grass2" type="TextureRect" parent="CanvasLayer3" unique_id=1244319043]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -432,6 +507,35 @@ scale = Vector2(1.1, 1.1)
 texture = ExtResource("9_5cypo")
 stretch_mode = 4
 
+[node name="Grass3" type="TextureRect" parent="CanvasLayer3" unique_id=124196121]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -379.0
+offset_top = 1785.0
+offset_right = 1728.0
+offset_bottom = 962.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("47_x3a3x")
+stretch_mode = 4
+
+[node name="Grass4" type="TextureRect" parent="CanvasLayer3" unique_id=2006919689]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -722.0
+offset_top = 1884.0001
+offset_right = 1385.0
+offset_bottom = 1061.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("60_sgocm")
+stretch_mode = 4
+
 [connection signal="button_down" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonLeft" to="." method="_on_button_left_button_down"]
 [connection signal="button_up" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonLeft" to="." method="_on_button_left_button_up"]
 [connection signal="button_down" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonRotateLeft" to="." method="_on_button_rotate_left_button_down"]
@@ -442,3 +546,4 @@ stretch_mode = 4
 [connection signal="button_down" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonRight" to="." method="_on_button_right_button_down"]
 [connection signal="button_up" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonRight" to="." method="_on_button_right_button_up"]
 [connection signal="pressed" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonMenu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonSaveWall" to="." method="_on_button_save_wall_pressed"]

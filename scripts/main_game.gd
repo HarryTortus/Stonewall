@@ -91,7 +91,40 @@ func _on_button_drop_pressed() -> void:
 		rotate_dir = 0.0
 		current_stone.start_falling()
 
-
 func _on_button_menu_pressed() -> void:
 	print("Button was clicked!") # Add this line
 	get_tree().change_scene_to_file("res://scenes/control.tscn")
+
+# --- THE ACTION: Does the actual saving logic + scene switch ---
+func save_current_wall() -> void:
+	var wall_stone_data: Array = []
+	
+	# Loop through all nodes in the scene tree
+	for child in get_children():
+		# Check if the child is a dropped stone (RigidBody2D that is no longer frozen)
+		if child is RigidBody2D and not child.freeze:
+			var stone_info = {
+				"scene_path": child.scene_file_path,
+				"position_x": child.global_position.x,
+				"position_y": child.global_position.y,
+				"rotation": child.global_rotation
+			}
+			wall_stone_data.append(stone_info)
+			
+	if wall_stone_data.is_empty():
+		print("No stones dropped yet to save!")
+		return
+
+	# Send the data to your global SaveSystem script
+	SaveSystem.add_wall(wall_stone_data)
+	print("Saved ", wall_stone_data.size(), " stones into current wall!")
+	
+	# Brief delay so any sound effect or animation can finish, then switch to farm
+	await get_tree().create_timer(0.2).timeout
+	get_tree().change_scene_to_file("res://scenes/farm_scene.tscn")
+
+
+# --- THE TRIGGER: Button Signal ---
+func _on_button_save_wall_pressed() -> void:
+	save_current_wall()
+

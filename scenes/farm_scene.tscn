@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dudfcmlvakwta"]
+
+[ext_resource type="Script" uid="uid://chegym70ajyln" path="res://scenes/farm_scene.gd" id="1_4o0t3"]
+
+[node name="FarmScene" type="Node2D" unique_id=1014368745]
+script = ExtResource("1_4o0t3")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=946912019]
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=2089217885]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=85247873]
+limit_left = 0
+position_smoothing_enabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1622965079]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2040682654]
+
+[node name="WallsContainer" type="Node2D" parent="." unique_id=86701438]
+
+[node name="SheepContainer" type="Node2D" parent="." unique_id=1618830952]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=362031276]
+
+[node name="Control" type="Control" parent="UI" unique_id=1272544451]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
