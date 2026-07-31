@@ -36,11 +36,12 @@ func load_game() -> void:
 			save_data = json.data
 			print("Save data loaded!")
 
-## Helper function to append a new wall array
-func add_wall(stone_data_list: Array) -> void:
-	var new_wall = {
-		"wall_id": save_data["walls"].size(),
-		"stones": stone_data_list
-	}
-	save_data["walls"].append(new_wall)
+## Appends a newly created wall dictionary directly to the walls list
+func add_wall(wall_data: Dictionary) -> void:
+	save_data["walls"].append(wall_data)
+	save_game()
+
+## Helper to wipe the save file clean when testing
+func clear_save_data() -> void:
+	save_data["walls"] = []
 	save_game()
