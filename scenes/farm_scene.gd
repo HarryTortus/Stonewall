@@ -8,13 +8,19 @@ var is_dragging: bool = false
 var drag_start_pos: Vector2 = Vector2.ZERO
 
 # Spacing & Scaling configuration
-@export var farm_wall_scale: Vector2 = Vector2(0.35, 0.35) # Your preferred scale!
+@export var farm_wall_scale: Vector2 = Vector2(0.35, 0.35)
 @export var farm_ground_y: float = 1200.0 # Grass baseline
 @export var wall_start_x: float = 50.0 # Horizontal starting point
 
 func _ready() -> void:
 	spawn_all_saved_walls()
 	update_camera_limits()
+
+## Quick Dev Shortcut: Press 'C' key anywhere on PC build to wipe save!
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_C:
+			_on_dev_clear_save_pressed()
 
 ## Reads JSON data from SaveSystem and displays transparent wall PNG images seamlessly end-to-end
 func spawn_all_saved_walls() -> void:
@@ -41,7 +47,7 @@ func spawn_all_saved_walls() -> void:
 		var img: Image = Image.load_from_file(image_path)
 		var texture: ImageTexture = ImageTexture.create_from_image(img)
 
-		# Find the exact bounding box of actual visible stone pixels (ignoring empty transparent padding)
+		# Find bounding box of actual visible stone pixels
 		var used_rect: Rect2i = img.get_used_rect()
 
 		# Create Wall Sprite
@@ -54,17 +60,17 @@ func spawn_all_saved_walls() -> void:
 		wall_sprite.centered = false
 		wall_sprite.offset = Vector2(0, -texture.get_height())
 
-		# Offset position so the left-most painted pixel sits exactly at current_x_pos
+		# Offset position so left-most painted pixel sits at current_x_pos
 		var left_padding_offset: float = used_rect.position.x * farm_wall_scale.x
 		wall_sprite.position = Vector2(current_x_pos - left_padding_offset, farm_ground_y)
 
 		walls_container.add_child(wall_sprite)
 
-		# Advance current_x_pos strictly by the actual painted stone width
+		# Advance current_x_pos strictly by painted stone width
 		var visible_stone_width: float = used_rect.size.x * farm_wall_scale.x
 		current_x_pos += visible_stone_width
 
-	print("Successfully spawned ", walls_container.get_child_count(), " wall images seamlessly end-to-end!")
+	print("Successfully spawned ", walls_container.get_child_count(), " wall images seamlessly!")
 
 ## Calculates max scroll limit dynamically based on total width of all visible walls
 func update_camera_limits() -> void:
@@ -103,3 +109,14 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.limit_left, 
 			max(camera.limit_left, camera.limit_right - get_viewport_rect().size.x)
 		)
+
+# --- UI BUTTON SIGNALS ---
+
+## Connect this to a "Clear Save (Dev)" button in UI or options menu
+func _on_dev_clear_save_pressed() -> void:
+	SaveSystem.wipe_all_save_data()
+	spawn_all_saved_walls() # Refreshes farm view to show empty state immediately
+	update_camera_limits()  # Resets camera limits for 0 walls
+
+func _on_button_back_to_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/control.tscn")

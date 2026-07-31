@@ -7,7 +7,7 @@ func _ready() -> void:
 	main_menu.show()
 	settings_menu.hide()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_button_settings_pressed() -> void:
@@ -29,3 +29,7 @@ func _on_button_play_pressed() -> void:
 	# Make sure this string matches the exact file path where you saved it!
 	print("Button was clicked!") # Add this line
 	get_tree().change_scene_to_file("res://scenes/main_game.tscn")
+
+
+func _on_button_wipe_save_pressed() -> void:
+	SaveSystem.wipe_all_save_data()

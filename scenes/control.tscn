@@ -89,6 +89,12 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 58
 text = "Back"
 
+[node name="ButtonWipeSave" type="Button" parent="MarginContainer/SettingsMenuContainer" unique_id=651001003]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 58
+text = "Wipe Save"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=18781763]
 layer = -10
 
@@ -114,3 +120,4 @@ texture = ExtResource("6_01bab")
 [connection signal="pressed" from="MarginContainer/MainMenuContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
 [connection signal="value_changed" from="MarginContainer/SettingsMenuContainer/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/SettingsMenuContainer/ButtonBack" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="MarginContainer/SettingsMenuContainer/ButtonWipeSave" to="." method="_on_button_wipe_save_pressed"]

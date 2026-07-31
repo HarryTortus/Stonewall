@@ -41,7 +41,23 @@ func add_wall(wall_data: Dictionary) -> void:
 	save_data["walls"].append(wall_data)
 	save_game()
 
-## Helper to wipe the save file clean when testing
-func clear_save_data() -> void:
+## DEV HELPER: Deletes all saved PNG files and wipes farm_save.json clean
+func wipe_all_save_data() -> void:
+	# 1. Reset memory dictionary
+	save_data["total_sheep"] = 0
 	save_data["walls"] = []
+	
+	# 2. Delete all saved wall PNG files from disk
+	var dir = DirAccess.open("user://")
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if not dir.current_is_dir() and file_name.ends_with(".png"):
+				dir.remove(file_name)
+				print("Deleted dev asset: ", file_name)
+			file_name = dir.get_next()
+	
+	# 3. Overwrite JSON file with empty state
 	save_game()
+	print("--- DEV: ALL SAVE DATA AND PNGs WIPED ---")

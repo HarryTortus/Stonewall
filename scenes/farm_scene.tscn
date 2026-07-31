@@ -2,8 +2,15 @@
 
 [ext_resource type="Script" uid="uid://chegym70ajyln" path="res://scenes/farm_scene.gd" id="1_4o0t3"]
 [ext_resource type="Texture2D" uid="uid://c665n2td28c2b" path="res://art/Sky1.jpg" id="2_5t31c"]
+[ext_resource type="Texture2D" uid="uid://bga5htq1g21r4" path="res://art/LeftArrow2.png" id="3_c85ry"]
 [ext_resource type="Texture2D" uid="uid://b60btb72ndj32" path="res://art/BackgroundGrass2.png" id="3_es4xi"]
 [ext_resource type="Texture2D" uid="uid://hn6ek15p0k8g" path="res://art/backgroundgrass4.png" id="3_uyblk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5h11f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bx8n8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5iqjx"]
 
 [node name="FarmScene" type="Node2D" unique_id=1014368745]
 script = ExtResource("1_4o0t3")
@@ -30,6 +37,17 @@ z_index = 10
 [node name="SheepContainer" type="Node2D" parent="." unique_id=1618830952]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=362031276]
+
+[node name="ButtonBackToMenu" type="Button" parent="UI" unique_id=162863759]
+offset_left = 52.999996
+offset_top = 47.999996
+offset_right = 514.0
+offset_bottom = 421.0
+scale = Vector2(0.4, 0.4)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5h11f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bx8n8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5iqjx")
+icon = ExtResource("3_c85ry")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="UI" unique_id=1651707663]
 layer = 0
@@ -96,3 +114,5 @@ offset_bottom = 2392.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
 texture = ExtResource("3_uyblk")
+
+[connection signal="pressed" from="UI/ButtonBackToMenu" to="." method="_on_button_back_to_menu_pressed"]
