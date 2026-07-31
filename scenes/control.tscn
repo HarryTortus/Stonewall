@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://gwadhibinenx"]
 
 [ext_resource type="Script" uid="uid://2ostbx13h4u4" path="res://scripts/control.gd" id="1_0fbet"]
+[ext_resource type="FontFile" uid="uid://dc1md7in8yg54" path="res://fonts/Eastwood.ttf" id="2_lpubu"]
+[ext_resource type="FontFile" uid="uid://6bnw0m4vrnvs" path="res://fonts/Eastwood.otf" id="3_lt2xq"]
+[ext_resource type="Texture2D" uid="uid://c665n2td28c2b" path="res://art/Sky1.jpg" id="4_1p5nq"]
+[ext_resource type="Texture2D" uid="uid://b60btb72ndj32" path="res://art/BackgroundGrass2.png" id="5_hob4j"]
+[ext_resource type="Texture2D" uid="uid://b7o00g77judq1" path="res://art/LittleSheep1.png" id="6_01bab"]
 
 [node name="Control" type="Control" unique_id=1413454092]
 layout_mode = 3
@@ -29,8 +34,9 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/MainMenuContainer" unique_id=170502303]
 layout_mode = 2
-theme_override_font_sizes/font_size = 72
-text = "This is A Game"
+theme_override_fonts/font = ExtResource("2_lpubu")
+theme_override_font_sizes/font_size = 170
+text = "Stonewall"
 horizontal_alignment = 1
 
 [node name="ButtonSettings" type="Button" parent="MarginContainer/MainMenuContainer" unique_id=1951386966]
@@ -38,7 +44,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 offset_transform_enabled = true
 focus_mode = 0
-theme_override_font_sizes/font_size = 48
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 92
 text = "Settings"
 
 [node name="ButtonPlay" type="Button" parent="MarginContainer/MainMenuContainer" unique_id=266068736]
@@ -46,7 +53,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 offset_transform_enabled = true
 focus_mode = 0
-theme_override_font_sizes/font_size = 48
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 200
 text = "Play"
 
 [node name="SettingsMenuContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1631239103]
@@ -80,6 +88,27 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 58
 text = "Back"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=18781763]
+layer = -10
+
+[node name="Sky" type="Sprite2D" parent="CanvasLayer" unique_id=1665393666]
+position = Vector2(-97.99997, 1229.0001)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_1p5nq")
+
+[node name="BackGrass" type="Sprite2D" parent="CanvasLayer" unique_id=330665872]
+position = Vector2(261, 2186)
+texture = ExtResource("5_hob4j")
+
+[node name="FrontGrass" type="Sprite2D" parent="CanvasLayer" unique_id=611777099]
+position = Vector2(824, 2424)
+texture = ExtResource("5_hob4j")
+
+[node name="Sheep" type="Sprite2D" parent="CanvasLayer" unique_id=764216741]
+position = Vector2(396, 1929)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_01bab")
 
 [connection signal="pressed" from="MarginContainer/MainMenuContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/MainMenuContainer/ButtonPlay" to="." method="_on_button_play_pressed"]

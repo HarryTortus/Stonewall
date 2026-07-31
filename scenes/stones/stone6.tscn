@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c7dnw4ex6i7fi"]
 
 [ext_resource type="Script" uid="uid://dw4275yokv0p" path="res://scripts/falling_object.gd" id="1_0a8ls"]
-[ext_resource type="Texture2D" uid="uid://csy4l1jxjv8ee" path="res://art/TestStone6.png" id="1_rd4mk"]
+[ext_resource type="Texture2D" uid="uid://digkg1d4nhwit" path="res://art/TestStone6.png" id="1_rd4mk"]
 
 [node name="Stone6" type="RigidBody2D" unique_id=504952908]
 script = ExtResource("1_0a8ls")

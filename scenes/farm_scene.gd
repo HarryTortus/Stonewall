@@ -8,59 +8,76 @@ var is_dragging: bool = false
 var drag_start_pos: Vector2 = Vector2.ZERO
 
 # Spacing & Scaling configuration
-@export var base_wall_width: float = 980.0
-@export var farm_wall_scale: Vector2 = Vector2(0.35, 0.35) # Scale set to 0.5 as requested!
+@export var farm_wall_scale: Vector2 = Vector2(0.35, 0.35) # Your preferred scale!
+@export var farm_ground_y: float = 1200.0 # Grass baseline
+@export var wall_start_x: float = 50.0 # Horizontal starting point
 
 func _ready() -> void:
 	spawn_all_saved_walls()
 	update_camera_limits()
 
-## Reads JSON data from SaveSystem and displays wall PNG images
+## Reads JSON data from SaveSystem and displays transparent wall PNG images seamlessly end-to-end
 func spawn_all_saved_walls() -> void:
 	for child in walls_container.get_children():
 		child.queue_free()
 
 	var saved_walls: Array = SaveSystem.save_data.get("walls", [])
 	if saved_walls.is_empty():
+		print("No saved walls found!")
 		return
 
-	# Target baseline on your farm ground
-	var farm_ground_y: float = 800.0 # Adjust to match your farm grass
-	var scaled_segment_width: float = base_wall_width * farm_wall_scale.x
+	# Running total of horizontal placement
+	var current_x_pos: float = wall_start_x
 
 	for wall_index in range(saved_walls.size()):
 		var wall_data: Dictionary = saved_walls[wall_index]
 		var image_path: String = wall_data.get("image_path", "")
 
-		if not FileAccess.file_exists(image_path):
+		if image_path == "" or not FileAccess.file_exists(image_path):
+			print("Missing image file at: ", image_path)
 			continue
 
-		# Load PNG image directly from user storage
-		var img = Image.load_from_file(image_path)
-		var texture = ImageTexture.create_from_image(img)
+		# Load PNG image
+		var img: Image = Image.load_from_file(image_path)
+		var texture: ImageTexture = ImageTexture.create_from_image(img)
 
-		# Create a single Sprite2D for the entire wall
+		# Find the exact bounding box of actual visible stone pixels (ignoring empty transparent padding)
+		var used_rect: Rect2i = img.get_used_rect()
+
+		# Create Wall Sprite
 		var wall_sprite = Sprite2D.new()
 		wall_sprite.name = "WallImage_" + str(wall_index)
 		wall_sprite.texture = texture
-
-		# Position & Scale
-		var x_pos: float = (wall_index * scaled_segment_width) + (scaled_segment_width / 2.0)
-		wall_sprite.position = Vector2(x_pos, farm_ground_y)
-		
-		# Scale set to 0.5
 		wall_sprite.scale = farm_wall_scale
+
+		# Anchor to bottom-left corner
+		wall_sprite.centered = false
+		wall_sprite.offset = Vector2(0, -texture.get_height())
+
+		# Offset position so the left-most painted pixel sits exactly at current_x_pos
+		var left_padding_offset: float = used_rect.position.x * farm_wall_scale.x
+		wall_sprite.position = Vector2(current_x_pos - left_padding_offset, farm_ground_y)
 
 		walls_container.add_child(wall_sprite)
 
-	print("Successfully spawned ", saved_walls.size(), " wall images on the farm!")
+		# Advance current_x_pos strictly by the actual painted stone width
+		var visible_stone_width: float = used_rect.size.x * farm_wall_scale.x
+		current_x_pos += visible_stone_width
 
-## Calculates max scroll limit dynamically based on wall count
+	print("Successfully spawned ", walls_container.get_child_count(), " wall images seamlessly end-to-end!")
+
+## Calculates max scroll limit dynamically based on total width of all visible walls
 func update_camera_limits() -> void:
-	var saved_walls: Array = SaveSystem.save_data.get("walls", [])
-	var active_segments: int = max(1, saved_walls.size())
-	var scaled_segment_width: float = base_wall_width * farm_wall_scale.x
-	var total_farm_width: float = active_segments * scaled_segment_width
+	var total_farm_width: float = wall_start_x
+	
+	for child in walls_container.get_children():
+		if child is Sprite2D and child.texture != null:
+			var img: Image = child.texture.get_image()
+			if img != null:
+				var used_rect: Rect2i = img.get_used_rect()
+				total_farm_width += used_rect.size.x * child.scale.x
+			else:
+				total_farm_width += child.texture.get_width() * child.scale.x
 	
 	camera.limit_left = 0
 	camera.limit_right = int(max(get_viewport_rect().size.x, total_farm_width + 300.0))
