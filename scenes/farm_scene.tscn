@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://chegym70ajyln" path="res://scenes/farm_scene.gd" id="1_4o0t3"]
 [ext_resource type="Texture2D" uid="uid://c665n2td28c2b" path="res://art/Sky1.jpg" id="2_5t31c"]
 [ext_resource type="Texture2D" uid="uid://bga5htq1g21r4" path="res://art/LeftArrow2.png" id="3_c85ry"]
-[ext_resource type="Texture2D" uid="uid://b60btb72ndj32" path="res://art/BackgroundGrass2.png" id="3_es4xi"]
-[ext_resource type="Texture2D" uid="uid://hn6ek15p0k8g" path="res://art/backgroundgrass4.png" id="3_uyblk"]
 [ext_resource type="Texture2D" uid="uid://dnkgsmuxbh7x6" path="res://art/BackgroundGrass.png" id="6_c85ry"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5h11f"]
@@ -53,50 +51,68 @@ icon = ExtResource("3_c85ry")
 [node name="CanvasLayer" type="CanvasLayer" parent="UI" unique_id=1651707663]
 layer = 0
 
-[node name="Grass6" type="TextureRect" parent="UI/CanvasLayer" unique_id=581862074]
-offset_left = -263.0
-offset_top = 1067.0
-offset_right = 2924.0
-offset_bottom = 2542.0
-scale = Vector2(0.5, 0.5)
-mouse_filter = 2
-texture = ExtResource("3_es4xi")
-
-[node name="Grass2" type="TextureRect" parent="UI/CanvasLayer" unique_id=1084853326]
-offset_left = -147.0
-offset_top = 1158.0
-offset_right = 3040.0
-offset_bottom = 2633.0
-scale = Vector2(0.5, 0.5)
-mouse_filter = 2
-texture = ExtResource("3_uyblk")
-
 [node name="Grass3" type="TextureRect" parent="UI/CanvasLayer" unique_id=1545250602]
-offset_left = -389.0
-offset_top = 1395.0
-offset_right = 2798.0
-offset_bottom = 2870.0
+offset_left = -328.0
+offset_top = 1099.0
+offset_right = 2859.0
+offset_bottom = 2574.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
-texture = ExtResource("3_es4xi")
+texture = ExtResource("6_c85ry")
+
+[node name="Grass8" type="TextureRect" parent="UI/CanvasLayer" unique_id=1623137969]
+offset_left = -294.0
+offset_top = 1274.0
+offset_right = 2893.0
+offset_bottom = 2749.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("6_c85ry")
+
+[node name="Grass6" type="TextureRect" parent="UI/CanvasLayer" unique_id=1418090604]
+offset_left = -108.0
+offset_top = 1422.0
+offset_right = 3079.0
+offset_bottom = 2897.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("6_c85ry")
+
+[node name="Grass7" type="TextureRect" parent="UI/CanvasLayer" unique_id=527203990]
+offset_left = -206.0
+offset_top = 1566.0
+offset_right = 2981.0
+offset_bottom = 3041.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("6_c85ry")
 
 [node name="Grass4" type="TextureRect" parent="UI/CanvasLayer" unique_id=2101798412]
-offset_left = -346.0
-offset_top = 1672.0
-offset_right = 2841.0
-offset_bottom = 3147.0
+offset_left = -331.0
+offset_top = 1684.0
+offset_right = 2856.0
+offset_bottom = 3159.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
-texture = ExtResource("3_uyblk")
+texture = ExtResource("6_c85ry")
 
 [node name="Grass5" type="TextureRect" parent="UI/CanvasLayer" unique_id=1824947954]
-offset_left = -169.0
-offset_top = 1917.0
-offset_right = 3018.0
-offset_bottom = 3392.0
+offset_left = -93.0
+offset_top = 1830.0
+offset_right = 3094.0
+offset_bottom = 3305.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
-texture = ExtResource("3_es4xi")
+texture = ExtResource("6_c85ry")
+
+[node name="Grass9" type="TextureRect" parent="UI/CanvasLayer" unique_id=539702952]
+offset_left = -245.0
+offset_top = 1933.0
+offset_right = 2942.0
+offset_bottom = 3408.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("6_c85ry")
 
 [node name="Control" type="Control" parent="UI" unique_id=1272544451]
 layout_mode = 3
@@ -117,12 +133,12 @@ mouse_filter = 2
 texture = ExtResource("6_c85ry")
 
 [node name="Grass" type="TextureRect" parent="." unique_id=92584606]
-offset_left = -347.0
-offset_top = 917.0
-offset_right = 2840.0
-offset_bottom = 2392.0
+offset_left = -150.0
+offset_top = 879.0
+offset_right = 3037.0
+offset_bottom = 2354.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
-texture = ExtResource("3_uyblk")
+texture = ExtResource("6_c85ry")
 
 [connection signal="pressed" from="UI/ButtonBackToMenu" to="." method="_on_button_back_to_menu_pressed"]
