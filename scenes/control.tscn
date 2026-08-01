@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://6bnw0m4vrnvs" path="res://fonts/Eastwood.otf" id="3_lt2xq"]
 [ext_resource type="Texture2D" uid="uid://c665n2td28c2b" path="res://art/Sky1.jpg" id="4_1p5nq"]
 [ext_resource type="Texture2D" uid="uid://b60btb72ndj32" path="res://art/BackgroundGrass2.png" id="5_hob4j"]
-[ext_resource type="Texture2D" uid="uid://b7o00g77judq1" path="res://art/LittleSheep1.png" id="6_01bab"]
+[ext_resource type="Texture2D" uid="uid://c3br2q3vl0kti" path="res://art/MediumSheep1.png" id="6_lpubu"]
 
 [node name="Control" type="Control" unique_id=1413454092]
 layout_mode = 3
@@ -104,17 +104,17 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_1p5nq")
 
 [node name="BackGrass" type="Sprite2D" parent="CanvasLayer" unique_id=330665872]
-position = Vector2(261, 2186)
-texture = ExtResource("5_hob4j")
-
-[node name="FrontGrass" type="Sprite2D" parent="CanvasLayer" unique_id=611777099]
-position = Vector2(824, 2424)
+position = Vector2(317.5, 2027.75)
 texture = ExtResource("5_hob4j")
 
 [node name="Sheep" type="Sprite2D" parent="CanvasLayer" unique_id=764216741]
-position = Vector2(396, 1929)
+position = Vector2(456.50003, 1708.75)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_01bab")
+texture = ExtResource("6_lpubu")
+
+[node name="FrontGrass" type="Sprite2D" parent="CanvasLayer" unique_id=611777099]
+position = Vector2(814.5, 2285.75)
+texture = ExtResource("5_hob4j")
 
 [connection signal="pressed" from="MarginContainer/MainMenuContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/MainMenuContainer/ButtonPlay" to="." method="_on_button_play_pressed"]

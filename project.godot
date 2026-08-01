@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="TestGame"
+config/name="Stonewall"
 run/main_scene="uid://gwadhibinenx"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://c48ljo6ln5o8o"
 
 [autoload]
 
