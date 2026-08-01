@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bga5htq1g21r4" path="res://art/LeftArrow2.png" id="3_c85ry"]
 [ext_resource type="Texture2D" uid="uid://b60btb72ndj32" path="res://art/BackgroundGrass2.png" id="3_es4xi"]
 [ext_resource type="Texture2D" uid="uid://hn6ek15p0k8g" path="res://art/backgroundgrass4.png" id="3_uyblk"]
+[ext_resource type="Texture2D" uid="uid://dnkgsmuxbh7x6" path="res://art/BackgroundGrass.png" id="6_c85ry"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5h11f"]
 
@@ -53,10 +54,10 @@ icon = ExtResource("3_c85ry")
 layer = 0
 
 [node name="Grass6" type="TextureRect" parent="UI/CanvasLayer" unique_id=581862074]
-offset_left = -268.0
-offset_top = 1013.0
-offset_right = 2919.0
-offset_bottom = 2488.0
+offset_left = -263.0
+offset_top = 1067.0
+offset_right = 2924.0
+offset_bottom = 2542.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
 texture = ExtResource("3_es4xi")
@@ -71,13 +72,13 @@ mouse_filter = 2
 texture = ExtResource("3_uyblk")
 
 [node name="Grass3" type="TextureRect" parent="UI/CanvasLayer" unique_id=1545250602]
-offset_left = -472.0
-offset_top = 1398.0
-offset_right = 2715.0
-offset_bottom = 2873.0
+offset_left = -389.0
+offset_top = 1395.0
+offset_right = 2798.0
+offset_bottom = 2870.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
-texture = ExtResource("3_uyblk")
+texture = ExtResource("3_es4xi")
 
 [node name="Grass4" type="TextureRect" parent="UI/CanvasLayer" unique_id=2101798412]
 offset_left = -346.0
@@ -89,13 +90,13 @@ mouse_filter = 2
 texture = ExtResource("3_uyblk")
 
 [node name="Grass5" type="TextureRect" parent="UI/CanvasLayer" unique_id=1824947954]
-offset_left = -152.0
-offset_top = 1940.0
-offset_right = 3035.0
-offset_bottom = 3415.0
+offset_left = -169.0
+offset_top = 1917.0
+offset_right = 3018.0
+offset_bottom = 3392.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
-texture = ExtResource("3_uyblk")
+texture = ExtResource("3_es4xi")
 
 [node name="Control" type="Control" parent="UI" unique_id=1272544451]
 layout_mode = 3
@@ -105,6 +106,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Grass2" type="TextureRect" parent="." unique_id=881874244]
+offset_left = -249.0
+offset_top = 659.0
+offset_right = 2938.0
+offset_bottom = 2134.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("6_c85ry")
 
 [node name="Grass" type="TextureRect" parent="." unique_id=92584606]
 offset_left = -347.0
