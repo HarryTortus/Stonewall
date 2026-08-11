@@ -139,11 +139,13 @@ size = Vector2(384, 3038)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vghsm"]
 
-[node name="MainGame" type="Node2D" unique_id=1114634166]
+[node name="MainGame" type="Node2D" unique_id=1114634166 node_paths=PackedStringArray("floor_node")]
 script = ExtResource("2_n8b2x")
 move_speed = 500.0
 stone_scenes = Array[PackedScene]([ExtResource("2_2l77h"), ExtResource("3_nqdth"), ExtResource("4_5cypo"), ExtResource("5_o6v7o"), ExtResource("6_wjob3"), ExtResource("7_8xp80"), ExtResource("8_ihbck"), ExtResource("9_vnsdt"), ExtResource("10_yu8cv"), ExtResource("11_ibnub"), ExtResource("12_5wboo"), ExtResource("13_cybgu"), ExtResource("14_wdxbp"), ExtResource("15_on6n6"), ExtResource("16_x3ega"), ExtResource("17_urnot"), ExtResource("18_4e2rb"), ExtResource("19_q875d"), ExtResource("20_dvo3n"), ExtResource("21_1vioj"), ExtResource("22_g2o8j"), ExtResource("23_oojmo"), ExtResource("24_5noht"), ExtResource("25_g2o8j"), ExtResource("26_oojmo"), ExtResource("27_5noht"), ExtResource("28_oojmo"), ExtResource("29_krfhu"), ExtResource("30_x3a3x"), ExtResource("31_sgocm"), ExtResource("32_pk1le"), ExtResource("33_1al3e"), ExtResource("34_sh8gf"), ExtResource("35_4h0lf"), ExtResource("36_3ikos"), ExtResource("37_pjtuq"), ExtResource("38_3f3c0"), ExtResource("39_7q0na"), ExtResource("40_aduj5"), ExtResource("41_l8gia"), ExtResource("42_ids5a"), ExtResource("43_qr7ox"), ExtResource("44_3fkkw")])
 global_stone_scale = Vector2(0.4, 0.4)
+capture_padding = 10
+floor_node = NodePath("Container/FloorShape")
 metadata/_edit_vertical_guides_ = [50.0, 1030.0, 540.0]
 metadata/_edit_horizontal_guides_ = [2134.0]
 

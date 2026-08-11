@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bykgf7he4tcds" path="res://art/wall_0.png" id="8_kql7n"]
 [ext_resource type="Texture2D" uid="uid://iyilrdu6u136" path="res://art/GrassClump4.png" id="9_kql7n"]
 [ext_resource type="Texture2D" uid="uid://c45li2rpscjho" path="res://art/wall_5.png" id="9_tac8f"]
+[ext_resource type="Texture2D" uid="uid://cbklvebb2dwbf" path="res://art/LargeSheep1.png" id="11_vb5ih"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tx03s"]
 
@@ -53,6 +54,10 @@ theme_override_constants/margin_bottom = 100
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="Control3" type="Control" parent="MarginContainer/MainMenuContainer" unique_id=831166607]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
 [node name="Title" type="Label" parent="MarginContainer/MainMenuContainer" unique_id=170502303]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
@@ -61,27 +66,38 @@ theme_override_font_sizes/font_size = 190
 text = "Stonewall"
 horizontal_alignment = 1
 
+[node name="Control" type="Control" parent="MarginContainer/MainMenuContainer" unique_id=392679515]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
 [node name="ButtonSettings" type="Button" parent="MarginContainer/MainMenuContainer" unique_id=1951386966]
 layout_mode = 2
 size_flags_horizontal = 4
 offset_transform_enabled = true
 focus_mode = 0
-theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 1)
+theme_override_colors/font_color = Color(0.31431612, 0.31431612, 0.3143161, 1)
 theme_override_fonts/font = ExtResource("3_lt2xq")
-theme_override_font_sizes/font_size = 72
+theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tx03s")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_r3dpj")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_dlp81")
 text = "Settings"
+
+[node name="Control2" type="Control" parent="MarginContainer/MainMenuContainer" unique_id=713044320]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
 
 [node name="ButtonPlay" type="Button" parent="MarginContainer/MainMenuContainer" unique_id=266068736]
 layout_mode = 2
 size_flags_horizontal = 4
 offset_transform_enabled = true
 focus_mode = 0
-theme_override_colors/font_color = Color(0.38423595, 0.87367356, 0.22413953, 1)
+theme_override_colors/font_color = Color(0.32397863, 0.7239681, 0.19714445, 1)
+theme_override_colors/font_focus_color = Color(0.76862746, 0.99607843, 0.70980394, 1)
+theme_override_colors/font_pressed_color = Color(0.76862746, 0.99607843, 0.70980394, 1)
+theme_override_colors/font_hover_color = Color(0.7686701, 0.9960081, 0.7095688, 1)
 theme_override_fonts/font = ExtResource("3_lt2xq")
-theme_override_font_sizes/font_size = 200
+theme_override_font_sizes/font_size = 300
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kp04n")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8kow4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_vvbtq")
@@ -158,9 +174,13 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("9_tac8f")
 
 [node name="Sheep" type="Sprite2D" parent="CanvasLayer" unique_id=764216741]
-position = Vector2(457.00003, 1767.0001)
-scale = Vector2(1.5, 1.5)
+visible = false
+position = Vector2(696, 1519)
 texture = ExtResource("6_lpubu")
+
+[node name="Sheep2" type="Sprite2D" parent="CanvasLayer" unique_id=936885446]
+position = Vector2(162, 1911)
+texture = ExtResource("11_vb5ih")
 
 [node name="FrontGrass" type="Sprite2D" parent="CanvasLayer" unique_id=611777099]
 position = Vector2(164, 2353)

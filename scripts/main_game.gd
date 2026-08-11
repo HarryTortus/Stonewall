@@ -12,7 +12,9 @@ var current_stone: RigidBody2D = null
 # Stone spawning configuration
 @export var stone_scenes: Array[PackedScene] = []
 @export var global_stone_scale: Vector2 = Vector2(0.5, 0.5)
-@export var capture_padding: int = 80
+@export var capture_padding: int = 15 # Set to 10-20 in Inspector for a safe buffer on all sides
+
+@export var floor_node: Node2D
 
 var wall_stones: Array[RigidBody2D] = []
 var capture_viewport: SubViewport
@@ -126,38 +128,60 @@ func _capture_wall_image() -> Image:
 	for child in capture_root.get_children():
 		child.queue_free()
 
-	var wall_bounds: Rect2 = Rect2()
+	# 1. READ EXACT TOP SURFACE EDGE OF THE FLOOR SHAPE
+	var floor_y: float = 1000.0 # Fallback default
+	if is_instance_valid(floor_node):
+		if floor_node is CollisionShape2D and floor_node.shape is RectangleShape2D:
+			var rect_height: float = floor_node.shape.size.y * floor_node.global_scale.y
+			floor_y = floor_node.global_position.y - (rect_height * 0.5)
+		else:
+			floor_y = floor_node.global_position.y
+
+	var min_x: float = INF
+	var max_x: float = -INF
+	var min_y: float = floor_y
+
 	var has_content: bool = false
 
+	# 2. FIND TOP AND SIDE BOUNDARIES ONLY
 	for stone in wall_stones:
 		if not is_instance_valid(stone):
 			continue
 
 		for child in stone.get_children():
-			if child is Sprite2D:
-				var sprite_size: Vector2 = Vector2.ZERO
-				if child.texture != null:
-					sprite_size = Vector2(child.texture.get_width(), child.texture.get_height()) * child.scale
-				else:
-					continue
+			if child is Sprite2D and child.texture != null:
+				var sprite_size: Vector2 = Vector2(child.texture.get_width(), child.texture.get_height()) * child.scale
+				var sprite_top: float = child.global_position.y - (sprite_size.y * 0.5)
+				var sprite_left: float = child.global_position.x - (sprite_size.x * 0.5)
+				var sprite_right: float = child.global_position.x + (sprite_size.x * 0.5)
 
-				var sprite_bounds: Rect2 = Rect2(child.global_position - (sprite_size * 0.5), sprite_size)
-				if not has_content:
-					wall_bounds = sprite_bounds
-					has_content = true
-				else:
-					wall_bounds = wall_bounds.merge(sprite_bounds)
+				has_content = true
+				if sprite_top < min_y:
+					min_y = sprite_top
+				if sprite_left < min_x:
+					min_x = sprite_left
+				if sprite_right > max_x:
+					max_x = sprite_right
 
 	if not has_content:
 		return Image.create(1, 1, false, Image.FORMAT_RGBA8)
 
+	# 3. BUILD BOUNDS WITH PADDING APPLIED TO ALL 4 EDGES
 	var padding: int = capture_padding
-	var image_size: Vector2i = Vector2i(
-		int(ceil(wall_bounds.size.x)) + padding * 2,
-		int(ceil(wall_bounds.size.y)) + padding * 2
+	var wall_top: float = min_y - padding
+	
+	# Height extends from (min_y - padding) down to (floor_y + padding)
+	var wall_height: float = (floor_y - min_y) + (padding * 2)
+
+	var wall_bounds: Rect2 = Rect2(
+		min_x - padding,
+		wall_top,
+		(max_x - min_x) + (padding * 2),
+		wall_height
 	)
 
-	capture_viewport.size = image_size
+	# 4. RENDER TO SUBVIEWPORT
+	capture_viewport.size = Vector2i(int(ceil(wall_bounds.size.x)), int(ceil(wall_bounds.size.y)))
 
 	for stone in wall_stones:
 		if not is_instance_valid(stone):
@@ -176,7 +200,7 @@ func _capture_wall_image() -> Image:
 			capture_sprite.frame = child.frame
 			capture_sprite.region_enabled = child.region_enabled
 			capture_sprite.region_rect = child.region_rect
-			capture_sprite.position = child.global_position - wall_bounds.position + Vector2(padding, padding)
+			capture_sprite.position = child.global_position - wall_bounds.position
 			capture_sprite.rotation = child.global_rotation
 			capture_sprite.scale = child.scale
 			capture_root.add_child(capture_sprite)
@@ -197,16 +221,16 @@ func _capture_wall_image() -> Image:
 func save_current_wall() -> void:
 	var wall_image: Image = await _capture_wall_image()
 
-	# 4. Generate a unique filename based on saved wall count
+	# Generate a unique filename based on saved wall count
 	var wall_count: int = SaveSystem.save_data.get("walls", []).size()
 	var image_filename: String = "user://wall_" + str(wall_count) + ".png"
 
-	# 5. Save the transparent PNG to disk
+	# Save the transparent PNG to disk
 	var err = wall_image.save_png(image_filename)
 	if err == OK:
 		print("Saved wall image to: ", image_filename)
 		
-		# 6. Store file path in JSON save data
+		# Store file path in JSON save data
 		var wall_data = {
 			"wall_id": wall_count,
 			"image_path": image_filename
