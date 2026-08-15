@@ -14,6 +14,7 @@ var current_stone: RigidBody2D = null
 @export var global_stone_scale: Vector2 = Vector2(0.5, 0.5)
 @export var capture_padding: int = 15 # Set to 10-20 in Inspector for a safe buffer on all sides
 
+# --- CONTAINER NODE REFERENCES ---
 @export var floor_node: Node2D
 
 var wall_stones: Array[RigidBody2D] = []
@@ -74,6 +75,7 @@ func _process(delta: float) -> void:
 	if is_instance_valid(current_stone) and current_stone.freeze:
 		if move_dir != 0.0:
 			current_stone.move_hover(move_dir * move_speed * delta)
+
 		if rotate_dir != 0.0:
 			current_stone.rotate_hover(rotate_dir * rotate_speed * delta)
 
@@ -169,8 +171,6 @@ func _capture_wall_image() -> Image:
 	# 3. BUILD BOUNDS WITH PADDING APPLIED TO ALL 4 EDGES
 	var padding: int = capture_padding
 	var wall_top: float = min_y - padding
-	
-	# Height extends from (min_y - padding) down to (floor_y + padding)
 	var wall_height: float = (floor_y - min_y) + (padding * 2)
 
 	var wall_bounds: Rect2 = Rect2(

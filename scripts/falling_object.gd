@@ -10,12 +10,34 @@ signal stone_landed
 @export var wall_left_x: float = 50.0
 @export var wall_right_x: float = 1030.0 # Set this to match your right wall position!
 
+## Extra clearance in pixels to keep pre-drop hovering stones from touching the side walls
+@export var hover_edge_padding: float = 2.0
+
+# --- AUDIO TUNING ---
+## Minimum speed to make any sound at all (adjust higher if it's still clicking when settling)
+@export var min_impact_velocity: float = 250.0
+## Speed considered a "maximum hard impact"
+@export var max_impact_velocity: float = 900.0
+
+@export var collision_audio_stream: AudioStream = preload("res://audio/stone_collision_audio.tres")
+
+var collision_player: AudioStreamPlayer
 var has_started_falling: bool = false
 var has_signaled_landing: bool = false
 var original_collision_layer: int = 1
 var original_collision_mask: int = 1
 
+# Debounce state
+var can_play_sound: bool = true
+
 func _ready() -> void:
+	# --- AUTOMATIC AUDIO PLAYER SETUP ---
+	collision_player = AudioStreamPlayer.new()
+	collision_player.name = "CollisionAudioPlayer"
+	collision_player.stream = collision_audio_stream
+	collision_player.bus = &"Master"
+	add_child(collision_player)
+
 	original_collision_layer = collision_layer
 	original_collision_mask = collision_mask
 
@@ -46,9 +68,35 @@ func setup_spawn() -> void:
 
 
 func _on_body_entered(_body: Node) -> void:
+	var current_speed: float = linear_velocity.length()
+	
+	# 1. Play sound with velocity-scaled volume
+	if has_started_falling and can_play_sound and current_speed >= min_impact_velocity:
+		if is_instance_valid(collision_player):
+			# Map speed between 0.15 (quiet soft tap) and 1.0 (loud hard strike)
+			var normalized_volume: float = clamp(
+				remap(current_speed, min_impact_velocity, max_impact_velocity, 0.15, 1.0),
+				0.15,
+				1.0
+			)
+			
+			# Convert linear volume to decibels for natural attenuation
+			collision_player.volume_db = linear_to_db(normalized_volume)
+			collision_player.play()
+			
+			# Cooldown buffer to prevent rattles
+			_start_sound_cooldown(0.3)
+
+	# 2. Signal landing
 	if has_started_falling and not has_signaled_landing:
 		has_signaled_landing = true
 		stone_landed.emit()
+
+
+func _start_sound_cooldown(duration: float) -> void:
+	can_play_sound = false
+	await get_tree().create_timer(duration).timeout
+	can_play_sound = true
 
 
 func move_hover(amount: float) -> void:
@@ -86,9 +134,9 @@ func _clamp_to_screen_bounds() -> void:
 		left_extent = abs(min_local_x)
 		right_extent = abs(max_local_x)
 
-	# Calculate limits using explicit wall X coordinates
-	var min_x: float = wall_left_x + left_extent
-	var max_x: float = wall_right_x - right_extent
+	# Calculate limits using explicit wall X coordinates PLUS padding
+	var min_x: float = wall_left_x + left_extent + hover_edge_padding
+	var max_x: float = wall_right_x - right_extent - hover_edge_padding
 
 	if min_x < max_x:
 		global_position.x = clamp(global_position.x, min_x, max_x)

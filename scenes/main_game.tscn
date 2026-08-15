@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://8w8fw0th87q2" path="res://scenes/stones/stone5.tscn" id="6_wjob3"]
 [ext_resource type="PackedScene" uid="uid://c7dnw4ex6i7fi" path="res://scenes/stones/stone6.tscn" id="7_8xp80"]
 [ext_resource type="PackedScene" uid="uid://crqvf78i3rjnx" path="res://scenes/stones/stone7.tscn" id="8_ihbck"]
-[ext_resource type="Texture2D" uid="uid://c665n2td28c2b" path="res://art/Sky1.jpg" id="8_nqdth"]
 [ext_resource type="Texture2D" uid="uid://dnkgsmuxbh7x6" path="res://art/BackgroundGrass.png" id="9_5cypo"]
 [ext_resource type="PackedScene" uid="uid://cf4dydt0ftu1v" path="res://scenes/stones/stone8.tscn" id="9_vnsdt"]
 [ext_resource type="Texture2D" uid="uid://dapbwxvthcxc2" path="res://art/LeftArrow4.png" id="10_sp04v"]
@@ -22,7 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://d0wjvvpm2jjot" path="res://art/LeftArrow1.png" id="14_5luka"]
 [ext_resource type="PackedScene" uid="uid://lximywvreven" path="res://scenes/stones/stone13.tscn" id="14_wdxbp"]
 [ext_resource type="PackedScene" uid="uid://dm2btjvnj15c0" path="res://scenes/stones/stone14.tscn" id="15_on6n6"]
-[ext_resource type="Texture2D" uid="uid://b5pi42xfdvlv7" path="res://art/SingleGrass2.png" id="15_yu8cv"]
 [ext_resource type="PackedScene" uid="uid://c2x4lrnt8gtti" path="res://scenes/stones/stone15.tscn" id="16_x3ega"]
 [ext_resource type="PackedScene" uid="uid://c2qow0m5ft0dj" path="res://scenes/stones/stone16.tscn" id="17_urnot"]
 [ext_resource type="PackedScene" uid="uid://jg0hbfd06qve" path="res://scenes/stones/stone17.tscn" id="18_4e2rb"]
@@ -41,7 +39,6 @@
 [ext_resource type="PackedScene" uid="uid://dxea1siy1hce6" path="res://scenes/stones/stone26.tscn" id="27_5noht"]
 [ext_resource type="PackedScene" uid="uid://cyg815fjun3bt" path="res://scenes/stones/stone27.tscn" id="28_oojmo"]
 [ext_resource type="Texture2D" uid="uid://q6qudn73g300" path="res://art/SingleGrass4.png" id="28_urnot"]
-[ext_resource type="Texture2D" uid="uid://dss0tcjg37t3a" path="res://art/SingleGrass3.png" id="29_4e2rb"]
 [ext_resource type="PackedScene" uid="uid://dun418m05b7x2" path="res://scenes/stones/stone28.tscn" id="29_krfhu"]
 [ext_resource type="PackedScene" uid="uid://chyri42dt111n" path="res://scenes/stones/stone29.tscn" id="30_x3a3x"]
 [ext_resource type="PackedScene" uid="uid://bftl6x42gdkr2" path="res://scenes/stones/stone30.tscn" id="31_sgocm"]
@@ -58,23 +55,55 @@
 [ext_resource type="PackedScene" uid="uid://dat04c3ijj1la" path="res://scenes/stones/stone41.tscn" id="42_ids5a"]
 [ext_resource type="PackedScene" uid="uid://pqotmi84vnyy" path="res://scenes/stones/stone42.tscn" id="43_qr7ox"]
 [ext_resource type="PackedScene" uid="uid://cb4ahk6a183vu" path="res://scenes/stones/stone43.tscn" id="44_3fkkw"]
+[ext_resource type="PackedScene" uid="uid://wqwfuyc6xj8w" path="res://scenes/stones/stone44.tscn" id="45_3mkrk"]
+[ext_resource type="PackedScene" uid="uid://d2bmdo41gec0c" path="res://scenes/stones/stone45.tscn" id="46_v2gn3"]
+[ext_resource type="PackedScene" uid="uid://c6t8qpq3heoyx" path="res://scenes/stones/stone46.tscn" id="47_r3lgv"]
 [ext_resource type="Texture2D" uid="uid://dnwvc1ycko0tu" path="res://art/backgroundgrass3.png" id="47_x3a3x"]
+[ext_resource type="PackedScene" uid="uid://h7j0l3qs27uo" path="res://scenes/stones/stone47.tscn" id="48_5ehsd"]
+[ext_resource type="PackedScene" uid="uid://c17nofdqeb5o1" path="res://scenes/stones/stone48.tscn" id="49_0l6bj"]
+[ext_resource type="PackedScene" uid="uid://cpyonbugow1u7" path="res://scenes/stones/stone49.tscn" id="50_uft02"]
+[ext_resource type="PackedScene" uid="uid://bmbtvyhx68vq6" path="res://scenes/stones/stone50.tscn" id="51_u2muw"]
+[ext_resource type="PackedScene" uid="uid://bothph0yyau5r" path="res://scenes/stones/stone51.tscn" id="52_ynq6o"]
+[ext_resource type="PackedScene" uid="uid://c7tunwa1cabxf" path="res://scenes/stones/stone52.tscn" id="53_xisu6"]
+[ext_resource type="PackedScene" uid="uid://c7to6ga4na03h" path="res://scenes/stones/stone53.tscn" id="54_qnxwh"]
+[ext_resource type="PackedScene" uid="uid://ya3xs7kx7jy1" path="res://scenes/stones/stone54.tscn" id="55_dsflj"]
 [ext_resource type="Texture2D" uid="uid://bga5htq1g21r4" path="res://art/LeftArrow2.png" id="55_pk1le"]
+[ext_resource type="PackedScene" uid="uid://6g4axes3uc0h" path="res://scenes/stones/stone55.tscn" id="56_72466"]
+[ext_resource type="PackedScene" uid="uid://c4ayjpks3s606" path="res://scenes/stones/stone56.tscn" id="57_ai8cu"]
+[ext_resource type="PackedScene" uid="uid://bqrkv3v7ifpng" path="res://scenes/stones/stone57.tscn" id="58_mwahn"]
+[ext_resource type="PackedScene" uid="uid://courpn1tnbgr2" path="res://scenes/stones/stone58.tscn" id="59_777ow"]
+[ext_resource type="PackedScene" uid="uid://dlggjhka4648h" path="res://scenes/stones/stone59.tscn" id="60_c32t2"]
 [ext_resource type="Texture2D" uid="uid://b60btb72ndj32" path="res://art/BackgroundGrass2.png" id="60_sgocm"]
+[ext_resource type="PackedScene" uid="uid://dxmiula6b8ol6" path="res://scenes/stones/stone60.tscn" id="61_sffie"]
+[ext_resource type="PackedScene" uid="uid://3b455rkrano5" path="res://scenes/stones/stone61.tscn" id="62_js1wn"]
+[ext_resource type="PackedScene" uid="uid://ct7f8nqdjom13" path="res://scenes/stones/stone62.tscn" id="63_0ep8y"]
+[ext_resource type="PackedScene" uid="uid://no0o0tueo37q" path="res://scenes/stones/stone63.tscn" id="64_1aci3"]
+[ext_resource type="PackedScene" uid="uid://woiuygns350p" path="res://scenes/stones/stone64.tscn" id="65_kmlog"]
+[ext_resource type="PackedScene" uid="uid://d0fthgbndkg0f" path="res://scenes/stones/stone65.tscn" id="66_ljsgw"]
+[ext_resource type="PackedScene" uid="uid://lecta1dn1xhr" path="res://scenes/stones/stone66.tscn" id="67_x7xx5"]
+[ext_resource type="PackedScene" uid="uid://c5h6qq72ilcu6" path="res://scenes/stones/stone67.tscn" id="68_rxsnt"]
+[ext_resource type="PackedScene" uid="uid://borjkmi44vnj" path="res://scenes/stones/stone68.tscn" id="69_li2f6"]
+[ext_resource type="PackedScene" uid="uid://c5yqm2jegosrg" path="res://scenes/stones/stone69.tscn" id="70_dck63"]
+[ext_resource type="Texture2D" uid="uid://c7lntwtmf1bif" path="res://art/Sky2.png" id="71_u2muw"]
+[ext_resource type="Texture2D" uid="uid://cwvuvnnl5xrrf" path="res://art/LongBackgroundGrass.png" id="75_u2muw"]
+[ext_resource type="Texture2D" uid="uid://d2p0vbrww8xtl" path="res://art/StakeStraightThin2.png" id="86_5ehsd"]
+[ext_resource type="Texture2D" uid="uid://d4ihxw3dn273f" path="res://art/StakeStraight2.png" id="86_r3lgv"]
+[ext_resource type="Shader" uid="uid://s5et8jtwipak" path="res://scenes/grass.gdshader" id="92_ynq6o"]
+[ext_resource type="Texture2D" uid="uid://elb88mnf4sdr" path="res://art/LongGrass.png" id="93_u2muw"]
 
 [sub_resource type="Animation" id="Animation_q875d"]
-length = 0.001
+length = 120.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sky:position")
+tracks/0/path = NodePath("../WorldArt/Sky:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-4536, -516)]
+"values": [Vector2(-4958, -701)]
 }
 
 [sub_resource type="Animation" id="Animation_dvo3n"]
@@ -84,7 +113,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sky:position")
+tracks/0/path = NodePath("../WorldArt/Sky:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -139,80 +168,100 @@ size = Vector2(384, 3038)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vghsm"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ofp31"]
+shader = ExtResource("92_ynq6o")
+shader_parameter/saturation = 1.0000000475
+shader_parameter/brightness = 1.0
+
 [node name="MainGame" type="Node2D" unique_id=1114634166 node_paths=PackedStringArray("floor_node")]
 script = ExtResource("2_n8b2x")
 move_speed = 500.0
-stone_scenes = Array[PackedScene]([ExtResource("2_2l77h"), ExtResource("3_nqdth"), ExtResource("4_5cypo"), ExtResource("5_o6v7o"), ExtResource("6_wjob3"), ExtResource("7_8xp80"), ExtResource("8_ihbck"), ExtResource("9_vnsdt"), ExtResource("10_yu8cv"), ExtResource("11_ibnub"), ExtResource("12_5wboo"), ExtResource("13_cybgu"), ExtResource("14_wdxbp"), ExtResource("15_on6n6"), ExtResource("16_x3ega"), ExtResource("17_urnot"), ExtResource("18_4e2rb"), ExtResource("19_q875d"), ExtResource("20_dvo3n"), ExtResource("21_1vioj"), ExtResource("22_g2o8j"), ExtResource("23_oojmo"), ExtResource("24_5noht"), ExtResource("25_g2o8j"), ExtResource("26_oojmo"), ExtResource("27_5noht"), ExtResource("28_oojmo"), ExtResource("29_krfhu"), ExtResource("30_x3a3x"), ExtResource("31_sgocm"), ExtResource("32_pk1le"), ExtResource("33_1al3e"), ExtResource("34_sh8gf"), ExtResource("35_4h0lf"), ExtResource("36_3ikos"), ExtResource("37_pjtuq"), ExtResource("38_3f3c0"), ExtResource("39_7q0na"), ExtResource("40_aduj5"), ExtResource("41_l8gia"), ExtResource("42_ids5a"), ExtResource("43_qr7ox"), ExtResource("44_3fkkw")])
+stone_scenes = Array[PackedScene]([ExtResource("2_2l77h"), ExtResource("3_nqdth"), ExtResource("4_5cypo"), ExtResource("5_o6v7o"), ExtResource("6_wjob3"), ExtResource("7_8xp80"), ExtResource("8_ihbck"), ExtResource("9_vnsdt"), ExtResource("10_yu8cv"), ExtResource("11_ibnub"), ExtResource("12_5wboo"), ExtResource("13_cybgu"), ExtResource("14_wdxbp"), ExtResource("15_on6n6"), ExtResource("16_x3ega"), ExtResource("17_urnot"), ExtResource("18_4e2rb"), ExtResource("19_q875d"), ExtResource("20_dvo3n"), ExtResource("21_1vioj"), ExtResource("22_g2o8j"), ExtResource("23_oojmo"), ExtResource("24_5noht"), ExtResource("25_g2o8j"), ExtResource("26_oojmo"), ExtResource("27_5noht"), ExtResource("28_oojmo"), ExtResource("29_krfhu"), ExtResource("30_x3a3x"), ExtResource("31_sgocm"), ExtResource("32_pk1le"), ExtResource("33_1al3e"), ExtResource("34_sh8gf"), ExtResource("35_4h0lf"), ExtResource("36_3ikos"), ExtResource("37_pjtuq"), ExtResource("38_3f3c0"), ExtResource("39_7q0na"), ExtResource("40_aduj5"), ExtResource("41_l8gia"), ExtResource("42_ids5a"), ExtResource("43_qr7ox"), ExtResource("44_3fkkw"), ExtResource("45_3mkrk"), ExtResource("46_v2gn3"), ExtResource("47_r3lgv"), ExtResource("48_5ehsd"), ExtResource("49_0l6bj"), ExtResource("50_uft02"), ExtResource("51_u2muw"), ExtResource("52_ynq6o"), ExtResource("53_xisu6"), ExtResource("54_qnxwh"), ExtResource("55_dsflj"), ExtResource("56_72466"), ExtResource("57_ai8cu"), ExtResource("58_mwahn"), ExtResource("59_777ow"), ExtResource("60_c32t2"), ExtResource("61_sffie"), ExtResource("62_js1wn"), ExtResource("63_0ep8y"), ExtResource("64_1aci3"), ExtResource("65_kmlog"), ExtResource("66_ljsgw"), ExtResource("67_x7xx5"), ExtResource("68_rxsnt"), ExtResource("69_li2f6"), ExtResource("70_dck63")])
 global_stone_scale = Vector2(0.4, 0.4)
 capture_padding = 10
 floor_node = NodePath("Container/FloorShape")
 metadata/_edit_vertical_guides_ = [50.0, 1030.0, 540.0]
 metadata/_edit_horizontal_guides_ = [2134.0]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1961393567]
-layer = -1
+[node name="WorldArt" type="Node2D" parent="." unique_id=198611863]
 
-[node name="Sky" type="TextureRect" parent="CanvasLayer" unique_id=426920958]
+[node name="Sky" type="TextureRect" parent="WorldArt" unique_id=426920958]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -4536.0
-offset_top = -516.0
-offset_right = -2131.0
-offset_bottom = -1082.0
+offset_left = -4958.0
+offset_top = -701.0
+offset_right = -1534.0
+offset_bottom = 833.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("8_nqdth")
+scale = Vector2(2, 2)
+texture = ExtResource("71_u2muw")
 stretch_mode = 4
 
-[node name="Grass1" type="TextureRect" parent="CanvasLayer" unique_id=811266523]
+[node name="Grass1" type="TextureRect" parent="WorldArt" unique_id=811266523]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1110.0
 offset_top = 1395.0
-offset_right = 299.0
-offset_bottom = 205.0
+offset_right = 1379.0
+offset_bottom = 2605.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("9_5cypo")
 stretch_mode = 4
 
-[node name="Grass2" type="TextureRect" parent="CanvasLayer" unique_id=154233259]
+[node name="Grass2" type="TextureRect" parent="WorldArt" unique_id=154233259]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1102.0
 offset_top = 1329.0
-offset_right = 958.0
-offset_bottom = 506.0
+offset_right = 2038.0
+offset_bottom = 2906.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("47_x3a3x")
 stretch_mode = 4
 
-[node name="Grass3" type="TextureRect" parent="CanvasLayer" unique_id=1284859224]
+[node name="Grass4" type="TextureRect" parent="WorldArt" unique_id=191734783]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -99.0
-offset_top = 1781.0
-offset_right = 1961.0
-offset_bottom = 958.0
+offset_left = -579.0
+offset_top = 988.0
+offset_right = 3224.0
+offset_bottom = 1949.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("60_sgocm")
+texture = ExtResource("75_u2muw")
 stretch_mode = 4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1724007938]
+[node name="Grass5" type="TextureRect" parent="WorldArt" unique_id=690909148]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1601.0
+offset_top = 1366.0
+offset_right = 2202.0
+offset_bottom = 2327.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("75_u2muw")
+stretch_mode = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldArt" unique_id=1724007938]
+root_node = NodePath("../../CanvasLayer")
 libraries/ = SubResource("AnimationLibrary_1vioj")
 autoplay = &"sky_drift"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1961393567]
+layer = -1
 
 [node name="Container" type="StaticBody2D" parent="." unique_id=220810507]
 
@@ -377,10 +426,10 @@ icon = ExtResource("24_rr87q")
 [node name="ButtonSaveWall" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer/Control" unique_id=232746435]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
-offset_left = 866.0
-offset_top = -2172.0
-offset_right = 1339.0
-offset_bottom = -1799.0
+offset_left = 835.0
+offset_top = -2174.0
+offset_right = 1308.0
+offset_bottom = -1801.0
 rotation = -1.5707964
 scale = Vector2(0.35, 0.35)
 size_flags_horizontal = 3
@@ -453,19 +502,6 @@ stretch_mode = 4
 [node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=1317586991]
 layer = 9
 
-[node name="SingleGrass1" type="TextureRect" parent="CanvasLayer3" unique_id=1720320692]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 488.0
-offset_top = 1900.0
-offset_right = -347.0
-offset_bottom = -284.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("15_yu8cv")
-stretch_mode = 4
-
 [node name="SingleGrass2" type="TextureRect" parent="CanvasLayer3" unique_id=1196122060]
 visible = false
 anchors_preset = 15
@@ -473,25 +509,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 485.0
 offset_top = 1892.0
-offset_right = -260.0
-offset_bottom = -201.0
+offset_right = 820.0
+offset_bottom = 2199.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_urnot")
-stretch_mode = 4
-
-[node name="SingleGrass3" type="TextureRect" parent="CanvasLayer3" unique_id=2042436301]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 191.0
-offset_top = 1773.0
-offset_right = -749.0
-offset_bottom = -306.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("29_4e2rb")
 stretch_mode = 4
 
 [node name="Grass2" type="TextureRect" parent="CanvasLayer3" unique_id=1244319043]
@@ -501,8 +524,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -396.0
 offset_top = 1859.0
-offset_right = 1013.0
-offset_bottom = 669.0
+offset_right = 2093.0
+offset_bottom = 3069.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.1, 1.1)
@@ -516,26 +539,99 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -379.0
 offset_top = 1785.0
-offset_right = 1728.0
-offset_bottom = 962.0
+offset_right = 2761.0
+offset_bottom = 3362.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("47_x3a3x")
 stretch_mode = 4
 
-[node name="Grass4" type="TextureRect" parent="CanvasLayer3" unique_id=2006919689]
+[node name="StakeL" type="TextureRect" parent="CanvasLayer3" unique_id=1700110521]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -722.0
-offset_top = 1884.0001
-offset_right = 1385.0
-offset_bottom = 1061.0
+offset_left = -129.0
+offset_top = 151.0
+offset_right = 1978.0
+offset_bottom = 3255.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("86_5ehsd")
+stretch_mode = 4
+
+[node name="StakeR" type="TextureRect" parent="CanvasLayer3" unique_id=304510429]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1026.0
+offset_top = 138.0
+offset_right = 3133.0
+offset_bottom = 3242.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("86_r3lgv")
+stretch_mode = 4
+
+[node name="Grass4" type="TextureRect" parent="CanvasLayer3" unique_id=2006919689]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -856.00006
+offset_top = 1863.0001
+offset_right = 1251.0
+offset_bottom = 2656.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("60_sgocm")
+stretch_mode = 4
+
+[node name="Grass5" type="TextureRect" parent="CanvasLayer3" unique_id=1557002289]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = 1814.0
+offset_right = 3694.0
+offset_bottom = 2588.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("93_u2muw")
+stretch_mode = 4
+
+[node name="Grass7" type="TextureRect" parent="CanvasLayer3" unique_id=1300023099]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2659.0
+offset_top = 2028.0
+offset_right = 1123.0
+offset_bottom = 2802.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("93_u2muw")
+stretch_mode = 4
+
+[node name="Grass6" type="TextureRect" parent="CanvasLayer3" unique_id=445221845]
+visible = false
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1624.0
+offset_top = 1975.9998
+offset_right = 2179.0
+offset_bottom = 2937.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.026121598
+texture = ExtResource("75_u2muw")
 stretch_mode = 4
 
 [connection signal="button_down" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonLeft" to="." method="_on_button_left_button_down"]
