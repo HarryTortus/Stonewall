@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://bga5htq1g21r4" path="res://art/LeftArrow2.png" id="3_c85ry"]
 [ext_resource type="PackedScene" uid="uid://cto6ipa66yjt3" path="res://scenes/Sheep1.tscn" id="5_es4xi"]
 [ext_resource type="Texture2D" uid="uid://bc1v5kvk24nq" path="res://art/Sheep1.png" id="6_2ho58"]
-[ext_resource type="Texture2D" uid="uid://dnkgsmuxbh7x6" path="res://art/BackgroundGrass.png" id="6_c85ry"]
 [ext_resource type="Texture2D" uid="uid://dwodk2blsla1d" path="res://art/Sheep2.png" id="7_i7vkq"]
 [ext_resource type="Texture2D" uid="uid://cwvuvnnl5xrrf" path="res://art/LongBackgroundGrass.png" id="7_x1qyl"]
 [ext_resource type="Shader" uid="uid://s5et8jtwipak" path="res://scenes/grass.gdshader" id="8_vhyi2"]
+[ext_resource type="Texture2D" uid="uid://bnl8moi75tc1s" path="res://art/barndoor4.png" id="9_x1qyl"]
 [ext_resource type="Texture2D" uid="uid://elb88mnf4sdr" path="res://art/LongGrass.png" id="9_yd7ju"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5h11f"]
@@ -17,7 +17,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5iqjx"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_0sxts"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_mj1ir"]
 resource_local_to_scene = true
 resource_name = "1"
 animations = [{
@@ -35,12 +35,13 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qnxwh"]
 shader = ExtResource("8_vhyi2")
-shader_parameter/saturation = 1.6510000784224999
+shader_parameter/saturation = 1.6510000784225
 shader_parameter/brightness = 0.71200003382
 
 [node name="FarmScene" type="Node2D" unique_id=1014368745]
 script = ExtResource("1_4o0t3")
 farm_ground_y = 1100.0
+wall_start_x = 500.0
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=946912019]
 
@@ -79,116 +80,6 @@ icon = ExtResource("3_c85ry")
 [node name="CanvasLayer" type="CanvasLayer" parent="UI" unique_id=1651707663]
 layer = 0
 
-[node name="Sheep1" parent="UI/CanvasLayer" unique_id=2083892131 instance=ExtResource("5_es4xi")]
-z_index = 3
-position = Vector2(494, 1528)
-sprite_frames = SubResource("SpriteFrames_0sxts")
-
-[node name="Grass11" type="TextureRect" parent="UI/CanvasLayer" unique_id=1169075406]
-offset_left = -1428.0
-offset_top = 963.0
-offset_right = 2375.0
-offset_bottom = 2438.0
-mouse_filter = 2
-texture = ExtResource("7_x1qyl")
-
-[node name="Grass12" type="TextureRect" parent="UI/CanvasLayer" unique_id=1307769024]
-offset_left = -1957.0
-offset_top = 1297.0
-offset_right = 1846.0
-offset_bottom = 2772.0
-mouse_filter = 2
-texture = ExtResource("7_x1qyl")
-
-[node name="Grass13" type="TextureRect" parent="UI/CanvasLayer" unique_id=832605003]
-material = SubResource("ShaderMaterial_qnxwh")
-offset_left = -278.0
-offset_top = 1848.0
-offset_right = 3525.0
-offset_bottom = 3323.0
-mouse_filter = 2
-texture = ExtResource("9_yd7ju")
-
-[node name="Grass3" type="TextureRect" parent="UI/CanvasLayer" unique_id=1545250602]
-visible = false
-offset_left = -283.0
-offset_top = 1019.0
-offset_right = 2904.0
-offset_bottom = 2494.0
-scale = Vector2(0.5, 0.5)
-mouse_filter = 2
-texture = ExtResource("6_c85ry")
-
-[node name="Grass8" type="TextureRect" parent="UI/CanvasLayer" unique_id=1623137969]
-visible = false
-offset_left = -102.0
-offset_top = 1220.0
-offset_right = 3085.0
-offset_bottom = 2695.0
-scale = Vector2(0.5, 0.5)
-mouse_filter = 2
-texture = ExtResource("6_c85ry")
-
-[node name="Grass6" type="TextureRect" parent="UI/CanvasLayer" unique_id=1418090604]
-visible = false
-offset_left = -162.0
-offset_top = 1389.0
-offset_right = 3025.0
-offset_bottom = 2864.0
-scale = Vector2(0.5, 0.5)
-mouse_filter = 2
-texture = ExtResource("6_c85ry")
-
-[node name="Grass7" type="TextureRect" parent="UI/CanvasLayer" unique_id=527203990]
-visible = false
-offset_left = -206.0
-offset_top = 1545.0
-offset_right = 2981.0
-offset_bottom = 3020.0
-scale = Vector2(0.5, 0.5)
-mouse_filter = 2
-texture = ExtResource("6_c85ry")
-
-[node name="Grass4" type="TextureRect" parent="UI/CanvasLayer" unique_id=2101798412]
-visible = false
-offset_left = -331.0
-offset_top = 1684.0
-offset_right = 2856.0
-offset_bottom = 3159.0
-scale = Vector2(0.5, 0.5)
-mouse_filter = 2
-texture = ExtResource("6_c85ry")
-
-[node name="Grass5" type="TextureRect" parent="UI/CanvasLayer" unique_id=1824947954]
-visible = false
-offset_left = -93.0
-offset_top = 1830.0
-offset_right = 3094.0
-offset_bottom = 3305.0
-scale = Vector2(0.5, 0.5)
-mouse_filter = 2
-texture = ExtResource("6_c85ry")
-
-[node name="Grass9" type="TextureRect" parent="UI/CanvasLayer" unique_id=539702952]
-visible = false
-offset_left = -245.0
-offset_top = 1933.0
-offset_right = 2942.0
-offset_bottom = 3408.0
-scale = Vector2(0.5, 0.5)
-mouse_filter = 2
-texture = ExtResource("6_c85ry")
-
-[node name="Grass10" type="TextureRect" parent="UI/CanvasLayer" unique_id=1779333346]
-visible = false
-offset_left = -103.0
-offset_top = 2092.0
-offset_right = 3084.0
-offset_bottom = 3567.0
-scale = Vector2(0.5, 0.5)
-mouse_filter = 2
-texture = ExtResource("6_c85ry")
-
 [node name="Control" type="Control" parent="UI" unique_id=1272544451]
 layout_mode = 3
 anchors_preset = 15
@@ -198,52 +89,52 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Sheep1" parent="." unique_id=2083892131 instance=ExtResource("5_es4xi")]
+z_index = 3
+position = Vector2(494, 1528)
+sprite_frames = SubResource("SpriteFrames_mj1ir")
+
 [node name="Grass5" type="TextureRect" parent="." unique_id=714438056]
 offset_left = -238.0
 offset_top = 590.0
-offset_right = 2949.0
+offset_right = 3565.0
 offset_bottom = 2065.0
 mouse_filter = 2
 texture = ExtResource("7_x1qyl")
 
-[node name="Grass2" type="TextureRect" parent="." unique_id=881874244]
-visible = false
-offset_left = -238.0
-offset_top = 590.0
-offset_right = 2949.0
-offset_bottom = 2065.0
-scale = Vector2(0.5, 0.5)
+[node name="Barn" type="TextureRect" parent="." unique_id=991175275]
+material = SubResource("ShaderMaterial_qnxwh")
+offset_left = -1200.0
+offset_top = -576.0
+offset_right = -786.0
+offset_bottom = -193.0
+scale = Vector2(4.5, 4.5)
 mouse_filter = 2
-texture = ExtResource("6_c85ry")
+texture = ExtResource("9_x1qyl")
 
-[node name="Grass4" type="TextureRect" parent="." unique_id=1940543009]
-visible = false
-offset_left = 1209.0
-offset_top = 586.0
-offset_right = 4396.0
-offset_bottom = 2061.0
-scale = Vector2(0.5, 0.5)
+[node name="Grass11" type="TextureRect" parent="." unique_id=1169075406]
+offset_left = -290.0
+offset_top = 921.0
+offset_right = 3513.0
+offset_bottom = 2396.0
 mouse_filter = 2
-texture = ExtResource("6_c85ry")
+texture = ExtResource("7_x1qyl")
 
-[node name="Grass" type="TextureRect" parent="." unique_id=92584606]
-visible = false
-offset_left = -120.0
-offset_top = 837.0
-offset_right = 3067.0
-offset_bottom = 2312.0
-scale = Vector2(0.5, 0.5)
+[node name="Grass12" type="TextureRect" parent="." unique_id=1307769024]
+offset_left = -1957.0
+offset_top = 1297.0
+offset_right = 1846.0
+offset_bottom = 2772.0
 mouse_filter = 2
-texture = ExtResource("6_c85ry")
+texture = ExtResource("7_x1qyl")
 
-[node name="Grass3" type="TextureRect" parent="." unique_id=664015584]
-visible = false
-offset_left = 1293.0
-offset_top = 864.0
-offset_right = 4480.0
-offset_bottom = 2339.0
-scale = Vector2(0.5, 0.5)
+[node name="Grass13" type="TextureRect" parent="." unique_id=832605003]
+material = SubResource("ShaderMaterial_qnxwh")
+offset_left = -278.0
+offset_top = 1848.0
+offset_right = 3525.0
+offset_bottom = 3323.0
 mouse_filter = 2
-texture = ExtResource("6_c85ry")
+texture = ExtResource("9_yd7ju")
 
 [connection signal="pressed" from="UI/ButtonBackToMenu" to="." method="_on_button_back_to_menu_pressed"]
