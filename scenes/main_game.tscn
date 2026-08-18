@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://c2qow0m5ft0dj" path="res://scenes/stones/stone16.tscn" id="17_urnot"]
 [ext_resource type="PackedScene" uid="uid://jg0hbfd06qve" path="res://scenes/stones/stone17.tscn" id="18_4e2rb"]
 [ext_resource type="PackedScene" uid="uid://dl2mptckpawj7" path="res://scenes/stones/stone18.tscn" id="19_q875d"]
+[ext_resource type="Script" uid="uid://6hqs28o3jafx" path="res://scripts/stone_spawner.gd" id="19_v2gn3"]
 [ext_resource type="PackedScene" uid="uid://dyon6dgl8c5nb" path="res://scenes/stones/stone19.tscn" id="20_dvo3n"]
 [ext_resource type="PackedScene" uid="uid://caukdeo8fvjhe" path="res://scenes/stones/stone20.tscn" id="21_1vioj"]
 [ext_resource type="PackedScene" uid="uid://s0vod7oa2bqw" path="res://scenes/stones/stone21.tscn" id="22_g2o8j"]
@@ -84,6 +85,9 @@
 [ext_resource type="Texture2D" uid="uid://d2p0vbrww8xtl" path="res://art/StakeStraightThin2.png" id="86_5ehsd"]
 [ext_resource type="Texture2D" uid="uid://c8img1em0yj3y" path="res://art/String1.png" id="86_htswi"]
 [ext_resource type="Texture2D" uid="uid://d4ihxw3dn273f" path="res://art/StakeStraight2.png" id="86_r3lgv"]
+[ext_resource type="Script" uid="uid://7pl5le2in7l7" path="res://scripts/wall_capture_service.gd" id="87_3mkrk"]
+[ext_resource type="Script" uid="uid://hjl101u8sulr" path="res://scripts/settlement_monitor.gd" id="89_r3lgv"]
+[ext_resource type="Script" uid="uid://dw27t8jepmfqy" path="res://scripts/hover_input_controller.gd" id="90_5ehsd"]
 [ext_resource type="Shader" uid="uid://s5et8jtwipak" path="res://scenes/grass.gdshader" id="92_ynq6o"]
 [ext_resource type="Texture2D" uid="uid://elb88mnf4sdr" path="res://art/LongGrass.png" id="93_u2muw"]
 
@@ -174,15 +178,14 @@ shader_parameter/brightness = 1.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx8n8"]
 size = Vector2(2778.5, 15)
 
-[node name="MainGame" type="Node2D" unique_id=1114634166 node_paths=PackedStringArray("floor_node", "string_line", "drop_button")]
+[node name="MainGame" type="Node2D" unique_id=1114634166 node_paths=PackedStringArray("floor_node", "drop_button", "stone_spawner", "wall_capture_service", "settlement_monitor", "hover_input_controller")]
 script = ExtResource("2_n8b2x")
-move_speed = 500.0
-stone_scenes = Array[PackedScene]([ExtResource("2_2l77h"), ExtResource("3_nqdth"), ExtResource("4_5cypo"), ExtResource("5_o6v7o"), ExtResource("6_wjob3"), ExtResource("7_8xp80"), ExtResource("8_ihbck"), ExtResource("9_vnsdt"), ExtResource("10_yu8cv"), ExtResource("11_ibnub"), ExtResource("12_5wboo"), ExtResource("13_cybgu"), ExtResource("14_wdxbp"), ExtResource("15_on6n6"), ExtResource("16_x3ega"), ExtResource("17_urnot"), ExtResource("18_4e2rb"), ExtResource("19_q875d"), ExtResource("20_dvo3n"), ExtResource("21_1vioj"), ExtResource("22_g2o8j"), ExtResource("23_oojmo"), ExtResource("24_5noht"), ExtResource("25_g2o8j"), ExtResource("26_oojmo"), ExtResource("27_5noht"), ExtResource("28_oojmo"), ExtResource("29_krfhu"), ExtResource("30_x3a3x"), ExtResource("31_sgocm"), ExtResource("32_pk1le"), ExtResource("33_1al3e"), ExtResource("34_sh8gf"), ExtResource("35_4h0lf"), ExtResource("36_3ikos"), ExtResource("37_pjtuq"), ExtResource("38_3f3c0"), ExtResource("39_7q0na"), ExtResource("40_aduj5"), ExtResource("41_l8gia"), ExtResource("42_ids5a"), ExtResource("43_qr7ox"), ExtResource("44_3fkkw"), ExtResource("45_3mkrk"), ExtResource("46_v2gn3"), ExtResource("47_r3lgv"), ExtResource("48_5ehsd"), ExtResource("49_0l6bj"), ExtResource("50_uft02"), ExtResource("51_u2muw"), ExtResource("52_ynq6o"), ExtResource("53_xisu6"), ExtResource("54_qnxwh"), ExtResource("55_dsflj"), ExtResource("56_72466"), ExtResource("57_ai8cu"), ExtResource("58_mwahn"), ExtResource("59_777ow"), ExtResource("60_c32t2"), ExtResource("61_sffie"), ExtResource("62_js1wn"), ExtResource("63_0ep8y"), ExtResource("64_1aci3"), ExtResource("65_kmlog"), ExtResource("66_ljsgw"), ExtResource("67_x7xx5"), ExtResource("68_rxsnt"), ExtResource("69_li2f6"), ExtResource("70_dck63")])
-global_stone_scale = Vector2(0.4, 0.4)
-capture_padding = 10
 floor_node = NodePath("Container/FloorShape")
-string_line = NodePath("StringLineTrigger")
-drop_button = NodePath("CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonDrop")
+drop_button = NodePath("Buttons/MarginContainer/HBoxContainer/Control/ButtonDrop")
+stone_spawner = NodePath("StoneSpawner")
+wall_capture_service = NodePath("WallCaptureService")
+settlement_monitor = NodePath("SettlementMonitor")
+hover_input_controller = NodePath("HoverInputController")
 metadata/_edit_vertical_guides_ = [50.0, 1030.0, 540.0]
 metadata/_edit_horizontal_guides_ = [2134.0]
 
@@ -229,11 +232,11 @@ texture = ExtResource("75_u2muw")
 stretch_mode = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WorldArt" unique_id=1724007938]
-root_node = NodePath("../../CanvasLayer")
+root_node = NodePath("../../CollisionContainer")
 libraries/ = SubResource("AnimationLibrary_1vioj")
 autoplay = &"sky_drift"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1961393567]
+[node name="CollisionContainer" type="CanvasLayer" parent="." unique_id=1961393567]
 layer = -1
 
 [node name="Container" type="StaticBody2D" parent="." unique_id=220810507]
@@ -250,10 +253,10 @@ shape = SubResource("RectangleShape2D_3nbp6")
 position = Vector2(1222, 1164)
 shape = SubResource("RectangleShape2D_ft2n7")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=80796513]
+[node name="Buttons" type="CanvasLayer" parent="." unique_id=80796513]
 layer = 10
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2" unique_id=1667812380]
+[node name="MarginContainer" type="MarginContainer" parent="Buttons" unique_id=1667812380]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -264,14 +267,14 @@ theme_override_constants/margin_left = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 32
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/MarginContainer" unique_id=772664202]
+[node name="HBoxContainer" type="HBoxContainer" parent="Buttons/MarginContainer" unique_id=772664202]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="CanvasLayer2/MarginContainer/HBoxContainer" unique_id=975149190]
+[node name="Control" type="Control" parent="Buttons/MarginContainer/HBoxContainer" unique_id=975149190]
 custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
 
-[node name="ButtonLeft" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer/Control" unique_id=942454256]
+[node name="ButtonLeft" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=942454256]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 7
@@ -293,7 +296,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_5iqjx")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_bx8n8")
 icon = ExtResource("10_sp04v")
 
-[node name="ButtonRotateLeft" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer/Control" unique_id=341498008]
+[node name="ButtonRotateLeft" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=341498008]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 7
@@ -315,7 +318,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_3nbp6")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ft2n7")
 icon = ExtResource("11_ihbck")
 
-[node name="ButtonDrop" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer/Control" unique_id=748643021]
+[node name="ButtonDrop" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=748643021]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -338,7 +341,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_mq1y0")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_htswi")
 icon = ExtResource("12_vnsdt")
 
-[node name="ButtonRotateRight" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer/Control" unique_id=90415034]
+[node name="ButtonRotateRight" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=90415034]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 7
@@ -360,7 +363,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_isu2l")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_0okwp")
 icon = ExtResource("13_ikqpi")
 
-[node name="ButtonRight" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer/Control" unique_id=790328937]
+[node name="ButtonRight" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=790328937]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -382,7 +385,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_fpeu6")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_vghsm")
 icon = ExtResource("14_5luka")
 
-[node name="ButtonMenu" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer/Control" unique_id=1715892492]
+[node name="ButtonMenu" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=1715892492]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 offset_left = 7.0
@@ -397,7 +400,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_5iqjx")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_bx8n8")
 icon = ExtResource("24_rr87q")
 
-[node name="ButtonSaveWall" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer/Control" unique_id=232746435]
+[node name="ButtonSaveWall" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=232746435]
 visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
@@ -414,10 +417,10 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_5iqjx")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_bx8n8")
 icon = ExtResource("55_pk1le")
 
-[node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=1317586991]
+[node name="ForegroundArt" type="CanvasLayer" parent="." unique_id=1317586991]
 layer = 9
 
-[node name="StakeL" type="TextureRect" parent="CanvasLayer3" unique_id=1700110521]
+[node name="StakeL" type="TextureRect" parent="ForegroundArt" unique_id=1700110521]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -431,7 +434,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("86_5ehsd")
 stretch_mode = 4
 
-[node name="StakeR" type="TextureRect" parent="CanvasLayer3" unique_id=304510429]
+[node name="StakeR" type="TextureRect" parent="ForegroundArt" unique_id=304510429]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -445,7 +448,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("86_r3lgv")
 stretch_mode = 4
 
-[node name="Grass9" type="TextureRect" parent="CanvasLayer3" unique_id=682421075]
+[node name="Grass9" type="TextureRect" parent="ForegroundArt" unique_id=682421075]
 material = SubResource("ShaderMaterial_ofp31")
 anchors_preset = 15
 anchor_right = 1.0
@@ -460,7 +463,7 @@ rotation = 0.08929109
 texture = ExtResource("75_u2muw")
 stretch_mode = 4
 
-[node name="Grass10" type="TextureRect" parent="CanvasLayer3" unique_id=801565664]
+[node name="Grass10" type="TextureRect" parent="ForegroundArt" unique_id=801565664]
 material = SubResource("ShaderMaterial_ofp31")
 anchors_preset = 15
 anchor_right = 1.0
@@ -475,7 +478,7 @@ rotation = -0.13075814
 texture = ExtResource("15_yu8cv")
 stretch_mode = 4
 
-[node name="Grass11" type="TextureRect" parent="CanvasLayer3" unique_id=1700774]
+[node name="Grass11" type="TextureRect" parent="ForegroundArt" unique_id=1700774]
 material = SubResource("ShaderMaterial_ofp31")
 anchors_preset = 15
 anchor_right = 1.0
@@ -490,7 +493,7 @@ rotation = -0.13075814
 texture = ExtResource("28_urnot")
 stretch_mode = 4
 
-[node name="Grass7" type="TextureRect" parent="CanvasLayer3" unique_id=1300023099]
+[node name="Grass7" type="TextureRect" parent="ForegroundArt" unique_id=1300023099]
 material = SubResource("ShaderMaterial_ofp31")
 anchors_preset = 15
 anchor_right = 1.0
@@ -504,7 +507,7 @@ grow_vertical = 2
 texture = ExtResource("93_u2muw")
 stretch_mode = 4
 
-[node name="Grass8" type="TextureRect" parent="CanvasLayer3" unique_id=1111413391]
+[node name="Grass8" type="TextureRect" parent="ForegroundArt" unique_id=1111413391]
 material = SubResource("ShaderMaterial_ofp31")
 anchors_preset = 15
 anchor_right = 1.0
@@ -518,7 +521,7 @@ grow_vertical = 2
 texture = ExtResource("93_u2muw")
 stretch_mode = 4
 
-[node name="String" type="TextureRect" parent="CanvasLayer3" unique_id=40574352]
+[node name="String" type="TextureRect" parent="ForegroundArt" unique_id=40574352]
 offset_left = -1248.0001
 offset_top = 502.00003
 offset_right = -1186.0001
@@ -534,14 +537,30 @@ collision_layer = 0
 position = Vector2(0, 500.5)
 shape = SubResource("RectangleShape2D_bx8n8")
 
-[connection signal="button_down" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonLeft" to="." method="_on_button_left_button_down"]
-[connection signal="button_up" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonLeft" to="." method="_on_button_left_button_up"]
-[connection signal="button_down" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonRotateLeft" to="." method="_on_button_rotate_left_button_down"]
-[connection signal="button_up" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonRotateLeft" to="." method="_on_button_rotate_left_button_up"]
-[connection signal="pressed" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonDrop" to="." method="_on_button_drop_pressed"]
-[connection signal="button_down" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonRotateRight" to="." method="_on_button_rotate_right_button_down"]
-[connection signal="button_up" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonRotateRight" to="." method="_on_button_rotate_right_button_up"]
-[connection signal="button_down" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonRight" to="." method="_on_button_right_button_down"]
-[connection signal="button_up" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonRight" to="." method="_on_button_right_button_up"]
-[connection signal="pressed" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonMenu" to="." method="_on_button_menu_pressed"]
-[connection signal="pressed" from="CanvasLayer2/MarginContainer/HBoxContainer/Control/ButtonSaveWall" to="." method="_on_button_save_wall_pressed"]
+[node name="WallCaptureService" type="Node2D" parent="." unique_id=1628402180]
+script = ExtResource("87_3mkrk")
+
+[node name="StoneSpawner" type="Node2D" parent="." unique_id=1479664925]
+script = ExtResource("19_v2gn3")
+stone_scenes = Array[PackedScene]([ExtResource("2_2l77h"), ExtResource("3_nqdth"), ExtResource("4_5cypo"), ExtResource("5_o6v7o"), ExtResource("6_wjob3"), ExtResource("7_8xp80"), ExtResource("8_ihbck"), ExtResource("9_vnsdt"), ExtResource("10_yu8cv"), ExtResource("11_ibnub"), ExtResource("12_5wboo"), ExtResource("13_cybgu"), ExtResource("14_wdxbp"), ExtResource("15_on6n6"), ExtResource("16_x3ega"), ExtResource("17_urnot"), ExtResource("18_4e2rb"), ExtResource("19_q875d"), ExtResource("20_dvo3n"), ExtResource("21_1vioj"), ExtResource("22_g2o8j"), ExtResource("23_oojmo"), ExtResource("24_5noht"), ExtResource("25_g2o8j"), ExtResource("26_oojmo"), ExtResource("27_5noht"), ExtResource("28_oojmo"), ExtResource("29_krfhu"), ExtResource("30_x3a3x"), ExtResource("31_sgocm"), ExtResource("32_pk1le"), ExtResource("33_1al3e"), ExtResource("34_sh8gf"), ExtResource("35_4h0lf"), ExtResource("36_3ikos"), ExtResource("37_pjtuq"), ExtResource("38_3f3c0"), ExtResource("39_7q0na"), ExtResource("40_aduj5"), ExtResource("41_l8gia"), ExtResource("42_ids5a"), ExtResource("43_qr7ox"), ExtResource("44_3fkkw"), ExtResource("45_3mkrk"), ExtResource("46_v2gn3"), ExtResource("47_r3lgv"), ExtResource("48_5ehsd"), ExtResource("49_0l6bj"), ExtResource("50_uft02"), ExtResource("51_u2muw"), ExtResource("52_ynq6o"), ExtResource("53_xisu6"), ExtResource("54_qnxwh"), ExtResource("55_dsflj"), ExtResource("56_72466"), ExtResource("57_ai8cu"), ExtResource("58_mwahn"), ExtResource("59_777ow"), ExtResource("60_c32t2"), ExtResource("61_sffie"), ExtResource("62_js1wn"), ExtResource("63_0ep8y"), ExtResource("64_1aci3"), ExtResource("65_kmlog"), ExtResource("66_ljsgw"), ExtResource("67_x7xx5"), ExtResource("68_rxsnt"), ExtResource("69_li2f6"), ExtResource("70_dck63")])
+global_stone_scale = Vector2(0.45, 0.45)
+
+[node name="SettlementMonitor" type="Node2D" parent="." unique_id=1227193847 node_paths=PackedStringArray("string_line")]
+script = ExtResource("89_r3lgv")
+string_line = NodePath("../StringLineTrigger")
+
+[node name="HoverInputController" type="Node2D" parent="." unique_id=1664191255]
+script = ExtResource("90_5ehsd")
+move_speed = 400.0
+
+[connection signal="button_down" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonLeft" to="." method="_on_button_left_button_down"]
+[connection signal="button_up" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonLeft" to="." method="_on_button_left_button_up"]
+[connection signal="button_down" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRotateLeft" to="." method="_on_button_rotate_left_button_down"]
+[connection signal="button_up" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRotateLeft" to="." method="_on_button_rotate_left_button_up"]
+[connection signal="pressed" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonDrop" to="." method="_on_button_drop_pressed"]
+[connection signal="button_down" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRotateRight" to="." method="_on_button_rotate_right_button_down"]
+[connection signal="button_up" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRotateRight" to="." method="_on_button_rotate_right_button_up"]
+[connection signal="button_down" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRight" to="." method="_on_button_right_button_down"]
+[connection signal="button_up" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRight" to="." method="_on_button_right_button_up"]
+[connection signal="pressed" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonMenu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonSaveWall" to="." method="_on_button_save_wall_pressed"]
