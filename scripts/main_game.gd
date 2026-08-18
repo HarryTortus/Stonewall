@@ -13,6 +13,10 @@ var current_stone: RigidBody2D = null
 @export var next_spawn_delay: float = 0.8 # Delay before the next hovering stone appears
 @export var settle_duration_needed: float = 0.45 # Must be completely still this long before unlocking/checking save
 
+# Settle Thresholds (Higher = ignores tiny micro-vibrations and compression shifts)
+@export var movement_velocity_threshold: float = 45.0 # Speed (px/s) required to count as actively falling/sliding
+@export var movement_angular_threshold: float = 1.0 # Angular speed (rad/s) required to count as rolling
+
 # Stone spawning configuration
 @export var stone_scenes: Array[PackedScene] = []
 @export var global_stone_scale: Vector2 = Vector2(0.5, 0.5)
@@ -95,17 +99,16 @@ func _physics_process(delta: float) -> void:
 	if is_saving_wall:
 		return
 
-	# Check if any stone in the wall is actively moving
+	# Check if any stone in the wall is actively moving (filtering out micro-jitters)
 	var is_any_stone_moving: bool = false
 	for stone in wall_stones:
 		if is_instance_valid(stone) and not stone.freeze:
-			# If sliding faster than 15 px/s or rolling, consider moving
-			if stone.linear_velocity.length() > 15.0 or abs(stone.angular_velocity) > 0.3:
+			if stone.linear_velocity.length() > movement_velocity_threshold or abs(stone.angular_velocity) > movement_angular_threshold:
 				is_any_stone_moving = true
 				break
 
 	if is_any_stone_moving:
-		# Reset settle timer if anything moves or tips over
+		# Reset settle timer if anything is actively tumbling or rolling
 		time_spent_settled = 0.0
 		is_wall_settled = false
 		if is_instance_valid(drop_button):
@@ -124,6 +127,7 @@ func _physics_process(delta: float) -> void:
 			if is_instance_valid(drop_button) and not is_saving_wall:
 				var has_hover_stone = is_instance_valid(current_stone) and current_stone.freeze
 				drop_button.disabled = not has_hover_stone
+
 
 ## Evaluates the wall state only when everything has completely come to rest
 func _on_all_stones_settled() -> void:
