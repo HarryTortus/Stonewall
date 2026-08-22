@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dtgkgpwbsx5ix"]
 
+[ext_resource type="Texture2D" uid="uid://ymthoy1s7jr4" path="res://art/BlueSky1.png" id="2_0l6bj"]
 [ext_resource type="PackedScene" uid="uid://d3g7b01g8fax8" path="res://scenes/stones/stone1.tscn" id="2_2l77h"]
 [ext_resource type="Script" uid="uid://c6k5d3xap33w1" path="res://scripts/main_game.gd" id="2_n8b2x"]
 [ext_resource type="PackedScene" uid="uid://brsclq2efyjop" path="res://scenes/stones/stone2.tscn" id="3_nqdth"]
+[ext_resource type="Texture2D" uid="uid://df4fj06pgcqn7" path="res://art/Cloud.png" id="3_uft02"]
 [ext_resource type="PackedScene" uid="uid://dd60uoevqlmry" path="res://scenes/stones/stone3.tscn" id="4_5cypo"]
 [ext_resource type="PackedScene" uid="uid://hq78qademf4q" path="res://scenes/stones/stone4.tscn" id="5_o6v7o"]
 [ext_resource type="PackedScene" uid="uid://8w8fw0th87q2" path="res://scenes/stones/stone5.tscn" id="6_wjob3"]
@@ -80,7 +82,6 @@
 [ext_resource type="PackedScene" uid="uid://c5h6qq72ilcu6" path="res://scenes/stones/stone67.tscn" id="68_rxsnt"]
 [ext_resource type="PackedScene" uid="uid://borjkmi44vnj" path="res://scenes/stones/stone68.tscn" id="69_li2f6"]
 [ext_resource type="PackedScene" uid="uid://c5yqm2jegosrg" path="res://scenes/stones/stone69.tscn" id="70_dck63"]
-[ext_resource type="Texture2D" uid="uid://c7lntwtmf1bif" path="res://art/Sky2.png" id="71_u2muw"]
 [ext_resource type="Texture2D" uid="uid://cwvuvnnl5xrrf" path="res://art/LongBackgroundGrass.png" id="75_u2muw"]
 [ext_resource type="Texture2D" uid="uid://d2p0vbrww8xtl" path="res://art/StakeStraightThin2.png" id="86_5ehsd"]
 [ext_resource type="Texture2D" uid="uid://c8img1em0yj3y" path="res://art/String1.png" id="86_htswi"]
@@ -202,7 +203,22 @@ offset_bottom = 833.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture = ExtResource("71_u2muw")
+texture = ExtResource("2_0l6bj")
+stretch_mode = 4
+
+[node name="Cloud1" type="TextureRect" parent="WorldArt" unique_id=1680862187]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = -183.0
+offset_right = 3292.0
+offset_bottom = 1351.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_uft02")
 stretch_mode = 4
 
 [node name="Grass4" type="TextureRect" parent="WorldArt" unique_id=191734783]
@@ -464,6 +480,7 @@ texture = ExtResource("75_u2muw")
 stretch_mode = 4
 
 [node name="Grass10" type="TextureRect" parent="ForegroundArt" unique_id=801565664]
+visible = false
 material = SubResource("ShaderMaterial_ofp31")
 anchors_preset = 15
 anchor_right = 1.0
@@ -479,6 +496,7 @@ texture = ExtResource("15_yu8cv")
 stretch_mode = 4
 
 [node name="Grass11" type="TextureRect" parent="ForegroundArt" unique_id=1700774]
+visible = false
 material = SubResource("ShaderMaterial_ofp31")
 anchors_preset = 15
 anchor_right = 1.0
@@ -494,6 +512,7 @@ texture = ExtResource("28_urnot")
 stretch_mode = 4
 
 [node name="Grass7" type="TextureRect" parent="ForegroundArt" unique_id=1300023099]
+visible = false
 material = SubResource("ShaderMaterial_ofp31")
 anchors_preset = 15
 anchor_right = 1.0
@@ -508,6 +527,7 @@ texture = ExtResource("93_u2muw")
 stretch_mode = 4
 
 [node name="Grass8" type="TextureRect" parent="ForegroundArt" unique_id=1111413391]
+visible = false
 material = SubResource("ShaderMaterial_ofp31")
 anchors_preset = 15
 anchor_right = 1.0

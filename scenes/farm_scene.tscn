@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://dudfcmlvakwta"]
 
 [ext_resource type="Script" uid="uid://chegym70ajyln" path="res://scripts/farm_scene.gd" id="1_4o0t3"]
-[ext_resource type="Texture2D" uid="uid://c7lntwtmf1bif" path="res://art/Sky2.png" id="2_x1qyl"]
+[ext_resource type="Texture2D" uid="uid://ymthoy1s7jr4" path="res://art/BlueSky1.png" id="2_vhyi2"]
 [ext_resource type="Texture2D" uid="uid://bga5htq1g21r4" path="res://art/LeftArrow2.png" id="3_c85ry"]
+[ext_resource type="Texture2D" uid="uid://df4fj06pgcqn7" path="res://art/Cloud.png" id="3_yd7ju"]
+[ext_resource type="Texture2D" uid="uid://387to0dhrary" path="res://art/Cloud2.png" id="4_0sxts"]
 [ext_resource type="PackedScene" uid="uid://cto6ipa66yjt3" path="res://scenes/Sheep1.tscn" id="5_es4xi"]
+[ext_resource type="Texture2D" uid="uid://dckhrqru8d6lr" path="res://art/Cloud3.png" id="5_s6khy"]
 [ext_resource type="Texture2D" uid="uid://bc1v5kvk24nq" path="res://art/Sheep1.png" id="6_2ho58"]
 [ext_resource type="Texture2D" uid="uid://dwodk2blsla1d" path="res://art/Sheep2.png" id="7_i7vkq"]
 [ext_resource type="Texture2D" uid="uid://cwvuvnnl5xrrf" path="res://art/LongBackgroundGrass.png" id="7_x1qyl"]
@@ -11,13 +14,18 @@
 [ext_resource type="Texture2D" uid="uid://bnl8moi75tc1s" path="res://art/barndoor4.png" id="9_x1qyl"]
 [ext_resource type="Texture2D" uid="uid://elb88mnf4sdr" path="res://art/LongGrass.png" id="9_yd7ju"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qnxwh"]
+shader = ExtResource("8_vhyi2")
+shader_parameter/saturation = 1.6510000784225
+shader_parameter/brightness = 0.71200003382
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5h11f"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bx8n8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5iqjx"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_mj1ir"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_vhyi2"]
 resource_local_to_scene = true
 resource_name = "1"
 animations = [{
@@ -33,27 +41,87 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qnxwh"]
-shader = ExtResource("8_vhyi2")
-shader_parameter/saturation = 1.6510000784225
-shader_parameter/brightness = 0.71200003382
-
 [node name="FarmScene" type="Node2D" unique_id=1014368745]
 script = ExtResource("1_4o0t3")
 farm_ground_y = 1100.0
 wall_start_x = 500.0
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=946912019]
-
-[node name="Sky" type="Sprite2D" parent="Parallax2D" unique_id=2089217885]
-position = Vector2(2389, 905)
-scale = Vector2(2, 2)
-texture = ExtResource("2_x1qyl")
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=85247873]
 anchor_mode = 0
 limit_left = 0
 position_smoothing_enabled = true
+
+[node name="SkyParallax2D" type="Parallax2D" parent="." unique_id=946912019]
+scroll_scale = Vector2(0.05, 0)
+repeat_size = Vector2(3000, 0)
+autoscroll = Vector2(8, 0)
+repeat_times = 3
+
+[node name="Sky" type="Sprite2D" parent="SkyParallax2D" unique_id=2089217885]
+texture_repeat = 2
+position = Vector2(2389, 905)
+scale = Vector2(2, 2)
+texture = ExtResource("2_vhyi2")
+
+[node name="CloudParallax2D" type="Parallax2D" parent="." unique_id=1941256765]
+scroll_scale = Vector2(0.1, 0)
+repeat_size = Vector2(10000, 0)
+autoscroll = Vector2(-30, 0)
+repeat_times = 3
+
+[node name="Cloud" type="Sprite2D" parent="CloudParallax2D" unique_id=1058442279]
+position = Vector2(1602, 158)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_yd7ju")
+
+[node name="Cloud2" type="Sprite2D" parent="CloudParallax2D" unique_id=220285020]
+position = Vector2(4101, 305)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_0sxts")
+
+[node name="Cloud3" type="Sprite2D" parent="CloudParallax2D" unique_id=568376896]
+position = Vector2(5453, 213)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_s6khy")
+
+[node name="Cloud4" type="Sprite2D" parent="CloudParallax2D" unique_id=1003310534]
+position = Vector2(9945, 382)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_s6khy")
+
+[node name="MidgroundHillsParallax2D" type="Parallax2D" parent="." unique_id=2135497012]
+texture_repeat = 2
+scroll_scale = Vector2(0.3, 0)
+repeat_size = Vector2(3000, 0)
+repeat_times = 3
+
+[node name="MidgroundHills" type="Sprite2D" parent="MidgroundHillsParallax2D" unique_id=2045737291]
+position = Vector2(1676, 1185)
+texture = ExtResource("7_x1qyl")
+
+[node name="ForgroundParallax2D" type="Parallax2D" parent="." unique_id=2137258103]
+texture_repeat = 2
+repeat_size = Vector2(3000, 0)
+repeat_times = 3
+
+[node name="FarmGrassBack" type="Sprite2D" parent="ForgroundParallax2D" unique_id=1506580936]
+position = Vector2(-128, 1381)
+texture = ExtResource("7_x1qyl")
+
+[node name="FarmGrassFront" type="Sprite2D" parent="ForgroundParallax2D" unique_id=571747677]
+position = Vector2(1206, 1887)
+texture = ExtResource("7_x1qyl")
+
+[node name="FrontDetailedGrass" type="Sprite2D" parent="ForgroundParallax2D" unique_id=648591459]
+material = SubResource("ShaderMaterial_qnxwh")
+position = Vector2(1645, 2283)
+texture = ExtResource("9_yd7ju")
+
+[node name="Barn" type="Sprite2D" parent="." unique_id=352068083]
+material = SubResource("ShaderMaterial_qnxwh")
+position = Vector2(-256, 286)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("9_x1qyl")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1622965079]
 
@@ -92,49 +160,6 @@ mouse_filter = 2
 [node name="Sheep1" parent="." unique_id=2083892131 instance=ExtResource("5_es4xi")]
 z_index = 3
 position = Vector2(494, 1528)
-sprite_frames = SubResource("SpriteFrames_mj1ir")
-
-[node name="Grass5" type="TextureRect" parent="." unique_id=714438056]
-offset_left = -238.0
-offset_top = 590.0
-offset_right = 3565.0
-offset_bottom = 2065.0
-mouse_filter = 2
-texture = ExtResource("7_x1qyl")
-
-[node name="Barn" type="TextureRect" parent="." unique_id=991175275]
-material = SubResource("ShaderMaterial_qnxwh")
-offset_left = -1200.0
-offset_top = -576.0
-offset_right = -786.0
-offset_bottom = -193.0
-scale = Vector2(4.5, 4.5)
-mouse_filter = 2
-texture = ExtResource("9_x1qyl")
-
-[node name="Grass11" type="TextureRect" parent="." unique_id=1169075406]
-offset_left = -290.0
-offset_top = 921.0
-offset_right = 3513.0
-offset_bottom = 2396.0
-mouse_filter = 2
-texture = ExtResource("7_x1qyl")
-
-[node name="Grass12" type="TextureRect" parent="." unique_id=1307769024]
-offset_left = -1957.0
-offset_top = 1297.0
-offset_right = 1846.0
-offset_bottom = 2772.0
-mouse_filter = 2
-texture = ExtResource("7_x1qyl")
-
-[node name="Grass13" type="TextureRect" parent="." unique_id=832605003]
-material = SubResource("ShaderMaterial_qnxwh")
-offset_left = -278.0
-offset_top = 1848.0
-offset_right = 3525.0
-offset_bottom = 3323.0
-mouse_filter = 2
-texture = ExtResource("9_yd7ju")
+sprite_frames = SubResource("SpriteFrames_vhyi2")
 
 [connection signal="pressed" from="UI/ButtonBackToMenu" to="." method="_on_button_back_to_menu_pressed"]

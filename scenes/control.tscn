@@ -4,15 +4,10 @@
 [ext_resource type="FontFile" uid="uid://dc1md7in8yg54" path="res://fonts/Eastwood.ttf" id="2_lpubu"]
 [ext_resource type="FontFile" uid="uid://6bnw0m4vrnvs" path="res://fonts/Eastwood.otf" id="3_lt2xq"]
 [ext_resource type="Texture2D" uid="uid://c665n2td28c2b" path="res://art/Sky1.jpg" id="4_1p5nq"]
-[ext_resource type="Texture2D" uid="uid://dnkgsmuxbh7x6" path="res://art/BackgroundGrass.png" id="5_hob4j"]
 [ext_resource type="Texture2D" uid="uid://cwvuvnnl5xrrf" path="res://art/LongBackgroundGrass.png" id="6_6pn8l"]
 [ext_resource type="Texture2D" uid="uid://cx4bn5el3trd7" path="res://art/wall_2.png" id="6_exs80"]
-[ext_resource type="Texture2D" uid="uid://c3br2q3vl0kti" path="res://art/MediumSheep1.png" id="6_lpubu"]
-[ext_resource type="Texture2D" uid="uid://dojfdjg71boau" path="res://art/GrassClump1.png" id="7_01bab"]
 [ext_resource type="Texture2D" uid="uid://s8x6eyvow3kh" path="res://art/wall_3.png" id="7_kql7n"]
-[ext_resource type="Texture2D" uid="uid://ba5aunakuwfdj" path="res://art/GrassClump3.png" id="8_exs80"]
 [ext_resource type="Texture2D" uid="uid://bykgf7he4tcds" path="res://art/wall_0.png" id="8_kql7n"]
-[ext_resource type="Texture2D" uid="uid://iyilrdu6u136" path="res://art/GrassClump4.png" id="9_kql7n"]
 [ext_resource type="Texture2D" uid="uid://c45li2rpscjho" path="res://art/wall_5.png" id="9_tac8f"]
 [ext_resource type="Texture2D" uid="uid://elb88mnf4sdr" path="res://art/LongGrass.png" id="11_0jf8d"]
 [ext_resource type="Texture2D" uid="uid://cbklvebb2dwbf" path="res://art/LargeSheep1.png" id="11_vb5ih"]
@@ -105,6 +100,22 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_8kow4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_vvbtq")
 text = "Play"
 
+[node name="ButtonFarm" type="Button" parent="MarginContainer/MainMenuContainer" unique_id=1208693647]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+focus_mode = 0
+theme_override_colors/font_color = Color(0.725232, 0.14457554, 0.21247977, 1)
+theme_override_colors/font_focus_color = Color(0.99215686, 0.60784316, 0.69803923, 1)
+theme_override_colors/font_pressed_color = Color(0.99215686, 0.60784316, 0.69803923, 1)
+theme_override_colors/font_hover_color = Color(0.99215686, 0.60784316, 0.69803923, 1)
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kp04n")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8kow4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vvbtq")
+text = "Farm"
+
 [node name="SettingsMenuContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1631239103]
 unique_name_in_owner = true
 visible = false
@@ -150,11 +161,6 @@ layer = -10
 position = Vector2(-97.99997, 1229.0001)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_1p5nq")
-
-[node name="BackGrass" type="Sprite2D" parent="CanvasLayer" unique_id=330665872]
-visible = false
-position = Vector2(317.5, 2027.75)
-texture = ExtResource("5_hob4j")
 
 [node name="BackGrass2" type="Sprite2D" parent="CanvasLayer" unique_id=792331492]
 position = Vector2(773, 1116)
@@ -211,11 +217,6 @@ position = Vector2(-297, 2177)
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("11_0jf8d")
 
-[node name="Sheep" type="Sprite2D" parent="CanvasLayer" unique_id=764216741]
-visible = false
-position = Vector2(696, 1519)
-texture = ExtResource("6_lpubu")
-
 [node name="Sheep2" type="Sprite2D" parent="CanvasLayer" unique_id=936885446]
 position = Vector2(162, 1911)
 texture = ExtResource("11_vb5ih")
@@ -224,33 +225,9 @@ texture = ExtResource("11_vb5ih")
 position = Vector2(-598, 2427)
 texture = ExtResource("11_0jf8d")
 
-[node name="FrontGrass" type="Sprite2D" parent="CanvasLayer" unique_id=611777099]
-visible = false
-position = Vector2(164, 2353)
-texture = ExtResource("7_01bab")
-
-[node name="FrontGrass2" type="Sprite2D" parent="CanvasLayer" unique_id=1024189009]
-visible = false
-position = Vector2(841, 2337)
-texture = ExtResource("7_01bab")
-
-[node name="FrontGrass3" type="Sprite2D" parent="CanvasLayer" unique_id=264450081]
-visible = false
-position = Vector2(607, 2350)
-texture = ExtResource("8_exs80")
-
-[node name="FrontGrass4" type="Sprite2D" parent="CanvasLayer" unique_id=741302570]
-visible = false
-position = Vector2(1085, 2342)
-texture = ExtResource("9_kql7n")
-
-[node name="FrontGrass5" type="Sprite2D" parent="CanvasLayer" unique_id=1660805441]
-visible = false
-position = Vector2(373, 2350)
-texture = ExtResource("8_exs80")
-
 [connection signal="pressed" from="MarginContainer/MainMenuContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/MainMenuContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="MarginContainer/MainMenuContainer/ButtonFarm" to="." method="_on_button_farm_pressed"]
 [connection signal="value_changed" from="MarginContainer/SettingsMenuContainer/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/SettingsMenuContainer/ButtonBack" to="." method="_on_button_back_pressed"]
 [connection signal="pressed" from="MarginContainer/SettingsMenuContainer/ButtonWipeSave" to="." method="_on_button_wipe_save_pressed"]

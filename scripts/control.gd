@@ -30,6 +30,9 @@ func _on_button_play_pressed() -> void:
 	print("Button was clicked!") # Add this line
 	get_tree().change_scene_to_file("res://scenes/main_game.tscn")
 
+func _on_button_farm_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/farm_scene.tscn")
+
 
 func _on_button_wipe_save_pressed() -> void:
 	SaveSystem.wipe_all_save_data()
