@@ -26,21 +26,25 @@ func spawn_random_stone() -> RigidBody2D:
 	var random_scene: PackedScene = stone_scenes.pick_random()
 	var stone: RigidBody2D = random_scene.instantiate() as RigidBody2D
 
-	# 2. Scale child nodes BEFORE adding to scene tree (keeps RigidBody2D scale at 1, 1)
+	# 2. Scale child nodes BEFORE adding to scene tree
 	for child in stone.get_children():
 		if child is Sprite2D or child is CollisionPolygon2D or child is CollisionShape2D:
 			child.scale = global_stone_scale
 
-	# 3. Add directly to MainGame scene root
+	# 3. Position and set initial rotation BEFORE adding to scene tree
+	if stone.has_method("setup_spawn"):
+		stone.setup_spawn()
+
+	# 4. Add directly to MainGame scene root
 	var parent_node = get_parent()
 	if parent_node != null:
 		parent_node.add_child(stone)
 	else:
 		add_child(stone)
 
-	# 4. Position and setup initial rotation
-	if stone.has_method("setup_spawn"):
-		stone.setup_spawn()
+	# 5. Tell physics interpolation to snap instantly rather than sliding from (0,0)
+	if stone.has_method("reset_physics_interpolation"):
+		stone.reset_physics_interpolation()
 
 	stone_spawned.emit(stone)
 	return stone

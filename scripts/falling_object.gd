@@ -147,10 +147,13 @@ func _clamp_to_screen_bounds() -> void:
 	var min_x: float = wall_left_x + left_extent + hover_edge_padding
 	var max_x: float = wall_right_x - right_extent - hover_edge_padding
 
-	if min_x < max_x:
+	# Only clamp if the calculated bounds leave room; otherwise don't jump to center
+	if min_x <= max_x:
 		global_position.x = clamp(global_position.x, min_x, max_x)
 	else:
-		global_position.x = (wall_left_x + wall_right_x) / 2.0
+		# If the rotated stone temporarily exceeds the post gap, hug the closest valid side instead of snapping
+		var center: float = (wall_left_x + wall_right_x) / 2.0
+		global_position.x = clamp(global_position.x, wall_left_x + hover_edge_padding, wall_right_x - hover_edge_padding)
 
 
 func start_falling() -> void:
@@ -163,6 +166,5 @@ func start_falling() -> void:
 	freeze = false
 	gravity_scale = 1.0
 	
-	# Clean standard damping so downward fall speed is unaffected
 	linear_damp = 0.0
-	angular_damp = 1.0 # Light rotational damping stops infinite spin after landing
+	angular_damp = 1.0

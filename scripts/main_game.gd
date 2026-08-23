@@ -14,18 +14,15 @@ var is_saving_wall: bool = false
 var is_wall_settled: bool = true
 
 func _ready() -> void:
-	# 1. Connect Spawner
 	if is_instance_valid(stone_spawner):
 		stone_spawner.stone_spawned.connect(_on_stone_spawned)
 		stone_spawner.spawn_random_stone()
 
-	# 2. Connect Settlement Monitor
 	if is_instance_valid(settlement_monitor):
 		settlement_monitor.wall_settled.connect(_on_wall_settled)
 		settlement_monitor.wall_goal_reached.connect(_on_wall_goal_reached)
 
 
-## Receives the new hovering stone from the spawner
 func _on_stone_spawned(new_stone: RigidBody2D) -> void:
 	if is_saving_wall:
 		return
@@ -34,25 +31,21 @@ func _on_stone_spawned(new_stone: RigidBody2D) -> void:
 	if is_instance_valid(hover_input_controller):
 		hover_input_controller.set_active_stone(current_stone)
 	
-	# If wall is already resting, allow the player to drop this new stone
 	if is_wall_settled and is_instance_valid(drop_button):
 		drop_button.disabled = false
 
 
-## Runs when the SettlementMonitor confirms all stones stopped moving
 func _on_wall_settled() -> void:
 	if is_saving_wall:
 		return
 		
 	is_wall_settled = true
 	
-	# Re-enable drop button if a stone is currently waiting at the top
 	if is_instance_valid(drop_button):
 		var has_hover_stone = is_instance_valid(current_stone) and current_stone.freeze
 		drop_button.disabled = not has_hover_stone
 
 
-## Runs when the SettlementMonitor detects stones reached the string line
 func _on_wall_goal_reached() -> void:
 	if is_saving_wall:
 		return
@@ -64,7 +57,7 @@ func _on_wall_goal_reached() -> void:
 	save_current_wall()
 
 
-# --- UI BUTTON SIGNALS (Forwarded to HoverInputController) ---
+# --- UI BUTTON SIGNALS ---
 
 func _on_button_left_button_down() -> void:
 	if is_instance_valid(hover_input_controller): hover_input_controller.on_left_down()
@@ -105,10 +98,8 @@ func _on_button_drop_pressed() -> void:
 		if not wall_stones.has(dropped_stone):
 			wall_stones.append(dropped_stone)
 		
-		# Release stone to fall
 		dropped_stone.start_falling()
 		
-		# Disable drop button & activate settlement monitor
 		is_wall_settled = false
 		if is_instance_valid(drop_button):
 			drop_button.disabled = true
@@ -116,7 +107,6 @@ func _on_button_drop_pressed() -> void:
 		if is_instance_valid(settlement_monitor):
 			settlement_monitor.start_monitoring(wall_stones)
 
-		# Request next stone from spawner
 		if is_instance_valid(stone_spawner):
 			stone_spawner.spawn_next_stone_with_delay()
 
@@ -125,7 +115,6 @@ func _on_button_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/control.tscn")
 
 
-## Orchestrates capturing the wall and transitioning to the farm scene
 func save_current_wall() -> void:
 	if is_instance_valid(hover_input_controller):
 		hover_input_controller.is_active = false

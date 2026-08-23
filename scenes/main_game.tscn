@@ -332,6 +332,7 @@ focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jx8tp")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_3nbp6")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ft2n7")
+action_mode = 0
 icon = ExtResource("11_ihbck")
 
 [node name="ButtonDrop" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=748643021]
@@ -377,6 +378,7 @@ focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ovhvi")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_isu2l")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_0okwp")
+action_mode = 0
 icon = ExtResource("13_ikqpi")
 
 [node name="ButtonRight" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=790328937]
@@ -571,7 +573,8 @@ string_line = NodePath("../StringLineTrigger")
 
 [node name="HoverInputController" type="Node2D" parent="." unique_id=1664191255]
 script = ExtResource("90_5ehsd")
-move_speed = 400.0
+move_speed = 300.0
+rotate_speed = 2.0
 
 [connection signal="button_down" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonLeft" to="." method="_on_button_left_button_down"]
 [connection signal="button_up" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonLeft" to="." method="_on_button_left_button_up"]

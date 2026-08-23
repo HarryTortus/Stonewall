@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var camera: Camera2D = $Camera2D
 @onready var walls_container: Node2D = $WallsContainer
+@onready var sheep_container: Node2D = $SheepContainer
+@onready var sheep_spawner: Node2D = $SheepSpawner
 
 # Drag / Scroll settings
 var is_dragging: bool = false
@@ -15,6 +17,7 @@ var drag_start_pos: Vector2 = Vector2.ZERO
 func _ready() -> void:
 	spawn_all_saved_walls()
 	update_camera_limits()
+	spawn_farm_sheep()
 
 ## Quick Dev Shortcut: Press 'C' key anywhere on PC build to wipe save!
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -72,6 +75,20 @@ func spawn_all_saved_walls() -> void:
 
 	print("Successfully spawned ", walls_container.get_child_count(), " wall images seamlessly!")
 
+## Spawns the appropriate amount of sheep into the pasture
+func spawn_farm_sheep() -> void:
+	if not is_instance_valid(sheep_container) or not is_instance_valid(sheep_spawner):
+		return
+
+	# Clear existing sheep before spawning
+	for child in sheep_container.get_children():
+		child.queue_free()
+
+	var saved_walls: Array = SaveSystem.save_data.get("walls", [])
+	
+	# Pass the dynamic camera right limit so sheep spread across all built walls
+	sheep_spawner.populate_sheep(sheep_container, saved_walls.size(), float(camera.limit_right))
+
 ## Calculates max scroll limit dynamically based on total width of all visible walls
 func update_camera_limits() -> void:
 	var total_farm_width: float = wall_start_x
@@ -117,6 +134,7 @@ func _on_dev_clear_save_pressed() -> void:
 	SaveSystem.wipe_all_save_data()
 	spawn_all_saved_walls() # Refreshes farm view to show empty state immediately
 	update_camera_limits()  # Resets camera limits for 0 walls
+	spawn_farm_sheep()      # Removes spawned sheep
 
 func _on_button_back_to_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/control.tscn")

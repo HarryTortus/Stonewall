@@ -1,0 +1,66 @@
+extends Node2D
+
+@export var sheep_scene: PackedScene
+@export var walls_per_sheep: int = 1
+
+## Pasture horizontal start (to the right of the Barn)
+@export var min_spawn_x: float = 500.0
+
+## Pasture vertical pasture band
+@export var min_spawn_y: float = 1600.0
+@export var max_spawn_y: float = 2100.0
+
+## Minimum distance between sheep so they don't clump
+@export var min_sheep_spacing: float = 140.0
+
+
+func populate_sheep(container: Node2D, total_walls: int, dynamic_max_x: float) -> void:
+	if not sheep_scene or not is_instance_valid(container):
+		return
+
+	var sheep_count: int = total_walls / max(1, walls_per_sheep)
+	if sheep_count <= 0:
+		return
+
+	var effective_max_x: float = max(min_spawn_x + 300.0, dynamic_max_x - 150.0)
+	var spawned_positions: Array[Vector2] = []
+
+	for i in range(sheep_count):
+		var sheep = sheep_scene.instantiate() as CharacterBody2D
+		
+		var spawn_pos = _get_spaced_spawn_position(spawned_positions, effective_max_x)
+		spawned_positions.append(spawn_pos)
+		
+		sheep.position = spawn_pos
+		sheep.z_index = int(spawn_pos.y)
+
+		# Pass dynamic boundaries directly to the sheep script
+		if sheep.has_method("set_bounds"):
+			sheep.set_bounds(min_spawn_x, effective_max_x, min_spawn_y, max_spawn_y)
+
+		var body_node = sheep.get_node_or_null("Body")
+		if body_node:
+			body_node.scale.x = 1.0 if randf() > 0.5 else -1.0
+			
+		container.add_child(sheep)
+
+
+func _get_spaced_spawn_position(existing_positions: Array[Vector2], current_max_x: float) -> Vector2:
+	var best_pos = Vector2.ZERO
+	var max_attempts = 20
+
+	for attempt in range(max_attempts):
+		var test_x = randf_range(min_spawn_x, current_max_x)
+		var test_y = randf_range(min_spawn_y, max_spawn_y)
+		var candidate = Vector2(test_x, test_y)
+
+		var too_close = false
+		for pos in existing_positions:
+			if candidate.distance_to(pos) < min_sheep_spacing:
+				too_close = true
+				break
+
+		if not too_close or attempt == max_attempts - 1:
+			return candidate
+
+	return best_pos
