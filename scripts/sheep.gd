@@ -2,8 +2,32 @@ extends CharacterBody2D
 
 enum State { IDLE, GRAZE, WALK, STAND_STILL }
 
+# --- NODE REFERENCES ---
 @onready var animation_player: AnimationPlayer = get_node_or_null("AnimationPlayer")
 @onready var body: Node2D = get_node_or_null("Body")
+
+# Wool parts targeted for watercolor tinting
+@onready var wool_top: Sprite2D = get_node_or_null("Body/WoolTop")
+@onready var wool_bottom: Sprite2D = get_node_or_null("Body/WoolBottom")
+@onready var tail: Sprite2D = get_node_or_null("Body/WoolTop/Tail")
+
+# --- WOOL COLOR VARIATION ---
+@export_group("Wool Color Variation")
+## Rare black sheep chance evaluated first (e.g. 0.05 = 5% chance)
+@export_range(0.0, 1.0) var black_sheep_chance: float = 0.05
+## Brightness range for rare black sheep (keeps line art visible against charcoal wash)
+@export var black_sheep_brightness: float = 0.18
+
+## Percentage chance (0.0 to 1.0) that remaining sheep spawn with dyed pastel wool instead of white
+@export_range(0.0, 1.0) var colored_sheep_chance: float = 0.50
+
+## Limits saturation/vibrancy (0.0 = greyscale, 1.0 = neon vibrant)
+@export_range(0.0, 1.0) var min_saturation: float = 0.20
+@export_range(0.0, 1.0) var max_saturation: float = 0.55
+
+## Controls brightness/lightness of pastel dyed wool
+@export_range(0.0, 1.0) var min_brightness: float = 0.88
+@export_range(0.0, 1.0) var max_brightness: float = 1.00
 
 # --- BEHAVIOR WEIGHTS (0.0 to 1.0) ---
 @export_group("Behavior Rarity / Weights")
@@ -25,8 +49,8 @@ enum State { IDLE, GRAZE, WALK, STAND_STILL }
 
 # --- 2.5D SPEED & AVOIDANCE ---
 @export_group("Movement Speeds (2.5D Pasture)")
-@export var walk_speed_x: float = 45.0  ## Faster horizontal pacing
-@export var walk_speed_y: float = 22.0  ## Slower vertical wander depth
+@export var walk_speed_x: float = 45.0
+@export var walk_speed_y: float = 22.0
 @export var separation_radius: float = 160.0
 @export var separation_strength: float = 65.0
 
@@ -46,6 +70,7 @@ var sheep_name: String = ""
 func _ready() -> void:
 	randomize()
 	add_to_group("sheep")
+	_apply_random_wool_color()
 	_pick_next_state(randf_range(0.5, 2.0))
 
 
@@ -56,16 +81,45 @@ func set_bounds(p_min_x: float, p_max_x: float, p_min_y: float, p_max_y: float) 
 	max_y = p_max_y
 
 
+## Handles rare black sheep, dyed pastel wool, or default white wool
+func _apply_random_wool_color() -> void:
+	# 1. Rare Black Sheep roll
+	if randf() < black_sheep_chance:
+		var black_color: Color = Color(black_sheep_brightness, black_sheep_brightness, black_sheep_brightness, 1.0)
+		_set_wool_parts_color(black_color)
+		return
+
+	# 2. Regular Dyed Pastel Sheep roll
+	if randf() < colored_sheep_chance:
+		var random_hue: float = randf()
+		var sat: float = randf_range(min_saturation, max_saturation)
+		var val: float = randf_range(min_brightness, max_brightness)
+		var dyed_color: Color = Color.from_hsv(random_hue, sat, val, 1.0)
+		_set_wool_parts_color(dyed_color)
+		return
+
+	# 3. Default Natural White
+	_set_wool_parts_color(Color.WHITE)
+
+
+## Directly sets the self_modulate property across the 3 wool parts
+func _set_wool_parts_color(color: Color) -> void:
+	if is_instance_valid(wool_top):
+		wool_top.self_modulate = color
+	if is_instance_valid(wool_bottom):
+		wool_bottom.self_modulate = color
+	if is_instance_valid(tail):
+		tail.self_modulate = color
+
+
 func _physics_process(delta: float) -> void:
 	state_timer -= delta
 
 	var avoidance: Vector2 = _get_avoidance_vector()
 
 	if current_state == State.WALK:
-		# Blend wander intent with avoidance vector
 		var combined_dir: Vector2 = (walk_direction + avoidance * 1.5).normalized()
 		
-		# Separate X and Y velocities for cozy 2.5D perspective
 		var target_vel = Vector2(
 			combined_dir.x * walk_speed_x,
 			combined_dir.y * walk_speed_y
@@ -74,27 +128,22 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(target_vel, 250.0 * delta)
 		move_and_slide()
 
-		# Check physical collisions and deflect sideways
 		if get_slide_collision_count() > 0:
 			var col = get_slide_collision(0)
 			var normal = col.get_normal()
 			
-			# Slide along the collision normal rather than walking in place
 			walk_direction = (walk_direction.slide(normal) + normal * 0.5).normalized()
 			stuck_timer += delta
 			
-			# If stuck against an obstacle for too long, pick a new state
 			if stuck_timer > 0.6:
 				stuck_timer = 0.0
 				_pick_next_state()
 		else:
 			stuck_timer = max(0.0, stuck_timer - delta)
 
-		# Face the active horizontal moving direction
 		if is_instance_valid(body) and abs(velocity.x) > 4.0:
 			body.scale.x = sign(velocity.x)
 
-		# Soft turn-around at field borders
 		if position.x <= min_x and walk_direction.x < 0:
 			walk_direction.x = abs(walk_direction.x)
 			if is_instance_valid(body): body.scale.x = 1.0
@@ -108,7 +157,6 @@ func _physics_process(delta: float) -> void:
 			walk_direction.y = -abs(walk_direction.y)
 
 	else:
-		# Passive yield if another sheep brushes past while grazing/idle
 		if avoidance.length_squared() > 0.01:
 			var passive_vel = Vector2(
 				avoidance.x * separation_strength * 0.5,
@@ -119,14 +167,12 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity = Vector2.ZERO
 
-	# Depth sorting by Y-coordinate
 	z_index = int(position.y)
 
 	if state_timer <= 0.0:
 		_pick_next_state()
 
 
-## Calculates repulsive push and dynamic steering around neighboring sheep
 func _get_avoidance_vector() -> Vector2:
 	var total_steer = Vector2.ZERO
 	var neighbors = get_tree().get_nodes_in_group("sheep")
@@ -142,10 +188,7 @@ func _get_avoidance_vector() -> Vector2:
 			var factor: float = 1.0 - (dist / separation_radius)
 			var push_dir: Vector2 = offset / dist
 
-			# 1. Repulsive Push
 			var repel: Vector2 = push_dir * (factor * factor)
-
-			# 2. Tangential Swerve (peels up/down to glide cleanly around)
 			var swerve_dir: Vector2 = Vector2(-push_dir.y * 0.8, push_dir.x * 1.5)
 			
 			if position.y > (min_y + max_y) / 2.0:
@@ -159,7 +202,6 @@ func _get_avoidance_vector() -> Vector2:
 	return total_steer.normalized() if total_steer != Vector2.ZERO else Vector2.ZERO
 
 
-## State transition logic
 func _pick_next_state(forced_duration: float = -1.0) -> void:
 	var roll: float = randf()
 	stuck_timer = 0.0
@@ -175,11 +217,9 @@ func _pick_next_state(forced_duration: float = -1.0) -> void:
 		current_state = State.WALK
 		_play_anim("walk", "idle")
 
-		# Pick a natural 2D wander angle with full vertical roaming freedom
 		var dir_x: float = randf_range(-1.0, 1.0)
 		var dir_y: float = randf_range(-0.8, 0.8)
 		
-		# Ensure they don't roll a zero vector
 		if abs(dir_x) < 0.2: dir_x = 1.0 if randf() > 0.5 else -1.0
 		
 		walk_direction = Vector2(dir_x, dir_y).normalized()
@@ -189,13 +229,13 @@ func _pick_next_state(forced_duration: float = -1.0) -> void:
 
 		state_timer = forced_duration if forced_duration > 0.0 else randf_range(walk_duration_min, walk_duration_max)
 
-	# 3. Idle (Active breathing)
+	# 3. Idle
 	elif roll < (graze_weight + walk_weight + idle_weight):
 		current_state = State.IDLE
 		_play_anim("idle", "")
 		state_timer = forced_duration if forced_duration > 0.0 else randf_range(idle_duration_min, idle_duration_max)
 
-	# 4. Stand Still (Resting pause)
+	# 4. Stand Still
 	else:
 		current_state = State.STAND_STILL
 		if is_instance_valid(animation_player):
@@ -203,7 +243,6 @@ func _pick_next_state(forced_duration: float = -1.0) -> void:
 		state_timer = forced_duration if forced_duration > 0.0 else randf_range(stand_still_duration_min, stand_still_duration_max)
 
 
-## Safe animation player call
 func _play_anim(anim_name: String, fallback: String) -> void:
 	if not is_instance_valid(animation_player):
 		return

@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dtgkgpwbsx5ix"]
 
-[ext_resource type="Texture2D" uid="uid://ymthoy1s7jr4" path="res://art/BlueSky1.png" id="2_0l6bj"]
 [ext_resource type="PackedScene" uid="uid://d3g7b01g8fax8" path="res://scenes/stones/stone1.tscn" id="2_2l77h"]
 [ext_resource type="Script" uid="uid://c6k5d3xap33w1" path="res://scripts/main_game.gd" id="2_n8b2x"]
+[ext_resource type="Texture2D" uid="uid://c7olm7dty5jev" path="res://art/BlueSkySoftEdge1.png" id="2_uft02"]
 [ext_resource type="PackedScene" uid="uid://brsclq2efyjop" path="res://scenes/stones/stone2.tscn" id="3_nqdth"]
-[ext_resource type="Texture2D" uid="uid://df4fj06pgcqn7" path="res://art/Cloud.png" id="3_uft02"]
+[ext_resource type="Texture2D" uid="uid://1ikwm87pgmgq" path="res://art/Cloud1.2.png" id="3_u2muw"]
 [ext_resource type="PackedScene" uid="uid://dd60uoevqlmry" path="res://scenes/stones/stone3.tscn" id="4_5cypo"]
+[ext_resource type="Texture2D" uid="uid://ci74esww7muhx" path="res://art/Cloud3.1.png" id="4_ynq6o"]
 [ext_resource type="PackedScene" uid="uid://hq78qademf4q" path="res://scenes/stones/stone4.tscn" id="5_o6v7o"]
+[ext_resource type="Texture2D" uid="uid://c52knlwe7ooxy" path="res://art/Cloud2.1.png" id="5_ynq6o"]
 [ext_resource type="PackedScene" uid="uid://8w8fw0th87q2" path="res://scenes/stones/stone5.tscn" id="6_wjob3"]
 [ext_resource type="PackedScene" uid="uid://c7dnw4ex6i7fi" path="res://scenes/stones/stone6.tscn" id="7_8xp80"]
 [ext_resource type="PackedScene" uid="uid://crqvf78i3rjnx" path="res://scenes/stones/stone7.tscn" id="8_ihbck"]
@@ -22,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://d0wjvvpm2jjot" path="res://art/LeftArrow1.png" id="14_5luka"]
 [ext_resource type="PackedScene" uid="uid://lximywvreven" path="res://scenes/stones/stone13.tscn" id="14_wdxbp"]
 [ext_resource type="PackedScene" uid="uid://dm2btjvnj15c0" path="res://scenes/stones/stone14.tscn" id="15_on6n6"]
-[ext_resource type="Texture2D" uid="uid://b5pi42xfdvlv7" path="res://art/SingleGrass2.png" id="15_yu8cv"]
+[ext_resource type="Texture2D" uid="uid://c7iukhnxwfjhk" path="res://art/LongBackgroundGrass2.png" id="15_uft02"]
 [ext_resource type="PackedScene" uid="uid://c2x4lrnt8gtti" path="res://scenes/stones/stone15.tscn" id="16_x3ega"]
 [ext_resource type="PackedScene" uid="uid://c2qow0m5ft0dj" path="res://scenes/stones/stone16.tscn" id="17_urnot"]
 [ext_resource type="PackedScene" uid="uid://jg0hbfd06qve" path="res://scenes/stones/stone17.tscn" id="18_4e2rb"]
@@ -38,7 +40,6 @@
 [ext_resource type="PackedScene" uid="uid://b4urohgknwe73" path="res://scenes/stones/stone25.tscn" id="26_oojmo"]
 [ext_resource type="PackedScene" uid="uid://dxea1siy1hce6" path="res://scenes/stones/stone26.tscn" id="27_5noht"]
 [ext_resource type="PackedScene" uid="uid://cyg815fjun3bt" path="res://scenes/stones/stone27.tscn" id="28_oojmo"]
-[ext_resource type="Texture2D" uid="uid://q6qudn73g300" path="res://art/SingleGrass4.png" id="28_urnot"]
 [ext_resource type="PackedScene" uid="uid://dun418m05b7x2" path="res://scenes/stones/stone28.tscn" id="29_krfhu"]
 [ext_resource type="PackedScene" uid="uid://chyri42dt111n" path="res://scenes/stones/stone29.tscn" id="30_x3a3x"]
 [ext_resource type="PackedScene" uid="uid://bftl6x42gdkr2" path="res://scenes/stones/stone30.tscn" id="31_sgocm"]
@@ -66,7 +67,6 @@
 [ext_resource type="PackedScene" uid="uid://c7tunwa1cabxf" path="res://scenes/stones/stone52.tscn" id="53_xisu6"]
 [ext_resource type="PackedScene" uid="uid://c7to6ga4na03h" path="res://scenes/stones/stone53.tscn" id="54_qnxwh"]
 [ext_resource type="PackedScene" uid="uid://ya3xs7kx7jy1" path="res://scenes/stones/stone54.tscn" id="55_dsflj"]
-[ext_resource type="Texture2D" uid="uid://bga5htq1g21r4" path="res://art/LeftArrow2.png" id="55_pk1le"]
 [ext_resource type="PackedScene" uid="uid://6g4axes3uc0h" path="res://scenes/stones/stone55.tscn" id="56_72466"]
 [ext_resource type="PackedScene" uid="uid://c4ayjpks3s606" path="res://scenes/stones/stone56.tscn" id="57_ai8cu"]
 [ext_resource type="PackedScene" uid="uid://bqrkv3v7ifpng" path="res://scenes/stones/stone57.tscn" id="58_mwahn"]
@@ -90,45 +90,6 @@
 [ext_resource type="Script" uid="uid://hjl101u8sulr" path="res://scripts/settlement_monitor.gd" id="89_r3lgv"]
 [ext_resource type="Script" uid="uid://dw27t8jepmfqy" path="res://scripts/hover_input_controller.gd" id="90_5ehsd"]
 [ext_resource type="Shader" uid="uid://s5et8jtwipak" path="res://scenes/grass.gdshader" id="92_ynq6o"]
-[ext_resource type="Texture2D" uid="uid://elb88mnf4sdr" path="res://art/LongGrass.png" id="93_u2muw"]
-
-[sub_resource type="Animation" id="Animation_q875d"]
-length = 120.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../WorldArt/Sky:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-4958, -701)]
-}
-
-[sub_resource type="Animation" id="Animation_dvo3n"]
-resource_name = "sky_drift"
-length = 960.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../WorldArt/Sky:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 480, 960),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-4536, -516), Vector2(-739.00024, -449), Vector2(-4536, -516)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1vioj"]
-_data = {
-&"RESET": SubResource("Animation_q875d"),
-&"sky_drift": SubResource("Animation_dvo3n")
-}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5h11f"]
 size = Vector2(1927, 533.5)
@@ -192,45 +153,84 @@ metadata/_edit_horizontal_guides_ = [2134.0]
 
 [node name="WorldArt" type="Node2D" parent="." unique_id=198611863]
 
-[node name="Sky" type="TextureRect" parent="WorldArt" unique_id=426920958]
+[node name="Parallax2D" type="Parallax2D" parent="WorldArt" unique_id=68648050]
+repeat_size = Vector2(1500, 0)
+autoscroll = Vector2(5, 0)
+repeat_times = 3
+
+[node name="Sky" type="TextureRect" parent="WorldArt/Parallax2D" unique_id=426920958]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -4958.0
-offset_top = -701.0
-offset_right = -1534.0
-offset_bottom = 833.0
+offset_left = -513.0
+offset_top = -57.0
+offset_right = 2911.0
+offset_bottom = 1550.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
-texture = ExtResource("2_0l6bj")
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_uft02")
 stretch_mode = 4
 
-[node name="Cloud1" type="TextureRect" parent="WorldArt" unique_id=1680862187]
-visible = false
+[node name="Parallax2D2" type="Parallax2D" parent="WorldArt" unique_id=882253418]
+texture_repeat = 2
+repeat_size = Vector2(10000, 0)
+autoscroll = Vector2(20, 0)
+repeat_times = 2
+
+[node name="Cloud1" type="TextureRect" parent="WorldArt/Parallax2D2" unique_id=1680862187]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -132.0
-offset_top = -183.0
-offset_right = 3292.0
-offset_bottom = 1351.0
+offset_left = -3631.0
+offset_top = -43.0
+offset_right = -207.0
+offset_bottom = 1491.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_uft02")
+texture = ExtResource("3_u2muw")
+stretch_mode = 4
+
+[node name="Cloud3" type="TextureRect" parent="WorldArt/Parallax2D2" unique_id=77400121]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1996.0
+offset_top = -280.0
+offset_right = 1428.0
+offset_bottom = 1254.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_ynq6o")
+stretch_mode = 4
+
+[node name="Cloud2" type="TextureRect" parent="WorldArt/Parallax2D2" unique_id=513074070]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3713.0
+offset_top = 428.0
+offset_right = 7137.0
+offset_bottom = 1962.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_ynq6o")
 stretch_mode = 4
 
 [node name="Grass4" type="TextureRect" parent="WorldArt" unique_id=191734783]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -579.0
-offset_top = 988.0
-offset_right = 3224.0
-offset_bottom = 1949.0
+offset_left = -2144.9998
+offset_top = 1038.9999
+offset_right = 1658.0002
+offset_bottom = 1999.9999
 grow_horizontal = 2
 grow_vertical = 2
+rotation = -0.02866761
 texture = ExtResource("75_u2muw")
 stretch_mode = 4
 
@@ -238,19 +238,14 @@ stretch_mode = 4
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1601.0
-offset_top = 1366.0
-offset_right = 2202.0
-offset_bottom = 2327.0
+offset_left = -903.0
+offset_top = 1329.0
+offset_right = 2900.0
+offset_bottom = 2290.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("75_u2muw")
 stretch_mode = 4
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldArt" unique_id=1724007938]
-root_node = NodePath("../../CollisionContainer")
-libraries/ = SubResource("AnimationLibrary_1vioj")
-autoplay = &"sky_drift"
 
 [node name="CollisionContainer" type="CanvasLayer" parent="." unique_id=1961393567]
 layer = -1
@@ -418,23 +413,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_5iqjx")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_bx8n8")
 icon = ExtResource("24_rr87q")
 
-[node name="ButtonSaveWall" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=232746435]
-visible = false
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 1
-offset_left = 835.0
-offset_top = -2174.0
-offset_right = 1308.0
-offset_bottom = -1801.0
-rotation = -1.5707964
-scale = Vector2(0.35, 0.35)
-size_flags_horizontal = 3
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5h11f")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_5iqjx")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_bx8n8")
-icon = ExtResource("55_pk1le")
-
 [node name="ForegroundArt" type="CanvasLayer" parent="." unique_id=1317586991]
 layer = 9
 
@@ -471,76 +449,15 @@ material = SubResource("ShaderMaterial_ofp31")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -739.0
-offset_top = 1794.0
-offset_right = 3043.0
-offset_bottom = 2568.0
+offset_left = -1188.0
+offset_top = 2041.0
+offset_right = 2594.0
+offset_bottom = 2815.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 0.08929109
-texture = ExtResource("75_u2muw")
-stretch_mode = 4
-
-[node name="Grass10" type="TextureRect" parent="ForegroundArt" unique_id=801565664]
-visible = false
-material = SubResource("ShaderMaterial_ofp31")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -49.0
-offset_top = 1904.0
-offset_right = -884.0
-offset_bottom = -280.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.13075814
-texture = ExtResource("15_yu8cv")
-stretch_mode = 4
-
-[node name="Grass11" type="TextureRect" parent="ForegroundArt" unique_id=1700774]
-visible = false
-material = SubResource("ShaderMaterial_ofp31")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 753.0
-offset_top = 1833.0
-offset_right = 8.0
-offset_bottom = -260.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.13075814
-texture = ExtResource("28_urnot")
-stretch_mode = 4
-
-[node name="Grass7" type="TextureRect" parent="ForegroundArt" unique_id=1300023099]
-visible = false
-material = SubResource("ShaderMaterial_ofp31")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -719.0
-offset_top = 1814.0
-offset_right = 3063.0
-offset_bottom = 2588.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("93_u2muw")
-stretch_mode = 4
-
-[node name="Grass8" type="TextureRect" parent="ForegroundArt" unique_id=1111413391]
-visible = false
-material = SubResource("ShaderMaterial_ofp31")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -3717.0
-offset_top = 2045.0
-offset_right = 65.0
-offset_bottom = 2819.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("93_u2muw")
+rotation = -0.031316686
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
 stretch_mode = 4
 
 [node name="String" type="TextureRect" parent="ForegroundArt" unique_id=40574352]
@@ -586,4 +503,3 @@ rotate_speed = 2.0
 [connection signal="button_down" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRight" to="." method="_on_button_right_button_down"]
 [connection signal="button_up" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRight" to="." method="_on_button_right_button_up"]
 [connection signal="pressed" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonMenu" to="." method="_on_button_menu_pressed"]
-[connection signal="pressed" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonSaveWall" to="." method="_on_button_save_wall_pressed"]

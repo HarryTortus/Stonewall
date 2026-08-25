@@ -4,3 +4,5 @@
 
 [node name="SkyFlyer" type="Node2D" unique_id=1511906153]
 script = ExtResource("1_c8kp2")
+
+[node name="Visual" type="Sprite2D" parent="." unique_id=2040918520]

@@ -1,22 +1,41 @@
 [gd_scene format=3 uid="uid://dudfcmlvakwta"]
 
 [ext_resource type="Script" uid="uid://chegym70ajyln" path="res://scripts/farm_scene.gd" id="1_4o0t3"]
-[ext_resource type="Texture2D" uid="uid://ymthoy1s7jr4" path="res://art/BlueSky1.png" id="2_vhyi2"]
+[ext_resource type="Texture2D" uid="uid://c7olm7dty5jev" path="res://art/BlueSkySoftEdge1.png" id="2_2qrsd"]
+[ext_resource type="Texture2D" uid="uid://1ikwm87pgmgq" path="res://art/Cloud1.2.png" id="3_2qrsd"]
 [ext_resource type="Texture2D" uid="uid://bga5htq1g21r4" path="res://art/LeftArrow2.png" id="3_c85ry"]
-[ext_resource type="Texture2D" uid="uid://df4fj06pgcqn7" path="res://art/Cloud.png" id="3_yd7ju"]
-[ext_resource type="Texture2D" uid="uid://387to0dhrary" path="res://art/Cloud2.png" id="4_0sxts"]
+[ext_resource type="Texture2D" uid="uid://c52knlwe7ooxy" path="res://art/Cloud2.1.png" id="4_mv30j"]
+[ext_resource type="Texture2D" uid="uid://ci74esww7muhx" path="res://art/Cloud3.1.png" id="5_247op"]
 [ext_resource type="PackedScene" uid="uid://cto6ipa66yjt3" path="res://scenes/sheep/Sheep1.tscn" id="5_es4xi"]
-[ext_resource type="Texture2D" uid="uid://dckhrqru8d6lr" path="res://art/Cloud3.png" id="5_s6khy"]
-[ext_resource type="Texture2D" uid="uid://cwvuvnnl5xrrf" path="res://art/LongBackgroundGrass.png" id="7_x1qyl"]
+[ext_resource type="Script" uid="uid://c0xmgi8danetx" path="res://scripts/sky_ambient_spawner.gd" id="6_0sxts"]
+[ext_resource type="Texture2D" uid="uid://dmtbxqs0g233b" path="res://art/Bird1.png" id="7_2qrsd"]
+[ext_resource type="Texture2D" uid="uid://cumjiq4j6v228" path="res://art/Bird2.png" id="8_mv30j"]
 [ext_resource type="Shader" uid="uid://s5et8jtwipak" path="res://scenes/grass.gdshader" id="8_vhyi2"]
-[ext_resource type="Texture2D" uid="uid://bnl8moi75tc1s" path="res://art/barndoor4.png" id="9_x1qyl"]
-[ext_resource type="Texture2D" uid="uid://elb88mnf4sdr" path="res://art/LongGrass.png" id="9_yd7ju"]
+[ext_resource type="Texture2D" uid="uid://g7qixg7imdk7" path="res://art/Bird3.png" id="9_247op"]
+[ext_resource type="Texture2D" uid="uid://ca1qoqp7gi8s5" path="res://art/HotAirBalloon2.png" id="10_2qrsd"]
+[ext_resource type="Texture2D" uid="uid://c7iukhnxwfjhk" path="res://art/LongBackgroundGrass2.png" id="11_mv30j"]
 [ext_resource type="Script" uid="uid://huoofdlqt3xl" path="res://scripts/sheep_spawner.gd" id="11_vhyi2"]
+[ext_resource type="Texture2D" uid="uid://chw678cg8etro" path="res://art/backgroundgrass6.png" id="13_247op"]
+[ext_resource type="Texture2D" uid="uid://dlpck2vf1e4m7" path="res://art/BarnOpen.png" id="14_mv30j"]
+[ext_resource type="Texture2D" uid="uid://dj1ps7csyp3v5" path="res://art/BarnDoor1.png" id="15_4bx4x"]
+[ext_resource type="Texture2D" uid="uid://b3m0vqnqv0vk3" path="res://art/BarnBeam1.png" id="15_247op"]
+[ext_resource type="Texture2D" uid="uid://d1ntsy6w8nt6l" path="res://art/GrassClump2.png" id="17_p5igh"]
+[ext_resource type="Texture2D" uid="uid://b60btb72ndj32" path="res://art/BackgroundGrass2.png" id="18_ll57i"]
+[ext_resource type="Texture2D" uid="uid://dojfdjg71boau" path="res://art/GrassClump1.png" id="19_t1sx6"]
+[ext_resource type="Texture2D" uid="uid://ba5aunakuwfdj" path="res://art/GrassClump3.png" id="20_6pm1l"]
+[ext_resource type="Texture2D" uid="uid://bajuw26wyl8xl" path="res://art/stone10.png" id="20_a848p"]
+[ext_resource type="Texture2D" uid="uid://ye4q52bmi701" path="res://art/TestStone1.png" id="21_eo7vp"]
+[ext_resource type="Texture2D" uid="uid://iyilrdu6u136" path="res://art/GrassClump4.png" id="21_gus67"]
+[ext_resource type="Texture2D" uid="uid://b25qrktlc4pqx" path="res://art/stone34.png" id="22_5xbho"]
+[ext_resource type="Texture2D" uid="uid://bjbgmmxg2najw" path="res://art/stone35.png" id="23_x4haf"]
+[ext_resource type="Texture2D" uid="uid://lmhlpp0r47or" path="res://art/stone20.png" id="24_5u2wx"]
+[ext_resource type="Texture2D" uid="uid://cpyd0hl56hxag" path="res://art/stone23.png" id="25_wx5g6"]
+[ext_resource type="Texture2D" uid="uid://bjvaijrlg2tw" path="res://art/stone37.png" id="26_7gvla"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qnxwh"]
 shader = ExtResource("8_vhyi2")
-shader_parameter/saturation = 1.6510000784225
-shader_parameter/brightness = 0.71200003382
+shader_parameter/saturation = 1.058000050255
+shader_parameter/brightness = 0.670000031825
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5h11f"]
 
@@ -27,7 +46,7 @@ shader_parameter/brightness = 0.71200003382
 [node name="FarmScene" type="Node2D" unique_id=1014368745]
 script = ExtResource("1_4o0t3")
 farm_ground_y = 1100.0
-wall_start_x = 500.0
+wall_start_x = 1900.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=85247873]
 anchor_mode = 0
@@ -36,15 +55,15 @@ position_smoothing_enabled = true
 
 [node name="SkyParallax2D" type="Parallax2D" parent="." unique_id=946912019]
 scroll_scale = Vector2(0.05, 0)
-repeat_size = Vector2(3000, 0)
+repeat_size = Vector2(1850, 0)
 autoscroll = Vector2(8, 0)
 repeat_times = 3
 
 [node name="Sky" type="Sprite2D" parent="SkyParallax2D" unique_id=2089217885]
 texture_repeat = 2
-position = Vector2(2389, 905)
-scale = Vector2(2, 2)
-texture = ExtResource("2_vhyi2")
+position = Vector2(1080, 521)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_2qrsd")
 
 [node name="CloudParallax2D" type="Parallax2D" parent="." unique_id=1941256765]
 scroll_scale = Vector2(0.07, 0)
@@ -55,22 +74,62 @@ repeat_times = 3
 [node name="Cloud" type="Sprite2D" parent="CloudParallax2D" unique_id=1058442279]
 position = Vector2(1602, 158)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_yd7ju")
+texture = ExtResource("3_2qrsd")
+
+[node name="Cloud5" type="Sprite2D" parent="CloudParallax2D" unique_id=734413394]
+position = Vector2(2078, 148)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_2qrsd")
+
+[node name="Cloud9" type="Sprite2D" parent="CloudParallax2D" unique_id=531427811]
+position = Vector2(5926, 254)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_2qrsd")
+
+[node name="Cloud7" type="Sprite2D" parent="CloudParallax2D" unique_id=1547853586]
+position = Vector2(3839, 293)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_247op")
 
 [node name="Cloud2" type="Sprite2D" parent="CloudParallax2D" unique_id=220285020]
-position = Vector2(4101, 305)
+position = Vector2(4294, 315)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_0sxts")
+texture = ExtResource("4_mv30j")
+
+[node name="Cloud8" type="Sprite2D" parent="CloudParallax2D" unique_id=1703625670]
+position = Vector2(6875, 133)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_mv30j")
+
+[node name="Cloud6" type="Sprite2D" parent="CloudParallax2D" unique_id=1168264179]
+position = Vector2(1517, 267)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_mv30j")
 
 [node name="Cloud3" type="Sprite2D" parent="CloudParallax2D" unique_id=568376896]
 position = Vector2(5453, 213)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("5_s6khy")
+texture = ExtResource("5_247op")
+
+[node name="Cloud10" type="Sprite2D" parent="CloudParallax2D" unique_id=2037509399]
+position = Vector2(2693.0002, 50.000015)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_247op")
 
 [node name="Cloud4" type="Sprite2D" parent="CloudParallax2D" unique_id=1003310534]
-position = Vector2(9945, 382)
+position = Vector2(0.0009765625, 293)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("5_s6khy")
+texture = ExtResource("5_247op")
+
+[node name="SkyAmbientSpawner" type="Node2D" parent="." unique_id=869246656]
+script = ExtResource("6_0sxts")
+bird_textures = Array[Texture2D]([ExtResource("7_2qrsd"), ExtResource("8_mv30j"), ExtResource("9_247op")])
+balloon_textures = Array[Texture2D]([ExtResource("10_2qrsd")])
+balloon_spawn_chance = 0.25
+min_sky_y = 500.0
+max_sky_y = 250.0
+min_spawn_delay = 10000.0
+max_spawn_delay = 20000.0
 
 [node name="MidgroundHillsParallax2D" type="Parallax2D" parent="." unique_id=2135497012]
 texture_repeat = 2
@@ -80,7 +139,7 @@ repeat_times = 3
 
 [node name="MidgroundHills" type="Sprite2D" parent="MidgroundHillsParallax2D" unique_id=2045737291]
 position = Vector2(1676, 1185)
-texture = ExtResource("7_x1qyl")
+texture = ExtResource("11_mv30j")
 
 [node name="ForgroundParallax2D" type="Parallax2D" parent="." unique_id=2137258103]
 texture_repeat = 2
@@ -89,28 +148,142 @@ repeat_times = 3
 
 [node name="FarmGrassBack" type="Sprite2D" parent="ForgroundParallax2D" unique_id=1506580936]
 position = Vector2(-128, 1381)
-texture = ExtResource("7_x1qyl")
+texture = ExtResource("11_mv30j")
 
 [node name="FarmGrassFront" type="Sprite2D" parent="ForgroundParallax2D" unique_id=571747677]
 position = Vector2(1206, 1887)
-texture = ExtResource("7_x1qyl")
+texture = ExtResource("11_mv30j")
+
+[node name="FarmArt" type="Node2D" parent="." unique_id=1860695988]
+position = Vector2(104, 0)
+
+[node name="Barn" type="Node2D" parent="FarmArt" unique_id=1513225809]
+position = Vector2(-14, 0)
+
+[node name="Barn" type="Sprite2D" parent="FarmArt/Barn" unique_id=1117732009]
+position = Vector2(969, 254)
+scale = Vector2(0.63294554, 0.6329456)
+texture = ExtResource("14_mv30j")
+
+[node name="Door" type="Sprite2D" parent="FarmArt/Barn" unique_id=453530294]
+position = Vector2(1398, 685)
+scale = Vector2(0.63294554, 0.6329456)
+texture = ExtResource("15_4bx4x")
+
+[node name="Beam" type="Sprite2D" parent="FarmArt/Barn" unique_id=43439264]
+position = Vector2(985, 278)
+scale = Vector2(0.6127462, 0.61274624)
+texture = ExtResource("15_247op")
+
+[node name="Grass" type="Node2D" parent="FarmArt" unique_id=1896107567]
+position = Vector2(1743, 1009)
+scale = Vector2(0.44523358, 0.4680106)
+
+[node name="Sprite2D" type="Sprite2D" parent="FarmArt/Grass" unique_id=1418178778]
+position = Vector2(-53.904285, 151.706)
+scale = Vector2(-0.8866281, 1)
+texture = ExtResource("17_p5igh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="FarmArt/Grass" unique_id=1196512738]
+position = Vector2(-2151.6794, 121.792175)
+scale = Vector2(0.71107566, 0.6374173)
+texture = ExtResource("18_ll57i")
+
+[node name="Sprite2D7" type="Sprite2D" parent="FarmArt/Grass" unique_id=284318891]
+position = Vector2(-2937.7837, 89.74162)
+scale = Vector2(0.71107566, 0.6374173)
+texture = ExtResource("18_ll57i")
+
+[node name="Sprite2D3" type="Sprite2D" parent="FarmArt/Grass" unique_id=1227652229]
+position = Vector2(-1646.3268, 170.93637)
+scale = Vector2(1.2346996, 0.98513037)
+texture = ExtResource("19_t1sx6")
+
+[node name="Sprite2D4" type="Sprite2D" parent="FarmArt/Grass" unique_id=1545316866]
+position = Vector2(-2293.1782, 279.90826)
+scale = Vector2(1.2346996, 0.98513037)
+texture = ExtResource("17_p5igh")
+
+[node name="Sprite2D5" type="Sprite2D" parent="FarmArt/Grass" unique_id=233396992]
+position = Vector2(-2717.6748, 279.90826)
+scale = Vector2(1.2346996, 0.98513037)
+texture = ExtResource("20_6pm1l")
+
+[node name="Sprite2D6" type="Sprite2D" parent="FarmArt/Grass" unique_id=11323131]
+position = Vector2(-3056.8223, 279.90826)
+scale = Vector2(1.2346996, 0.98513037)
+texture = ExtResource("21_gus67")
+
+[node name="Sprite2D8" type="Sprite2D" parent="FarmArt/Grass" unique_id=1694326646]
+position = Vector2(-1900.1263, 245.721)
+scale = Vector2(1.2346996, 0.98513037)
+texture = ExtResource("21_gus67")
+
+[node name="StonePile" type="Node2D" parent="." unique_id=1610917066]
+visible = false
+position = Vector2(104, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="StonePile" unique_id=1749311918]
+position = Vector2(227, 2048.0002)
+rotation = 2.3561945
+scale = Vector2(0.66584134, 0.66584134)
+texture = ExtResource("20_a848p")
+
+[node name="Sprite2D2" type="Sprite2D" parent="StonePile" unique_id=2048710051]
+position = Vector2(534.0002, 1862.0001)
+rotation = 0.7853982
+scale = Vector2(0.8491385, 0.8491385)
+texture = ExtResource("21_eo7vp")
+
+[node name="Sprite2D3" type="Sprite2D" parent="StonePile" unique_id=1485465080]
+position = Vector2(903.9999, 1946)
+rotation = 2.0943952
+scale = Vector2(0.6232061, 0.6232061)
+texture = ExtResource("22_5xbho")
+
+[node name="Sprite2D4" type="Sprite2D" parent="StonePile" unique_id=1308419922]
+position = Vector2(576.99994, 1602)
+rotation = 1.0867108
+scale = Vector2(0.6232061, 0.6232061)
+texture = ExtResource("23_x4haf")
+
+[node name="Sprite2D5" type="Sprite2D" parent="StonePile" unique_id=1978107485]
+position = Vector2(759.9999, 1432.9999)
+rotation = 0.86554265
+scale = Vector2(0.6232061, 0.6232061)
+texture = ExtResource("24_5u2wx")
+
+[node name="Sprite2D6" type="Sprite2D" parent="StonePile" unique_id=1123055255]
+position = Vector2(499, 1287)
+rotation = -0.2997887
+scale = Vector2(0.6232061, 0.6232061)
+texture = ExtResource("25_wx5g6")
+
+[node name="Sprite2D7" type="Sprite2D" parent="StonePile" unique_id=217802851]
+position = Vector2(606.00006, 1070)
+rotation = -1.3374139
+scale = Vector2(0.43859744, 0.43859744)
+texture = ExtResource("26_7gvla")
+
+[node name="SheepSpawner" type="Node2D" parent="." unique_id=633984976]
+script = ExtResource("11_vhyi2")
+sheep_scene = ExtResource("5_es4xi")
+walls_per_sheep = 2
+min_spawn_x = 400.0
+min_spawn_y = 1000.0
+max_spawn_y = 1750.0
+min_sheep_spacing = 500.0
 
 [node name="DetailedGrassParallax2D" type="Parallax2D" parent="." unique_id=879121236]
 texture_repeat = 2
 scroll_scale = Vector2(1.5, 1)
-repeat_size = Vector2(3000, 0)
+repeat_size = Vector2(2150, 0)
 repeat_times = 3
 
 [node name="FrontDetailedGrass" type="Sprite2D" parent="DetailedGrassParallax2D" unique_id=648591459]
 material = SubResource("ShaderMaterial_qnxwh")
-position = Vector2(1645, 2283)
-texture = ExtResource("9_yd7ju")
-
-[node name="Barn" type="Sprite2D" parent="." unique_id=352068083]
-material = SubResource("ShaderMaterial_qnxwh")
-position = Vector2(-265, 265)
-scale = Vector2(4.5, 4.5)
-texture = ExtResource("9_x1qyl")
+position = Vector2(795, 2295)
+texture = ExtResource("13_247op")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1622965079]
 
@@ -145,14 +318,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="SheepSpawner" type="Node2D" parent="." unique_id=633984976]
-script = ExtResource("11_vhyi2")
-sheep_scene = ExtResource("5_es4xi")
-walls_per_sheep = 2
-min_spawn_x = 400.0
-min_spawn_y = 1000.0
-max_spawn_y = 1750.0
-min_sheep_spacing = 500.0
 
 [connection signal="pressed" from="UI/ButtonBackToMenu" to="." method="_on_button_back_to_menu_pressed"]
