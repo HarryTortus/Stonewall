@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://kjuthjo8i2lk"]
+
+[ext_resource type="Script" uid="uid://buc41go8db6u1" path="res://scripts/name_sheep_popup.gd" id="1_6cgu1"]
+[ext_resource type="FontFile" uid="uid://6bnw0m4vrnvs" path="res://fonts/Eastwood.otf" id="2_co7lu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5h11f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bx8n8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5iqjx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jx8tp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3nbp6"]
+
+[node name="NameSheepPopup" type="CanvasLayer" unique_id=131821288]
+script = ExtResource("1_6cgu1")
+
+[node name="Dimmer" type="ColorRect" parent="." unique_id=1272969256]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.003921569)
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=425993765]
+custom_minimum_size = Vector2(900, 650)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -624.0
+offset_right = 84.0
+offset_bottom = -516.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=823900678]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1701951672]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="Panel/MarginContainer/VBox" unique_id=1123354133]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_co7lu")
+theme_override_font_sizes/font_size = 80
+text = "A new sheep arrived!"
+horizontal_alignment = 1
+
+[node name="SheepPreviewSlot" type="Control" parent="Panel/MarginContainer/VBox" unique_id=1314909789]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SubtitleLabel" type="Label" parent="Panel/MarginContainer/VBox" unique_id=38607726]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_co7lu")
+theme_override_font_sizes/font_size = 60
+text = "Give your sheep a name"
+horizontal_alignment = 1
+
+[node name="NameLineEdit" type="LineEdit" parent="Panel/MarginContainer/VBox" unique_id=75283787]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_co7lu")
+theme_override_font_sizes/font_size = 100
+alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="Panel/MarginContainer/VBox" unique_id=1886317792]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.40367666, 0.77066886, 7.70092e-07, 1)
+theme_override_fonts/font = ExtResource("2_co7lu")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5h11f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bx8n8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5iqjx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jx8tp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3nbp6")
+text = "Confirm Name"

@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cbyv3ju536j3t" path="res://art/SheepEar3.png" id="8_iaunl"]
 [ext_resource type="Texture2D" uid="uid://b4cb4r83xfqjr" path="res://art/SheepLeg6.png" id="9_reov8"]
 [ext_resource type="Texture2D" uid="uid://b7oihll6pew1k" path="res://art/SheepLeg7.png" id="10_ri80b"]
+[ext_resource type="FontFile" uid="uid://6bnw0m4vrnvs" path="res://fonts/Eastwood.otf" id="11_sjfn5"]
 
 [sub_resource type="Animation" id="Animation_5mxls"]
 length = 0.001
@@ -728,6 +729,7 @@ height = 420.0
 z_index = 1
 collision_layer = 2
 collision_mask = 2
+input_pickable = true
 script = ExtResource("3_ohqev")
 black_sheep_chance = 0.01
 black_sheep_brightness = 0.25
@@ -827,3 +829,17 @@ libraries/ = SubResource("AnimationLibrary_s3uod")
 position = Vector2(0, -36)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_5h11f")
+
+[node name="NameTag" type="Label" parent="." unique_id=196857094]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 60)
+offset_left = -150.0
+offset_top = -240.0
+offset_right = 150.0
+offset_bottom = -180.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("11_sjfn5")
+theme_override_font_sizes/font_size = 62
+horizontal_alignment = 1
+vertical_alignment = 1

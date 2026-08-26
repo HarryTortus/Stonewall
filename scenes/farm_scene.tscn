@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://lmhlpp0r47or" path="res://art/stone20.png" id="24_5u2wx"]
 [ext_resource type="Texture2D" uid="uid://cpyd0hl56hxag" path="res://art/stone23.png" id="25_wx5g6"]
 [ext_resource type="Texture2D" uid="uid://bjvaijrlg2tw" path="res://art/stone37.png" id="26_7gvla"]
+[ext_resource type="PackedScene" uid="uid://kjuthjo8i2lk" path="res://scenes/name_sheep_popup.tscn" id="32_eo7vp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qnxwh"]
 shader = ExtResource("8_vhyi2")
@@ -268,7 +269,6 @@ texture = ExtResource("26_7gvla")
 [node name="SheepSpawner" type="Node2D" parent="." unique_id=633984976]
 script = ExtResource("11_vhyi2")
 sheep_scene = ExtResource("5_es4xi")
-walls_per_sheep = 2
 min_spawn_x = 400.0
 min_spawn_y = 1000.0
 max_spawn_y = 1750.0
@@ -318,5 +318,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="NameSheepPopup" parent="." unique_id=131821288 instance=ExtResource("32_eo7vp")]
 
 [connection signal="pressed" from="UI/ButtonBackToMenu" to="." method="_on_button_back_to_menu_pressed"]
