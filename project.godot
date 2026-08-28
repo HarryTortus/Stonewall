@@ -17,8 +17,8 @@ config/icon="uid://c48ljo6ln5o8o"
 
 [autoload]
 
-AudioManager="*uid://c2i3jxgqmlup4"
 SaveSystem="*uid://83fhlvuduuv"
+AudioManager="*uid://c2i3jxgqmlup4"
 
 [display]
 

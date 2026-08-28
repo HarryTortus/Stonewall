@@ -10,7 +10,7 @@ signal sheep_named(sheep_id: int, sheep_name: String)
 	"Ronnie", "Sir Ritchfield", "Cloud", "Zora", "Mopple", 
 	"Wool-Eyes", "Sebastian", "Lily", "Daisy", "Oliver", 
 	"Pickles", "The Winter Lamb", "Shaun", "Shirley", "Timmy", 
-	"Mareep", "Lamb Chop", "Dawn", "Lambie", "Dee", 
+	"Mareep", "Lamb Chop", "Dawn", "Lambie", "Dolly", "Dee", 
 	"Dennis", "Mac", "Charlie", "Frank", "Dua Sheepa", 
 	"Fluffy", "Billy", "Cardigan", "Marcie", "Opal", 
 	"Betty", "Sheep", "Mochi", "Moon", "Fiona", 
@@ -58,7 +58,7 @@ func _process_next_in_queue() -> void:
 func open_for_sheep(sheep_id: int, forced_name: String = "") -> void:
 	target_sheep_id = sheep_id
 
-	# Pick random suggested name
+	# 1. Pick random suggested name
 	var suggested_name: String = forced_name
 	if suggested_name == "":
 		suggested_name = default_names.pick_random() if not default_names.is_empty() else "Ronnie"
@@ -69,7 +69,7 @@ func open_for_sheep(sheep_id: int, forced_name: String = "") -> void:
 		name_line_edit.deselect()
 		name_line_edit.caret_column = suggested_name.length()
 
-	# Retrieve the exact rolled wool color from saved data
+	# 2. Retrieve the exact rolled wool color from saved data
 	var saved_sheep_list: Array = SaveSystem.save_data.get("sheep", [])
 	var sheep_color_hex: String = "ffffff"
 	for s in saved_sheep_list:
@@ -77,12 +77,21 @@ func open_for_sheep(sheep_id: int, forced_name: String = "") -> void:
 			sheep_color_hex = s.get("color", "ffffff")
 			break
 
-	# Spawn visual preview
+	# 3. Spawn visual preview
 	_spawn_preview_sheep(sheep_color_hex)
 	visible = true
 
+	# 4. Mobile Focus & Virtual Keyboard Fix
 	if is_instance_valid(name_line_edit):
+		# Wait 2 process frames so the mobile viewport confirms the node is rendered & active
+		await get_tree().process_frame
+		await get_tree().process_frame
+		
 		name_line_edit.grab_focus()
+		
+		# Explicitly prompt mobile OS (iOS Safari / Android) to display the virtual keyboard
+		if DisplayServer.has_feature(DisplayServer.FEATURE_VIRTUAL_KEYBOARD):
+			DisplayServer.virtual_keyboard_show(name_line_edit.text)
 
 
 func _spawn_preview_sheep(color_hex: String) -> void:
@@ -122,6 +131,11 @@ func _on_confirm_pressed() -> void:
 	var chosen_name: String = ""
 	if is_instance_valid(name_line_edit):
 		chosen_name = name_line_edit.text.strip_edges()
+		name_line_edit.release_focus()
+
+	# Dismiss mobile keyboard
+	if DisplayServer.has_feature(DisplayServer.FEATURE_VIRTUAL_KEYBOARD):
+		DisplayServer.virtual_keyboard_hide()
 
 	if chosen_name == "":
 		chosen_name = name_line_edit.placeholder_text if name_line_edit.placeholder_text != "" else ("Sheep #" + str(target_sheep_id + 1))

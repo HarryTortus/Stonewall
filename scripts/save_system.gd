@@ -6,13 +6,23 @@ const SAVE_PATH: String = "user://farm_save.json"
 var save_data: Dictionary = {
 	"total_sheep": 0,
 	"walls": [],
-	"sheep": [] # Array of { "id": 0, "name": "Barnaby", "color": "fce4ec" }
+	"sheep": [],
+	"settings": {
+		"master_volume": 1.0,
+		"music_volume": 0.7,
+		"ambience_volume": 0.8,
+		"sfx_volume": 1.0,
+		"haptics_enabled": true,
+		"move_sensitivity": 1.0,
+		"rotate_sensitivity": 1.0
+	}
 }
 
 func _ready() -> void:
 	load_game()
 
-## Save the current data dictionary to a JSON file
+
+## Save current data dictionary to JSON file
 func save_game() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file:
@@ -21,7 +31,8 @@ func save_game() -> void:
 		file.close()
 		print("Save data successfully written to: ", SAVE_PATH)
 
-## Load data from the JSON file
+
+## Load data from JSON file
 func load_game() -> void:
 	if not FileAccess.file_exists(SAVE_PATH):
 		return
@@ -33,16 +44,69 @@ func load_game() -> void:
 		
 		var json = JSON.new()
 		var parse_result = json.parse(json_string)
-		if parse_result == OK:
+		if parse_result == OK and typeof(json.data) == TYPE_DICTIONARY:
 			save_data = json.data
 			if not save_data.has("sheep"):
 				save_data["sheep"] = []
+			if not save_data.has("walls"):
+				save_data["walls"] = []
+			if not save_data.has("settings"):
+				save_data["settings"] = {
+					"master_volume": 1.0,
+					"music_volume": 0.7,
+					"ambience_volume": 0.8,
+					"sfx_volume": 1.0,
+					"haptics_enabled": true,
+					"move_sensitivity": 1.0,
+					"rotate_sensitivity": 1.0
+				}
+			else:
+				# Guarantee missing keys in existing save files get defaults
+				if not save_data["settings"].has("haptics_enabled"):
+					save_data["settings"]["haptics_enabled"] = true
+				if not save_data["settings"].has("move_sensitivity"):
+					save_data["settings"]["move_sensitivity"] = 1.0
+				if not save_data["settings"].has("rotate_sensitivity"):
+					save_data["settings"]["rotate_sensitivity"] = 1.0
 			print("Save data loaded!")
+
+
+## Retrieve settings dictionary
+func get_settings() -> Dictionary:
+	if not save_data.has("settings"):
+		save_data["settings"] = {
+			"master_volume": 1.0,
+			"music_volume": 0.7,
+			"ambience_volume": 0.8,
+			"sfx_volume": 1.0,
+			"haptics_enabled": true,
+			"move_sensitivity": 1.0,
+			"rotate_sensitivity": 1.0
+		}
+	return save_data["settings"]
+
+
+## Persist all settings adjustments
+func save_settings(settings_dict: Dictionary) -> void:
+	save_data["settings"] = settings_dict
+	save_game()
+
+
+# Aliases for backwards compatibility
+func get_audio_settings() -> Dictionary:
+	return get_settings()
+
+func save_audio_settings(settings_dict: Dictionary) -> void:
+	save_settings(settings_dict)
+
 
 ## Appends a newly created wall dictionary directly to the walls list
 func add_wall(wall_data: Dictionary) -> void:
+	if not save_data.has("walls"):
+		save_data["walls"] = []
 	save_data["walls"].append(wall_data)
 	save_game()
+
 
 ## Appends a newly created sheep dictionary directly to the sheep list
 func add_sheep(sheep_data: Dictionary) -> void:
@@ -51,6 +115,7 @@ func add_sheep(sheep_data: Dictionary) -> void:
 	save_data["sheep"].append(sheep_data)
 	save_data["total_sheep"] = save_data["sheep"].size()
 	save_game()
+
 
 ## Updates the name of a specific sheep by its ID
 func update_sheep_name(sheep_id: int, new_name: String) -> void:
@@ -61,14 +126,13 @@ func update_sheep_name(sheep_id: int, new_name: String) -> void:
 			save_game()
 			return
 
-## DEV HELPER: Deletes all saved PNG files and wipes farm_save.json clean
+
+## Wipes farm gameplay data while keeping player preferences intact
 func wipe_all_save_data() -> void:
-	# 1. Reset memory dictionary
 	save_data["total_sheep"] = 0
 	save_data["walls"] = []
 	save_data["sheep"] = []
 	
-	# 2. Delete all saved wall PNG files from disk
 	var dir = DirAccess.open("user://")
 	if dir:
 		dir.list_dir_begin()
@@ -76,9 +140,8 @@ func wipe_all_save_data() -> void:
 		while file_name != "":
 			if not dir.current_is_dir() and file_name.ends_with(".png"):
 				dir.remove(file_name)
-				print("Deleted dev asset: ", file_name)
+				print("Deleted farm asset: ", file_name)
 			file_name = dir.get_next()
 	
-	# 3. Overwrite JSON file with empty state
 	save_game()
-	print("--- DEV: ALL SAVE DATA AND PNGs WIPED ---")
+	print("--- FARM RESET COMPLETED ---")

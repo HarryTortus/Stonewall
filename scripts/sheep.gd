@@ -43,11 +43,14 @@ enum State { IDLE, GRAZE, WALK, STAND_STILL }
 @export var walk_speed_y: float = 22.0
 @export var separation_radius: float = 160.0
 @export var separation_strength: float = 65.0
+## Inward margin from screen/farm edges to keep sheep fully on-screen
+@export var edge_padding_x: float = 140.0
+@export var edge_padding_y: float = 60.0
 
-var min_x: float = 500.0
-var max_x: float = 2000.0
+var min_x: float = 640.0    # Adjusted inward from 500.0
+var max_x: float = 1860.0   # Adjusted inward from 2000.0
 var min_y: float = 1600.0
-var max_y: float = 2100.0
+var max_y: float = 2400.0
 
 var current_state: State = State.IDLE
 var state_timer: float = 0.0
@@ -59,7 +62,7 @@ var sheep_id: int = 0
 var sheep_name: String = ""
 var wool_color: Color = Color.WHITE
 var has_custom_color_loaded: bool = false
-var is_preview_mode: bool = false
+@export var is_preview_mode: bool = false
 var name_tween: Tween = null
 
 
@@ -67,7 +70,6 @@ func _ready() -> void:
 	randomize()
 	input_pickable = true
 
-	# Connect tap / click event
 	input_event.connect(_on_input_event)
 
 	if not has_custom_color_loaded:
@@ -75,11 +77,9 @@ func _ready() -> void:
 	else:
 		_set_wool_parts_color(wool_color)
 
-	# If locked in popup preview mode, freeze physics and lock to idle
+	# If marked as preview in the inspector, apply hard lock immediately
 	if is_preview_mode:
-		set_physics_process(false)
-		current_state = State.IDLE
-		_play_anim("idle", "")
+		set_as_preview()
 		return
 
 	add_to_group("sheep")
@@ -97,7 +97,6 @@ func init_sheep(id: int, s_name: String, color_hex: String) -> void:
 		name_tag.text = sheep_name
 
 
-## Click / Tap trigger to reveal sheep's name
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if is_preview_mode:
 		return
@@ -126,9 +125,25 @@ func show_name_bubble() -> void:
 func set_as_preview() -> void:
 	is_preview_mode = true
 	set_physics_process(false)
+	set_process(false)
+	current_state = State.IDLE
+	velocity = Vector2.ZERO
+	
+	# Drop out of group so other sheep calculations ignore this one
+	if is_in_group("sheep"):
+		remove_from_group("sheep")
+	
 	var col_shape = get_node_or_null("CollisionShape2D")
 	if is_instance_valid(col_shape):
-		col_shape.disabled = true
+		col_shape.set_deferred("disabled", true)
+		
+	# Force play the idle animation and ensure it loops continuously
+	if is_instance_valid(animation_player):
+		if animation_player.has_animation("idle"):
+			var anim = animation_player.get_animation("idle")
+			if is_instance_valid(anim):
+				anim.loop_mode = Animation.LOOP_LINEAR
+			animation_player.play("idle")
 
 
 func generate_random_color() -> Color:
@@ -154,10 +169,10 @@ func _set_wool_parts_color(c: Color) -> void:
 
 
 func set_bounds(p_min_x: float, p_max_x: float, p_min_y: float, p_max_y: float) -> void:
-	min_x = p_min_x
-	max_x = p_max_x
-	min_y = p_min_y
-	max_y = p_max_y
+	min_x = p_min_x + edge_padding_x
+	max_x = p_max_x - edge_padding_x
+	min_y = p_min_y + edge_padding_y
+	max_y = p_max_y - edge_padding_y
 
 
 func _physics_process(delta: float) -> void:
@@ -171,34 +186,43 @@ func _physics_process(delta: float) -> void:
 		var combined_dir: Vector2 = (walk_direction + avoidance * 1.5).normalized()
 		var target_vel = Vector2(combined_dir.x * walk_speed_x, combined_dir.y * walk_speed_y)
 
-		velocity = velocity.move_toward(target_vel, 250.0 * delta)
+		velocity = velocity.move_toward(target_vel, 300.0 * delta)
 		move_and_slide()
+
+		if is_instance_valid(body) and abs(target_vel.x) > 8.0:
+			body.scale.x = 1.0 if target_vel.x > 0 else -1.0
 
 		if get_slide_collision_count() > 0:
 			var col = get_slide_collision(0)
 			var normal = col.get_normal()
-			walk_direction = (walk_direction.slide(normal) + normal * 0.5).normalized()
+			walk_direction = walk_direction.slide(normal).normalized()
 			stuck_timer += delta
-			if stuck_timer > 0.6:
+			
+			if stuck_timer > 0.4:
 				stuck_timer = 0.0
 				_pick_next_state()
 		else:
 			stuck_timer = max(0.0, stuck_timer - delta)
 
-		if is_instance_valid(body) and abs(velocity.x) > 4.0:
-			body.scale.x = sign(velocity.x)
-
-		if position.x <= min_x and walk_direction.x < 0:
+		if position.x <= min_x:
+			position.x = min_x + 1.0
 			walk_direction.x = abs(walk_direction.x)
+			velocity.x = max(0.0, velocity.x)
 			if is_instance_valid(body): body.scale.x = 1.0
-		elif position.x >= max_x and walk_direction.x > 0:
+		elif position.x >= max_x:
+			position.x = max_x - 1.0
 			walk_direction.x = -abs(walk_direction.x)
+			velocity.x = min(0.0, velocity.x)
 			if is_instance_valid(body): body.scale.x = -1.0
 
-		if position.y <= min_y and walk_direction.y < 0:
+		if position.y <= min_y:
+			position.y = min_y + 1.0
 			walk_direction.y = abs(walk_direction.y)
-		elif position.y >= max_y and walk_direction.y > 0:
+			velocity.y = max(0.0, velocity.y)
+		elif position.y >= max_y:
+			position.y = max_y - 1.0
 			walk_direction.y = -abs(walk_direction.y)
+			velocity.y = min(0.0, velocity.y)
 
 	else:
 		if avoidance.length_squared() > 0.01:
@@ -242,6 +266,7 @@ func _get_avoidance_vector() -> Vector2:
 
 
 func _pick_next_state(forced_duration: float = -1.0) -> void:
+	# Hard safeguard: never pick or switch states if in preview mode
 	if is_preview_mode:
 		return
 
@@ -279,7 +304,15 @@ func _pick_next_state(forced_duration: float = -1.0) -> void:
 
 
 func _play_anim(anim_name: String, fallback: String) -> void:
-	if not is_instance_valid(animation_player): return
+	if not is_instance_valid(animation_player): 
+		return
+
+	# If in preview mode, refuse to play any animation other than idle
+	if is_preview_mode:
+		if animation_player.current_animation != "idle" and animation_player.has_animation("idle"):
+			animation_player.play("idle")
+		return
+
 	if animation_player.has_animation(anim_name):
 		animation_player.play(anim_name)
 	elif fallback != "" and animation_player.has_animation(fallback):

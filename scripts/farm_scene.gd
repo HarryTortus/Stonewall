@@ -36,13 +36,6 @@ func _on_sheep_spawner_request_name_popup(new_sheep_ids: Array) -> void:
 			name_popup.open_for_sheep(new_sheep_ids[0])
 
 
-## Quick Dev Shortcut: Press 'C' key anywhere on PC build to wipe save!
-func _unhandled_key_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo:
-		if event.keycode == KEY_C:
-			_on_dev_clear_save_pressed()
-
-
 ## Reads JSON data from SaveSystem and displays transparent wall PNG images seamlessly end-to-end
 func spawn_all_saved_walls() -> void:
 	for child in walls_container.get_children():
@@ -111,7 +104,7 @@ func update_camera_limits() -> void:
 				total_farm_width += child.texture.get_width() * child.scale.x
 	
 	camera.limit_left = 0
-	camera.limit_right = int(max(get_viewport_rect().size.x, total_farm_width + 300.0))
+	camera.limit_right = int(max(get_viewport_rect().size.x, total_farm_width))
 
 
 ## Smooth Touch / Mouse Drag Scrolling

@@ -1,7 +1,7 @@
 extends Node
 
 ## How many extra pixels of transparent margin to add around the cropped wall image
-@export var capture_padding: int = 15
+@export var capture_padding: int = 20
 
 # SubViewport used behind the scenes to render only the stones with a transparent background
 var capture_viewport: SubViewport
@@ -49,25 +49,31 @@ func capture_wall_image(stones_array: Array[RigidBody2D], floor_node: Node2D) ->
 	var min_y: float = floor_y
 	var has_content: bool = false
 
-	# 2. FIND BOUNDARIES OF ALL STONES IN THE WALL
+	# 2. FIND TRUE ROTATED BOUNDARIES OF ALL STONES
 	for stone in stones_array:
 		if not is_instance_valid(stone):
 			continue
 
 		for child in stone.get_children():
 			if child is Sprite2D and child.texture != null:
-				var sprite_size: Vector2 = Vector2(child.texture.get_width(), child.texture.get_height()) * child.scale
-				var sprite_top: float = child.global_position.y - (sprite_size.y * 0.5)
-				var sprite_left: float = child.global_position.x - (sprite_size.x * 0.5)
-				var sprite_right: float = child.global_position.x + (sprite_size.x * 0.5)
-
 				has_content = true
-				if sprite_top < min_y:
-					min_y = sprite_top
-				if sprite_left < min_x:
-					min_x = sprite_left
-				if sprite_right > max_x:
-					max_x = sprite_right
+				
+				# Get local sprite rectangle (accounts for centered, frame, and region)
+				var local_rect: Rect2 = child.get_rect()
+				var xform: Transform2D = child.global_transform
+
+				# Transform all 4 rotated corners into global coordinates
+				var corners = [
+					xform * local_rect.position,
+					xform * Vector2(local_rect.end.x, local_rect.position.y),
+					xform * Vector2(local_rect.position.x, local_rect.end.y),
+					xform * local_rect.end
+				]
+
+				for pt in corners:
+					min_x = min(min_x, pt.x)
+					max_x = max(max_x, pt.x)
+					min_y = min(min_y, pt.y)
 
 	if not has_content:
 		return Image.create(1, 1, false, Image.FORMAT_RGBA8)
@@ -85,6 +91,7 @@ func capture_wall_image(stones_array: Array[RigidBody2D], floor_node: Node2D) ->
 
 	capture_viewport.size = Vector2i(int(ceil(wall_bounds.size.x)), int(ceil(wall_bounds.size.y)))
 
+	# 3. REPLICATE STONES INSIDE THE CAPTURE VIEWPORT
 	for stone in stones_array:
 		if not is_instance_valid(stone):
 			continue
@@ -102,9 +109,12 @@ func capture_wall_image(stones_array: Array[RigidBody2D], floor_node: Node2D) ->
 			capture_sprite.frame = child.frame
 			capture_sprite.region_enabled = child.region_enabled
 			capture_sprite.region_rect = child.region_rect
+			
+			# Position and rotate relative to the new cropped bounds
 			capture_sprite.position = child.global_position - wall_bounds.position
 			capture_sprite.rotation = child.global_rotation
-			capture_sprite.scale = child.scale
+			capture_sprite.scale = child.global_scale
+			
 			capture_root.add_child(capture_sprite)
 			capture_sprite.owner = capture_root
 

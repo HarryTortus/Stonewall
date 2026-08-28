@@ -19,13 +19,13 @@
 [ext_resource type="Texture2D" uid="uid://dlpck2vf1e4m7" path="res://art/BarnOpen.png" id="14_mv30j"]
 [ext_resource type="Texture2D" uid="uid://dj1ps7csyp3v5" path="res://art/BarnDoor1.png" id="15_4bx4x"]
 [ext_resource type="Texture2D" uid="uid://b3m0vqnqv0vk3" path="res://art/BarnBeam1.png" id="15_247op"]
-[ext_resource type="Texture2D" uid="uid://d1ntsy6w8nt6l" path="res://art/GrassClump2.png" id="17_p5igh"]
-[ext_resource type="Texture2D" uid="uid://b60btb72ndj32" path="res://art/BackgroundGrass2.png" id="18_ll57i"]
-[ext_resource type="Texture2D" uid="uid://dojfdjg71boau" path="res://art/GrassClump1.png" id="19_t1sx6"]
-[ext_resource type="Texture2D" uid="uid://ba5aunakuwfdj" path="res://art/GrassClump3.png" id="20_6pm1l"]
+[ext_resource type="Texture2D" uid="uid://okvc5r7720o5" path="res://art/GrassClump3Soft.png" id="15_eo7vp"]
+[ext_resource type="Texture2D" uid="uid://cytxeq1t3vse7" path="res://art/BackgroundGrass2Soft.png" id="16_5xbho"]
+[ext_resource type="Texture2D" uid="uid://dvg32kvapm38o" path="res://art/GrassClump1Soft.png" id="17_x4haf"]
+[ext_resource type="Texture2D" uid="uid://wdapkpuxyiic" path="res://art/GrassClump4Soft.png" id="18_5u2wx"]
+[ext_resource type="Texture2D" uid="uid://dfns2asksff3c" path="res://art/GrassClump2Soft.png" id="19_wx5g6"]
 [ext_resource type="Texture2D" uid="uid://bajuw26wyl8xl" path="res://art/stone10.png" id="20_a848p"]
 [ext_resource type="Texture2D" uid="uid://ye4q52bmi701" path="res://art/TestStone1.png" id="21_eo7vp"]
-[ext_resource type="Texture2D" uid="uid://iyilrdu6u136" path="res://art/GrassClump4.png" id="21_gus67"]
 [ext_resource type="Texture2D" uid="uid://b25qrktlc4pqx" path="res://art/stone34.png" id="22_5xbho"]
 [ext_resource type="Texture2D" uid="uid://bjbgmmxg2najw" path="res://art/stone35.png" id="23_x4haf"]
 [ext_resource type="Texture2D" uid="uid://lmhlpp0r47or" path="res://art/stone20.png" id="24_5u2wx"]
@@ -35,8 +35,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qnxwh"]
 shader = ExtResource("8_vhyi2")
-shader_parameter/saturation = 1.058000050255
-shader_parameter/brightness = 0.670000031825
+shader_parameter/saturation = 0.950000045125
+shader_parameter/brightness = 0.78400003724
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5h11f"]
 
@@ -181,44 +181,45 @@ position = Vector2(1743, 1009)
 scale = Vector2(0.44523358, 0.4680106)
 
 [node name="Sprite2D" type="Sprite2D" parent="FarmArt/Grass" unique_id=1418178778]
-position = Vector2(-53.904285, 151.706)
+position = Vector2(-24.70614, 164.52621)
+rotation = 0.020585217
 scale = Vector2(-0.8866281, 1)
-texture = ExtResource("17_p5igh")
+texture = ExtResource("15_eo7vp")
 
 [node name="Sprite2D2" type="Sprite2D" parent="FarmArt/Grass" unique_id=1196512738]
-position = Vector2(-2151.6794, 121.792175)
+position = Vector2(-2149.4336, 196.57681)
 scale = Vector2(0.71107566, 0.6374173)
-texture = ExtResource("18_ll57i")
+texture = ExtResource("16_5xbho")
 
 [node name="Sprite2D7" type="Sprite2D" parent="FarmArt/Grass" unique_id=284318891]
-position = Vector2(-2937.7837, 89.74162)
+position = Vector2(-3018.64, 138.8858)
 scale = Vector2(0.71107566, 0.6374173)
-texture = ExtResource("18_ll57i")
+texture = ExtResource("16_5xbho")
 
 [node name="Sprite2D3" type="Sprite2D" parent="FarmArt/Grass" unique_id=1227652229]
-position = Vector2(-1646.3268, 170.93637)
+position = Vector2(-1617.1287, 226.49066)
 scale = Vector2(1.2346996, 0.98513037)
-texture = ExtResource("19_t1sx6")
-
-[node name="Sprite2D4" type="Sprite2D" parent="FarmArt/Grass" unique_id=1545316866]
-position = Vector2(-2293.1782, 279.90826)
-scale = Vector2(1.2346996, 0.98513037)
-texture = ExtResource("17_p5igh")
-
-[node name="Sprite2D5" type="Sprite2D" parent="FarmArt/Grass" unique_id=233396992]
-position = Vector2(-2717.6748, 279.90826)
-scale = Vector2(1.2346996, 0.98513037)
-texture = ExtResource("20_6pm1l")
+texture = ExtResource("17_x4haf")
 
 [node name="Sprite2D6" type="Sprite2D" parent="FarmArt/Grass" unique_id=11323131]
-position = Vector2(-3056.8223, 279.90826)
+position = Vector2(-3011.9023, 217.94409)
+scale = Vector2(1.2346995, 0.98513037)
+texture = ExtResource("18_5u2wx")
+
+[node name="Sprite2D4" type="Sprite2D" parent="FarmArt/Grass" unique_id=1545316866]
+position = Vector2(-2349.3289, 282.04498)
 scale = Vector2(1.2346996, 0.98513037)
-texture = ExtResource("21_gus67")
+texture = ExtResource("19_wx5g6")
+
+[node name="Sprite2D5" type="Sprite2D" parent="FarmArt/Grass" unique_id=233396992]
+position = Vector2(-2760.3489, 311.95883)
+scale = Vector2(1.2346996, 0.98513037)
+texture = ExtResource("15_eo7vp")
 
 [node name="Sprite2D8" type="Sprite2D" parent="FarmArt/Grass" unique_id=1694326646]
-position = Vector2(-1900.1263, 245.721)
+position = Vector2(-1956.2766, 318.36893)
 scale = Vector2(1.2346996, 0.98513037)
-texture = ExtResource("21_gus67")
+texture = ExtResource("15_eo7vp")
 
 [node name="StonePile" type="Node2D" parent="." unique_id=1610917066]
 visible = false
@@ -282,7 +283,7 @@ repeat_times = 3
 
 [node name="FrontDetailedGrass" type="Sprite2D" parent="DetailedGrassParallax2D" unique_id=648591459]
 material = SubResource("ShaderMaterial_qnxwh")
-position = Vector2(795, 2295)
+position = Vector2(792, 2400)
 texture = ExtResource("13_247op")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1622965079]
@@ -320,5 +321,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="NameSheepPopup" parent="." unique_id=131821288 instance=ExtResource("32_eo7vp")]
+visible = false
 
 [connection signal="pressed" from="UI/ButtonBackToMenu" to="." method="_on_button_back_to_menu_pressed"]

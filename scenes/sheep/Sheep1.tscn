@@ -732,7 +732,7 @@ collision_mask = 2
 input_pickable = true
 script = ExtResource("3_ohqev")
 black_sheep_chance = 0.01
-black_sheep_brightness = 0.25
+black_sheep_brightness = 0.2
 colored_sheep_chance = 0.75
 min_saturation = 0.1
 max_saturation = 0.9
@@ -832,11 +832,11 @@ shape = SubResource("CapsuleShape2D_5h11f")
 
 [node name="NameTag" type="Label" parent="." unique_id=196857094]
 modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(300, 60)
-offset_left = -150.0
-offset_top = -240.0
-offset_right = 150.0
-offset_bottom = -180.0
+custom_minimum_size = Vector2(500, 60)
+offset_left = -460.0
+offset_top = -248.0
+offset_right = 460.0
+offset_bottom = -173.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("11_sjfn5")

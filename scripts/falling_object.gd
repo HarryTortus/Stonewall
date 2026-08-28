@@ -81,9 +81,10 @@ func _on_body_entered(_body: Node) -> void:
 		collision_player.stop()
 
 		if is_first_impact:
-			# --- HIT 1: Main Drop Impact (Full Volume) ---
+			# --- HIT 1: Main Drop Impact ---
 			collision_player.volume_db = 0.0
 			collision_player.play()
+			AudioManager.trigger_haptic(35)
 			is_first_impact = false
 			_start_sound_cooldown(0.25)
 
@@ -112,13 +113,17 @@ func _start_sound_cooldown(duration: float) -> void:
 
 func move_hover(amount: float) -> void:
 	if freeze:
-		global_position.x += amount
+		# Apply movement sensitivity multiplier
+		var move_mult: float = AudioManager.move_sensitivity if typeof(AudioManager) != TYPE_NIL else 1.0
+		global_position.x += amount * move_mult
 		_clamp_to_screen_bounds()
 
 
 func rotate_hover(amount: float) -> void:
 	if freeze:
-		global_rotation += amount
+		# Apply rotation sensitivity multiplier
+		var rot_mult: float = AudioManager.rotate_sensitivity if typeof(AudioManager) != TYPE_NIL else 1.0
+		global_rotation += amount * rot_mult
 		_clamp_to_screen_bounds()
 
 
@@ -147,12 +152,9 @@ func _clamp_to_screen_bounds() -> void:
 	var min_x: float = wall_left_x + left_extent + hover_edge_padding
 	var max_x: float = wall_right_x - right_extent - hover_edge_padding
 
-	# Only clamp if the calculated bounds leave room; otherwise don't jump to center
 	if min_x <= max_x:
 		global_position.x = clamp(global_position.x, min_x, max_x)
 	else:
-		# If the rotated stone temporarily exceeds the post gap, hug the closest valid side instead of snapping
-		var center: float = (wall_left_x + wall_right_x) / 2.0
 		global_position.x = clamp(global_position.x, wall_left_x + hover_edge_padding, wall_right_x - hover_edge_padding)
 
 
