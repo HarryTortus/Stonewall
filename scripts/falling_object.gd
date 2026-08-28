@@ -4,22 +4,53 @@ extends RigidBody2D
 signal stone_landed
 
 ## Distance from the top edge of the screen (Lower number = Higher spawn)
-@export var top_margin: float = 120.0
+@export var top_margin: float = 260.0
 
-## Left and Right wall boundaries in screen pixels (adjust these to match your container graphics!)
-@export var wall_left_x: float = 20.0
-@export var wall_right_x: float = 700.0 # Set this to match your right wall position!
+## Left and Right wall boundaries in screen pixels
+@export var wall_left_x: float = 50.0
+@export var wall_right_x: float = 1030.0
 
+## Extra clearance in pixels to keep pre-drop hovering stones from touching the side walls
+@export var hover_edge_padding: float = 2.0
+
+# --- AUDIO TUNING ---
+## Minimum speed required to make a sound on secondary bounces (ignores small jitters)
+@export var min_bounce_velocity: float = 180.0
+## Speed at which a secondary bounce reaches maximum secondary volume
+@export var max_bounce_velocity: float = 650.0
+
+@export var collision_audio_stream: AudioStream = preload("res://audio/stone_collision_audio.tres")
+
+var collision_player: AudioStreamPlayer
 var has_started_falling: bool = false
 var has_signaled_landing: bool = false
 var original_collision_layer: int = 1
 var original_collision_mask: int = 1
 
+# Audio tracking
+var is_first_impact: bool = true
+var can_play_sound: bool = true
+
 func _ready() -> void:
+	# 1. Setup Audio Player
+	collision_player = AudioStreamPlayer.new()
+	collision_player.name = "CollisionAudioPlayer"
+	collision_player.stream = collision_audio_stream
+	collision_player.bus = &"SFX"
+	collision_player.pitch_scale = 1.0
+	add_child(collision_player)
+
 	original_collision_layer = collision_layer
 	original_collision_mask = collision_mask
 
-	# Disable collisions while hovering
+	# 2. Physics Material Setup for Firm Settling
+	var mat = PhysicsMaterial.new()
+	mat.friction = 1.0       # High surface grip between stones
+	mat.bounce = 0.0         # No rubbery bounce
+	mat.absorbent = true     # Absorbs rebound energy on contact
+	physics_material_override = mat
+
+	# 3. Disable collisions while hovering
 	collision_layer = 0
 	collision_mask = 0
 
@@ -35,32 +66,67 @@ func _ready() -> void:
 
 
 func setup_spawn() -> void:
-	var viewport_size: Vector2 = get_viewport_rect().size
-	
-	# Spawn centered between your two walls
 	var center_x: float = (wall_left_x + wall_right_x) / 2.0
 	position = Vector2(center_x, top_margin)
+	rotation_degrees = randf_range(0.0, 360.0)
 
 
 func _on_body_entered(_body: Node) -> void:
-	if has_started_falling and not has_signaled_landing:
+	if not has_started_falling:
+		return
+
+	var current_speed: float = linear_velocity.length()
+
+	if can_play_sound and is_instance_valid(collision_player):
+		collision_player.stop()
+
+		if is_first_impact:
+			# --- HIT 1: Main Drop Impact ---
+			collision_player.volume_db = 0.0
+			collision_player.play()
+			AudioManager.trigger_haptic(35)
+			is_first_impact = false
+			_start_sound_cooldown(0.25)
+
+		elif current_speed >= min_bounce_velocity:
+			# --- HIT 2+: Secondary Bounces ---
+			var linear_vol: float = clamp(
+				remap(current_speed, min_bounce_velocity, max_bounce_velocity, 0.10, 0.25),
+				0.10,
+				0.25
+			)
+			collision_player.volume_db = linear_to_db(linear_vol)
+			collision_player.play()
+			_start_sound_cooldown(0.25)
+
+	# Signal wall landing
+	if not has_signaled_landing:
 		has_signaled_landing = true
 		stone_landed.emit()
 
 
+func _start_sound_cooldown(duration: float) -> void:
+	can_play_sound = false
+	await get_tree().create_timer(duration).timeout
+	can_play_sound = true
+
+
 func move_hover(amount: float) -> void:
 	if freeze:
-		global_position.x += amount
+		# Apply movement sensitivity multiplier
+		var move_mult: float = AudioManager.move_sensitivity if typeof(AudioManager) != TYPE_NIL else 1.0
+		global_position.x += amount * move_mult
 		_clamp_to_screen_bounds()
 
 
 func rotate_hover(amount: float) -> void:
 	if freeze:
-		global_rotation += amount
+		# Apply rotation sensitivity multiplier
+		var rot_mult: float = AudioManager.rotate_sensitivity if typeof(AudioManager) != TYPE_NIL else 1.0
+		global_rotation += amount * rot_mult
 		_clamp_to_screen_bounds()
 
 
-## Clamps using the actual CollisionPolygon2D shape against the Container Walls
 func _clamp_to_screen_bounds() -> void:
 	var poly: CollisionPolygon2D = get_node_or_null("CollisionPolygon2D")
 	
@@ -83,19 +149,24 @@ func _clamp_to_screen_bounds() -> void:
 		left_extent = abs(min_local_x)
 		right_extent = abs(max_local_x)
 
-	# Calculate limits using explicit wall X coordinates
-	var min_x: float = wall_left_x + left_extent
-	var max_x: float = wall_right_x - right_extent
+	var min_x: float = wall_left_x + left_extent + hover_edge_padding
+	var max_x: float = wall_right_x - right_extent - hover_edge_padding
 
-	if min_x < max_x:
+	if min_x <= max_x:
 		global_position.x = clamp(global_position.x, min_x, max_x)
 	else:
-		global_position.x = (wall_left_x + wall_right_x) / 2.0
+		global_position.x = clamp(global_position.x, wall_left_x + hover_edge_padding, wall_right_x - hover_edge_padding)
 
 
 func start_falling() -> void:
 	has_started_falling = true
+	is_first_impact = true
+	can_play_sound = true
+	
 	collision_layer = original_collision_layer
 	collision_mask = original_collision_mask
 	freeze = false
 	gravity_scale = 1.0
+	
+	linear_damp = 0.0
+	angular_damp = 1.0

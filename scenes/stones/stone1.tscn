@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d3g7b01g8fax8"]
 
 [ext_resource type="Script" uid="uid://dw4275yokv0p" path="res://scripts/falling_object.gd" id="1_a1r0h"]
-[ext_resource type="Texture2D" uid="uid://dcok10qu7c6ho" path="res://art/TestStone1.png" id="2_5jsg7"]
+[ext_resource type="Texture2D" uid="uid://ye4q52bmi701" path="res://art/TestStone1.png" id="2_5jsg7"]
 
 [node name="Stone1" type="RigidBody2D" unique_id=610119650]
 script = ExtResource("1_a1r0h")
@@ -10,4 +10,4 @@ script = ExtResource("1_a1r0h")
 texture = ExtResource("2_5jsg7")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=459783012]
-polygon = PackedVector2Array(-113, 210, 86, 240, 183, 219, 261, 142, 315, 39, 327, -66, 227, -218, 134, -235, -6, -200, -130, -155, -251, -79, -319, -1, -328, 66, -285, 127, -192, 185)
+polygon = PackedVector2Array(-113, 210, 86, 240, 183, 219, 261, 142, 315, 39, 327, -66, 227, -218, 142, -239, -6, -200, -130, -155, -251, -79, -319, -1, -328, 66, -285, 127, -192, 185)

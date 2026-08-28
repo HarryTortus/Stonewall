@@ -1,92 +1,126 @@
 extends Node2D
 
-# Track input hold states
-var move_dir: float = 0.0
-var rotate_dir: float = 0.0
+# --- CONTAINER, UI & SERVICE REFERENCES ---
+@export var floor_node: Node2D
+@export var drop_button: BaseButton
+@export var stone_spawner: Node2D
+@export var wall_capture_service: Node2D
+@export var settlement_monitor: Node2D
+@export var hover_input_controller: Node2D
+
+var wall_stones: Array[RigidBody2D] = []
 var current_stone: RigidBody2D = null
-
-# Speeds for hovering object
-@export var move_speed: float = 350.0
-@export var rotate_speed: float = 3 # radians per second
-
-# Stone spawning configuration
-@export var stone_scenes: Array[PackedScene] = []
-@export var global_stone_scale: Vector2 = Vector2(0.5, 0.5)
+var is_saving_wall: bool = false
+var is_wall_settled: bool = true
 
 func _ready() -> void:
-	spawn_random_stone()
+	if is_instance_valid(stone_spawner):
+		stone_spawner.stone_spawned.connect(_on_stone_spawned)
+		stone_spawner.spawn_random_stone()
 
-func spawn_random_stone() -> void:
-	if stone_scenes.is_empty():
-		print("No stone scenes assigned in Inspector!")
+	if is_instance_valid(settlement_monitor):
+		settlement_monitor.wall_settled.connect(_on_wall_settled)
+		settlement_monitor.wall_goal_reached.connect(_on_wall_goal_reached)
+
+
+func _on_stone_spawned(new_stone: RigidBody2D) -> void:
+	if is_saving_wall:
+		return
+	current_stone = new_stone
+	
+	if is_instance_valid(hover_input_controller):
+		hover_input_controller.set_active_stone(current_stone)
+	
+	if is_wall_settled and is_instance_valid(drop_button):
+		drop_button.disabled = false
+
+
+func _on_wall_settled() -> void:
+	if is_saving_wall:
 		return
 		
-	# Pick a random stone scene from the array
-	var random_stone_scene: PackedScene = stone_scenes.pick_random()
-	current_stone = random_stone_scene.instantiate() as RigidBody2D
+	is_wall_settled = true
 	
-	# 1. Scale child nodes (Sprite2D & Collision)
-	for child in current_stone.get_children():
-		if child is Sprite2D or child is CollisionPolygon2D or child is CollisionShape2D:
-			child.scale = global_stone_scale
+	if is_instance_valid(drop_button):
+		var has_hover_stone = is_instance_valid(current_stone) and current_stone.freeze
+		drop_button.disabled = not has_hover_stone
 
-	# 2. Add to scene tree FIRST (so viewport size is valid!)
-	add_child(current_stone)
-	
-	# 3. Position cleanly in top-center AFTER adding to tree
-	if current_stone.has_method("setup_spawn"):
-		current_stone.setup_spawn()
 
-	# Listen for landing signal
-	if current_stone.has_signal("stone_landed"):
-		current_stone.stone_landed.connect(_on_stone_landed)
+func _on_wall_goal_reached() -> void:
+	if is_saving_wall:
+		return
+		
+	is_saving_wall = true
+	if is_instance_valid(drop_button):
+		drop_button.disabled = true
+		
+	save_current_wall()
 
-func _on_stone_landed() -> void:
-	await get_tree().create_timer(0.3).timeout
-	spawn_random_stone()
 
-func _process(delta: float) -> void:
-	if is_instance_valid(current_stone) and current_stone.freeze:
-		if move_dir != 0.0:
-			current_stone.move_hover(move_dir * move_speed * delta)
-		if rotate_dir != 0.0:
-			current_stone.rotate_hover(rotate_dir * rotate_speed * delta)
+# --- UI BUTTON SIGNALS ---
 
-# --- LEFT BUTTON ---
 func _on_button_left_button_down() -> void:
-	move_dir = -1.0
+	if is_instance_valid(hover_input_controller): hover_input_controller.on_left_down()
 
 func _on_button_left_button_up() -> void:
-	if move_dir == -1.0:
-		move_dir = 0.0
+	if is_instance_valid(hover_input_controller): hover_input_controller.on_left_up()
 
-# --- RIGHT BUTTON ---
 func _on_button_right_button_down() -> void:
-	move_dir = 1.0
+	if is_instance_valid(hover_input_controller): hover_input_controller.on_right_down()
 
 func _on_button_right_button_up() -> void:
-	if move_dir == 1.0:
-		move_dir = 0.0
+	if is_instance_valid(hover_input_controller): hover_input_controller.on_right_up()
 
-# --- ROTATE LEFT BUTTON ---
 func _on_button_rotate_left_button_down() -> void:
-	rotate_dir = -1.0
+	if is_instance_valid(hover_input_controller): hover_input_controller.on_rotate_left_down()
 
 func _on_button_rotate_left_button_up() -> void:
-	if rotate_dir == -1.0:
-		rotate_dir = 0.0
+	if is_instance_valid(hover_input_controller): hover_input_controller.on_rotate_left_up()
 
-# --- ROTATE RIGHT BUTTON ---
 func _on_button_rotate_right_button_down() -> void:
-	rotate_dir = 1.0
+	if is_instance_valid(hover_input_controller): hover_input_controller.on_rotate_right_down()
 
 func _on_button_rotate_right_button_up() -> void:
-	if rotate_dir == 1.0:
-		rotate_dir = 0.0
+	if is_instance_valid(hover_input_controller): hover_input_controller.on_rotate_right_up()
 
-# --- DROP BUTTON ---
+
 func _on_button_drop_pressed() -> void:
+	if is_saving_wall or not is_wall_settled:
+		return
+
 	if is_instance_valid(current_stone) and current_stone.freeze:
-		move_dir = 0.0
-		rotate_dir = 0.0
-		current_stone.start_falling()
+		var dropped_stone: RigidBody2D = current_stone
+		current_stone = null
+		
+		if is_instance_valid(hover_input_controller):
+			hover_input_controller.clear_active_stone()
+		
+		if not wall_stones.has(dropped_stone):
+			wall_stones.append(dropped_stone)
+		
+		dropped_stone.start_falling()
+		
+		is_wall_settled = false
+		if is_instance_valid(drop_button):
+			drop_button.disabled = true
+
+		if is_instance_valid(settlement_monitor):
+			settlement_monitor.start_monitoring(wall_stones)
+
+		if is_instance_valid(stone_spawner):
+			stone_spawner.spawn_next_stone_with_delay()
+
+
+func _on_button_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/control.tscn")
+
+
+func save_current_wall() -> void:
+	if is_instance_valid(hover_input_controller):
+		hover_input_controller.is_active = false
+
+	if is_instance_valid(wall_capture_service):
+		var wall_image: Image = await wall_capture_service.capture_wall_image(wall_stones, floor_node)
+		wall_capture_service.save_wall_to_disk(wall_image)
+
+	get_tree().change_scene_to_file("res://scenes/farm_scene.tscn")

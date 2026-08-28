@@ -1,47 +1,273 @@
 [gd_scene format=3 uid="uid://dtgkgpwbsx5ix"]
 
 [ext_resource type="PackedScene" uid="uid://d3g7b01g8fax8" path="res://scenes/stones/stone1.tscn" id="2_2l77h"]
-[ext_resource type="Texture2D" uid="uid://bcg2jhk3fgq4d" path="res://icon.svg" id="2_d2op2"]
 [ext_resource type="Script" uid="uid://c6k5d3xap33w1" path="res://scripts/main_game.gd" id="2_n8b2x"]
+[ext_resource type="Texture2D" uid="uid://c7olm7dty5jev" path="res://art/BlueSkySoftEdge1.png" id="2_uft02"]
 [ext_resource type="PackedScene" uid="uid://brsclq2efyjop" path="res://scenes/stones/stone2.tscn" id="3_nqdth"]
+[ext_resource type="Texture2D" uid="uid://1ikwm87pgmgq" path="res://art/Cloud1.2.png" id="3_u2muw"]
 [ext_resource type="PackedScene" uid="uid://dd60uoevqlmry" path="res://scenes/stones/stone3.tscn" id="4_5cypo"]
+[ext_resource type="Texture2D" uid="uid://ci74esww7muhx" path="res://art/Cloud3.1.png" id="4_ynq6o"]
 [ext_resource type="PackedScene" uid="uid://hq78qademf4q" path="res://scenes/stones/stone4.tscn" id="5_o6v7o"]
+[ext_resource type="Texture2D" uid="uid://c52knlwe7ooxy" path="res://art/Cloud2.1.png" id="5_ynq6o"]
 [ext_resource type="PackedScene" uid="uid://8w8fw0th87q2" path="res://scenes/stones/stone5.tscn" id="6_wjob3"]
 [ext_resource type="PackedScene" uid="uid://c7dnw4ex6i7fi" path="res://scenes/stones/stone6.tscn" id="7_8xp80"]
+[ext_resource type="PackedScene" uid="uid://crqvf78i3rjnx" path="res://scenes/stones/stone7.tscn" id="8_ihbck"]
+[ext_resource type="PackedScene" uid="uid://cf4dydt0ftu1v" path="res://scenes/stones/stone8.tscn" id="9_vnsdt"]
+[ext_resource type="Texture2D" uid="uid://dapbwxvthcxc2" path="res://art/LeftArrow4.png" id="10_sp04v"]
+[ext_resource type="PackedScene" uid="uid://cy5be5riqbxwb" path="res://scenes/stones/stone9.tscn" id="10_yu8cv"]
+[ext_resource type="PackedScene" uid="uid://dh0cffsrubvxg" path="res://scenes/stones/stone10.tscn" id="11_ibnub"]
+[ext_resource type="Texture2D" uid="uid://vymohvcjbi6g" path="res://art/RotateLeft1.png" id="11_ihbck"]
+[ext_resource type="PackedScene" uid="uid://cxh6tic6kvhdd" path="res://scenes/stones/stone11.tscn" id="12_5wboo"]
+[ext_resource type="Texture2D" uid="uid://u5bs1nnyilpb" path="res://art/LeftArrow6.png" id="12_vnsdt"]
+[ext_resource type="PackedScene" uid="uid://b57tuu0en88h" path="res://scenes/stones/stone12.tscn" id="13_cybgu"]
+[ext_resource type="Texture2D" uid="uid://d2e6ww2lag3qi" path="res://art/RotateRight3.png" id="13_ikqpi"]
+[ext_resource type="Texture2D" uid="uid://d0wjvvpm2jjot" path="res://art/LeftArrow1.png" id="14_5luka"]
+[ext_resource type="PackedScene" uid="uid://lximywvreven" path="res://scenes/stones/stone13.tscn" id="14_wdxbp"]
+[ext_resource type="PackedScene" uid="uid://dm2btjvnj15c0" path="res://scenes/stones/stone14.tscn" id="15_on6n6"]
+[ext_resource type="Texture2D" uid="uid://c7iukhnxwfjhk" path="res://art/LongBackgroundGrass2.png" id="15_uft02"]
+[ext_resource type="PackedScene" uid="uid://c2x4lrnt8gtti" path="res://scenes/stones/stone15.tscn" id="16_x3ega"]
+[ext_resource type="PackedScene" uid="uid://c2qow0m5ft0dj" path="res://scenes/stones/stone16.tscn" id="17_urnot"]
+[ext_resource type="PackedScene" uid="uid://jg0hbfd06qve" path="res://scenes/stones/stone17.tscn" id="18_4e2rb"]
+[ext_resource type="PackedScene" uid="uid://dl2mptckpawj7" path="res://scenes/stones/stone18.tscn" id="19_q875d"]
+[ext_resource type="Script" uid="uid://6hqs28o3jafx" path="res://scripts/stone_spawner.gd" id="19_v2gn3"]
+[ext_resource type="PackedScene" uid="uid://dyon6dgl8c5nb" path="res://scenes/stones/stone19.tscn" id="20_dvo3n"]
+[ext_resource type="PackedScene" uid="uid://caukdeo8fvjhe" path="res://scenes/stones/stone20.tscn" id="21_1vioj"]
+[ext_resource type="PackedScene" uid="uid://s0vod7oa2bqw" path="res://scenes/stones/stone21.tscn" id="22_g2o8j"]
+[ext_resource type="PackedScene" uid="uid://bih54ulgwscfy" path="res://scenes/stones/stone22.tscn" id="23_oojmo"]
+[ext_resource type="PackedScene" uid="uid://cisg2hx4pgxyd" path="res://scenes/stones/stone23.tscn" id="24_5noht"]
+[ext_resource type="Texture2D" uid="uid://cstkslca6j5hr" path="res://art/LeftArrow7.png" id="24_rr87q"]
+[ext_resource type="PackedScene" uid="uid://bwjqhkdv6yjdo" path="res://scenes/stones/stone24.tscn" id="25_g2o8j"]
+[ext_resource type="PackedScene" uid="uid://b4urohgknwe73" path="res://scenes/stones/stone25.tscn" id="26_oojmo"]
+[ext_resource type="PackedScene" uid="uid://dxea1siy1hce6" path="res://scenes/stones/stone26.tscn" id="27_5noht"]
+[ext_resource type="PackedScene" uid="uid://cyg815fjun3bt" path="res://scenes/stones/stone27.tscn" id="28_oojmo"]
+[ext_resource type="PackedScene" uid="uid://dun418m05b7x2" path="res://scenes/stones/stone28.tscn" id="29_krfhu"]
+[ext_resource type="PackedScene" uid="uid://chyri42dt111n" path="res://scenes/stones/stone29.tscn" id="30_x3a3x"]
+[ext_resource type="PackedScene" uid="uid://bftl6x42gdkr2" path="res://scenes/stones/stone30.tscn" id="31_sgocm"]
+[ext_resource type="PackedScene" uid="uid://brxdforiectv6" path="res://scenes/stones/stone31.tscn" id="32_pk1le"]
+[ext_resource type="PackedScene" uid="uid://br04ol0oc5qn5" path="res://scenes/stones/stone32.tscn" id="33_1al3e"]
+[ext_resource type="PackedScene" uid="uid://b6vewdtemhtf1" path="res://scenes/stones/stone33.tscn" id="34_sh8gf"]
+[ext_resource type="PackedScene" uid="uid://co78hsrrptfnv" path="res://scenes/stones/stone34.tscn" id="35_4h0lf"]
+[ext_resource type="PackedScene" uid="uid://dcbva4xnpvrd1" path="res://scenes/stones/stone35.tscn" id="36_3ikos"]
+[ext_resource type="PackedScene" uid="uid://bkwkyijbndb0e" path="res://scenes/stones/stone36.tscn" id="37_pjtuq"]
+[ext_resource type="PackedScene" uid="uid://rrj0mlyvbrtw" path="res://scenes/stones/stone37.tscn" id="38_3f3c0"]
+[ext_resource type="PackedScene" uid="uid://dtjf3atkf38y3" path="res://scenes/stones/stone38.tscn" id="39_7q0na"]
+[ext_resource type="PackedScene" uid="uid://o6d5w1qrgxuh" path="res://scenes/stones/stone39.tscn" id="40_aduj5"]
+[ext_resource type="PackedScene" uid="uid://b5vxvi8l5yh0k" path="res://scenes/stones/stone40.tscn" id="41_l8gia"]
+[ext_resource type="PackedScene" uid="uid://dat04c3ijj1la" path="res://scenes/stones/stone41.tscn" id="42_ids5a"]
+[ext_resource type="PackedScene" uid="uid://pqotmi84vnyy" path="res://scenes/stones/stone42.tscn" id="43_qr7ox"]
+[ext_resource type="PackedScene" uid="uid://cb4ahk6a183vu" path="res://scenes/stones/stone43.tscn" id="44_3fkkw"]
+[ext_resource type="PackedScene" uid="uid://wqwfuyc6xj8w" path="res://scenes/stones/stone44.tscn" id="45_3mkrk"]
+[ext_resource type="PackedScene" uid="uid://d2bmdo41gec0c" path="res://scenes/stones/stone45.tscn" id="46_v2gn3"]
+[ext_resource type="PackedScene" uid="uid://c6t8qpq3heoyx" path="res://scenes/stones/stone46.tscn" id="47_r3lgv"]
+[ext_resource type="PackedScene" uid="uid://h7j0l3qs27uo" path="res://scenes/stones/stone47.tscn" id="48_5ehsd"]
+[ext_resource type="PackedScene" uid="uid://c17nofdqeb5o1" path="res://scenes/stones/stone48.tscn" id="49_0l6bj"]
+[ext_resource type="PackedScene" uid="uid://cpyonbugow1u7" path="res://scenes/stones/stone49.tscn" id="50_uft02"]
+[ext_resource type="PackedScene" uid="uid://bmbtvyhx68vq6" path="res://scenes/stones/stone50.tscn" id="51_u2muw"]
+[ext_resource type="PackedScene" uid="uid://bothph0yyau5r" path="res://scenes/stones/stone51.tscn" id="52_ynq6o"]
+[ext_resource type="PackedScene" uid="uid://c7tunwa1cabxf" path="res://scenes/stones/stone52.tscn" id="53_xisu6"]
+[ext_resource type="PackedScene" uid="uid://c7to6ga4na03h" path="res://scenes/stones/stone53.tscn" id="54_qnxwh"]
+[ext_resource type="PackedScene" uid="uid://ya3xs7kx7jy1" path="res://scenes/stones/stone54.tscn" id="55_dsflj"]
+[ext_resource type="PackedScene" uid="uid://6g4axes3uc0h" path="res://scenes/stones/stone55.tscn" id="56_72466"]
+[ext_resource type="PackedScene" uid="uid://c4ayjpks3s606" path="res://scenes/stones/stone56.tscn" id="57_ai8cu"]
+[ext_resource type="PackedScene" uid="uid://bqrkv3v7ifpng" path="res://scenes/stones/stone57.tscn" id="58_mwahn"]
+[ext_resource type="PackedScene" uid="uid://courpn1tnbgr2" path="res://scenes/stones/stone58.tscn" id="59_777ow"]
+[ext_resource type="PackedScene" uid="uid://dlggjhka4648h" path="res://scenes/stones/stone59.tscn" id="60_c32t2"]
+[ext_resource type="PackedScene" uid="uid://dxmiula6b8ol6" path="res://scenes/stones/stone60.tscn" id="61_sffie"]
+[ext_resource type="PackedScene" uid="uid://3b455rkrano5" path="res://scenes/stones/stone61.tscn" id="62_js1wn"]
+[ext_resource type="PackedScene" uid="uid://ct7f8nqdjom13" path="res://scenes/stones/stone62.tscn" id="63_0ep8y"]
+[ext_resource type="PackedScene" uid="uid://no0o0tueo37q" path="res://scenes/stones/stone63.tscn" id="64_1aci3"]
+[ext_resource type="PackedScene" uid="uid://woiuygns350p" path="res://scenes/stones/stone64.tscn" id="65_kmlog"]
+[ext_resource type="PackedScene" uid="uid://d0fthgbndkg0f" path="res://scenes/stones/stone65.tscn" id="66_ljsgw"]
+[ext_resource type="PackedScene" uid="uid://lecta1dn1xhr" path="res://scenes/stones/stone66.tscn" id="67_x7xx5"]
+[ext_resource type="PackedScene" uid="uid://c5h6qq72ilcu6" path="res://scenes/stones/stone67.tscn" id="68_rxsnt"]
+[ext_resource type="PackedScene" uid="uid://borjkmi44vnj" path="res://scenes/stones/stone68.tscn" id="69_li2f6"]
+[ext_resource type="PackedScene" uid="uid://c5yqm2jegosrg" path="res://scenes/stones/stone69.tscn" id="70_dck63"]
+[ext_resource type="Texture2D" uid="uid://cwvuvnnl5xrrf" path="res://art/LongBackgroundGrass.png" id="75_u2muw"]
+[ext_resource type="Texture2D" uid="uid://d2p0vbrww8xtl" path="res://art/StakeStraightThin2.png" id="86_5ehsd"]
+[ext_resource type="Texture2D" uid="uid://c8img1em0yj3y" path="res://art/String1.png" id="86_htswi"]
+[ext_resource type="Texture2D" uid="uid://d4ihxw3dn273f" path="res://art/StakeStraight2.png" id="86_r3lgv"]
+[ext_resource type="Script" uid="uid://7pl5le2in7l7" path="res://scripts/wall_capture_service.gd" id="87_3mkrk"]
+[ext_resource type="Script" uid="uid://hjl101u8sulr" path="res://scripts/settlement_monitor.gd" id="89_r3lgv"]
+[ext_resource type="Script" uid="uid://dw27t8jepmfqy" path="res://scripts/hover_input_controller.gd" id="90_5ehsd"]
+[ext_resource type="Shader" uid="uid://s5et8jtwipak" path="res://scenes/grass.gdshader" id="92_ynq6o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5h11f"]
-size = Vector2(1160, 50)
+size = Vector2(1927, 533.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3nbp6"]
-size = Vector2(314, 1086)
+size = Vector2(354, 3157)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ft2n7"]
-size = Vector2(442, 1087)
+size = Vector2(384, 3038)
 
-[node name="MainGame" type="Node2D" unique_id=1114634166]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5h11f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5iqjx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bx8n8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jx8tp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3nbp6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ft2n7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nksb8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1fiyt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mq1y0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_htswi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ovhvi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_isu2l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0okwp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5se2m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fpeu6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vghsm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ofp31"]
+shader = ExtResource("92_ynq6o")
+shader_parameter/saturation = 1.0000000475
+shader_parameter/brightness = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx8n8"]
+size = Vector2(2778.5, 15)
+
+[node name="MainGame" type="Node2D" unique_id=1114634166 node_paths=PackedStringArray("floor_node", "drop_button", "stone_spawner", "wall_capture_service", "settlement_monitor", "hover_input_controller")]
 script = ExtResource("2_n8b2x")
-move_speed = 400.0
-rotate_speed = 2.0
-stone_scenes = Array[PackedScene]([ExtResource("2_2l77h"), ExtResource("3_nqdth"), ExtResource("4_5cypo"), ExtResource("5_o6v7o"), ExtResource("6_wjob3"), ExtResource("7_8xp80")])
-global_stone_scale = Vector2(0.25, 0.25)
+floor_node = NodePath("Container/FloorShape")
+drop_button = NodePath("Buttons/MarginContainer/HBoxContainer/Control/ButtonDrop")
+stone_spawner = NodePath("StoneSpawner")
+wall_capture_service = NodePath("WallCaptureService")
+settlement_monitor = NodePath("SettlementMonitor")
+hover_input_controller = NodePath("HoverInputController")
+metadata/_edit_vertical_guides_ = [50.0, 1030.0, 540.0]
+metadata/_edit_horizontal_guides_ = [2134.0]
+
+[node name="WorldArt" type="Node2D" parent="." unique_id=198611863]
+
+[node name="Parallax2D" type="Parallax2D" parent="WorldArt" unique_id=68648050]
+repeat_size = Vector2(1500, 0)
+autoscroll = Vector2(5, 0)
+repeat_times = 3
+
+[node name="Sky" type="TextureRect" parent="WorldArt/Parallax2D" unique_id=426920958]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -513.0
+offset_top = -57.0
+offset_right = 2911.0
+offset_bottom = 1550.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_uft02")
+stretch_mode = 4
+
+[node name="Parallax2D2" type="Parallax2D" parent="WorldArt" unique_id=882253418]
+texture_repeat = 2
+repeat_size = Vector2(10000, 0)
+autoscroll = Vector2(20, 0)
+repeat_times = 2
+
+[node name="Cloud1" type="TextureRect" parent="WorldArt/Parallax2D2" unique_id=1680862187]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3631.0
+offset_top = -43.0
+offset_right = -207.0
+offset_bottom = 1491.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_u2muw")
+stretch_mode = 4
+
+[node name="Cloud3" type="TextureRect" parent="WorldArt/Parallax2D2" unique_id=77400121]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1996.0
+offset_top = -280.0
+offset_right = 1428.0
+offset_bottom = 1254.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_ynq6o")
+stretch_mode = 4
+
+[node name="Cloud2" type="TextureRect" parent="WorldArt/Parallax2D2" unique_id=513074070]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3713.0
+offset_top = 428.0
+offset_right = 7137.0
+offset_bottom = 1962.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_ynq6o")
+stretch_mode = 4
+
+[node name="Grass4" type="TextureRect" parent="WorldArt" unique_id=191734783]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2144.9998
+offset_top = 1038.9999
+offset_right = 1658.0002
+offset_bottom = 1999.9999
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.02866761
+texture = ExtResource("75_u2muw")
+stretch_mode = 4
+
+[node name="Grass5" type="TextureRect" parent="WorldArt" unique_id=690909148]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -903.0
+offset_top = 1329.0
+offset_right = 2900.0
+offset_bottom = 2290.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("75_u2muw")
+stretch_mode = 4
+
+[node name="CollisionContainer" type="CanvasLayer" parent="." unique_id=1961393567]
+layer = -1
 
 [node name="Container" type="StaticBody2D" parent="." unique_id=220810507]
 
 [node name="FloorShape" type="CollisionShape2D" parent="Container" unique_id=820916916]
-position = Vector2(382, 1075)
+position = Vector2(557.5, 2274.25)
 shape = SubResource("RectangleShape2D_5h11f")
 
 [node name="LeftWallShape" type="CollisionShape2D" parent="Container" unique_id=366364136]
-position = Vector2(-147, 533)
+position = Vector2(-127, 1126.5)
 shape = SubResource("RectangleShape2D_3nbp6")
 
 [node name="RightWallShape" type="CollisionShape2D" parent="Container" unique_id=1119688685]
-position = Vector2(931, 533.5)
+position = Vector2(1222, 1164)
 shape = SubResource("RectangleShape2D_ft2n7")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=80796513]
+[node name="Buttons" type="CanvasLayer" parent="." unique_id=80796513]
+layer = 10
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer2" unique_id=1667812380]
+[node name="MarginContainer" type="MarginContainer" parent="Buttons" unique_id=1667812380]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -52,63 +278,228 @@ theme_override_constants/margin_left = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 32
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/MarginContainer" unique_id=772664202]
+[node name="HBoxContainer" type="HBoxContainer" parent="Buttons/MarginContainer" unique_id=772664202]
 layout_mode = 2
 
-[node name="ButtonLeft" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer" unique_id=942454256]
-custom_minimum_size = Vector2(40, 40)
+[node name="Control" type="Control" parent="Buttons/MarginContainer/HBoxContainer" unique_id=975149190]
+custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
+
+[node name="ButtonLeft" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=942454256]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -306.0
+offset_right = 443.00006
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.45, 0.45)
 size_flags_horizontal = 3
 focus_mode = 0
-icon = ExtResource("2_d2op2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5h11f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5iqjx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bx8n8")
+icon = ExtResource("10_sp04v")
 
-[node name="ButtonRotateLeft" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer" unique_id=341498008]
+[node name="ButtonRotateLeft" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=341498008]
 custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 234.0
+offset_top = -316.0
+offset_right = 719.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.32, 0.32)
 size_flags_horizontal = 3
 focus_mode = 0
-icon = ExtResource("2_d2op2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jx8tp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3nbp6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ft2n7")
+action_mode = 0
+icon = ExtResource("11_ihbck")
 
-[node name="ButtonDrop" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer" unique_id=748643021]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
+[node name="ButtonDrop" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=748643021]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 408.0
+offset_top = -101.0
+offset_right = 758.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -1.5707964
+scale = Vector2(0.65, 0.65)
 size_flags_horizontal = 3
 focus_mode = 0
-icon = ExtResource("2_d2op2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nksb8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1fiyt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mq1y0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_htswi")
+icon = ExtResource("12_vnsdt")
 
-[node name="ButtonRotateRight" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer" unique_id=90415034]
+[node name="ButtonRotateRight" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=90415034]
 custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 607.99994
+offset_top = -314.0
+offset_right = 1057.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
 size_flags_horizontal = 3
 focus_mode = 0
-icon = ExtResource("2_d2op2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ovhvi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_isu2l")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0okwp")
+action_mode = 0
+icon = ExtResource("13_ikqpi")
 
-[node name="ButtonRight" type="Button" parent="CanvasLayer2/MarginContainer/HBoxContainer" unique_id=790328937]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
+[node name="ButtonRight" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=790328937]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 993.0
+offset_top = -149.0
+offset_right = 1360.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 3.1415927
+scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 3
 focus_mode = 0
-icon = ExtResource("2_d2op2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5se2m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fpeu6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vghsm")
+icon = ExtResource("14_5luka")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1961393567]
-layer = -1
+[node name="ButtonMenu" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=1715892492]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+offset_left = 7.0
+offset_top = -2333.0
+offset_right = 480.0
+offset_bottom = -2020.0
+scale = Vector2(0.45, 0.45)
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5h11f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5iqjx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bx8n8")
+icon = ExtResource("24_rr87q")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=165348234]
+[node name="ForegroundArt" type="CanvasLayer" parent="." unique_id=1317586991]
+layer = 9
+
+[node name="StakeL" type="TextureRect" parent="ForegroundArt" unique_id=1700110521]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = 403.0
+offset_right = 2019.0
+offset_bottom = 3507.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color(0.08577915, 0.45449877, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("86_5ehsd")
+stretch_mode = 4
 
-[connection signal="button_down" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonLeft" to="." method="_on_button_left_button_down"]
-[connection signal="button_up" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonLeft" to="." method="_on_button_left_button_up"]
-[connection signal="button_down" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonRotateLeft" to="." method="_on_button_rotate_left_button_down"]
-[connection signal="button_up" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonRotateLeft" to="." method="_on_button_rotate_left_button_up"]
-[connection signal="pressed" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonDrop" to="." method="_on_button_drop_pressed"]
-[connection signal="button_down" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonRotateRight" to="." method="_on_button_rotate_right_button_down"]
-[connection signal="button_up" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonRotateRight" to="." method="_on_button_rotate_right_button_up"]
-[connection signal="button_down" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonRight" to="." method="_on_button_right_button_down"]
-[connection signal="button_up" from="CanvasLayer2/MarginContainer/HBoxContainer/ButtonRight" to="." method="_on_button_right_button_up"]
+[node name="StakeR" type="TextureRect" parent="ForegroundArt" unique_id=304510429]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1025.0
+offset_top = 392.0
+offset_right = 3132.0
+offset_bottom = 3496.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("86_r3lgv")
+stretch_mode = 4
+
+[node name="Grass9" type="TextureRect" parent="ForegroundArt" unique_id=682421075]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1188.0
+offset_top = 2041.0
+offset_right = 2594.0
+offset_bottom = 2815.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.031316686
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="String" type="TextureRect" parent="ForegroundArt" unique_id=40574352]
+offset_left = -1248.0001
+offset_top = 502.00003
+offset_right = -1186.0001
+offset_bottom = 3229.0
+rotation = -1.5581435
+scale = Vector2(0.7200403, 1)
+texture = ExtResource("86_htswi")
+
+[node name="StringLineTrigger" type="Area2D" parent="." unique_id=1500347345]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StringLineTrigger" unique_id=307323575]
+position = Vector2(0, 500.5)
+shape = SubResource("RectangleShape2D_bx8n8")
+
+[node name="WallCaptureService" type="Node2D" parent="." unique_id=1628402180]
+script = ExtResource("87_3mkrk")
+
+[node name="StoneSpawner" type="Node2D" parent="." unique_id=1479664925]
+script = ExtResource("19_v2gn3")
+stone_scenes = Array[PackedScene]([ExtResource("2_2l77h"), ExtResource("3_nqdth"), ExtResource("4_5cypo"), ExtResource("5_o6v7o"), ExtResource("6_wjob3"), ExtResource("7_8xp80"), ExtResource("8_ihbck"), ExtResource("9_vnsdt"), ExtResource("10_yu8cv"), ExtResource("11_ibnub"), ExtResource("12_5wboo"), ExtResource("13_cybgu"), ExtResource("14_wdxbp"), ExtResource("15_on6n6"), ExtResource("16_x3ega"), ExtResource("17_urnot"), ExtResource("18_4e2rb"), ExtResource("19_q875d"), ExtResource("20_dvo3n"), ExtResource("21_1vioj"), ExtResource("22_g2o8j"), ExtResource("23_oojmo"), ExtResource("24_5noht"), ExtResource("25_g2o8j"), ExtResource("26_oojmo"), ExtResource("27_5noht"), ExtResource("28_oojmo"), ExtResource("29_krfhu"), ExtResource("30_x3a3x"), ExtResource("31_sgocm"), ExtResource("32_pk1le"), ExtResource("33_1al3e"), ExtResource("34_sh8gf"), ExtResource("35_4h0lf"), ExtResource("36_3ikos"), ExtResource("37_pjtuq"), ExtResource("38_3f3c0"), ExtResource("39_7q0na"), ExtResource("40_aduj5"), ExtResource("41_l8gia"), ExtResource("42_ids5a"), ExtResource("43_qr7ox"), ExtResource("44_3fkkw"), ExtResource("45_3mkrk"), ExtResource("46_v2gn3"), ExtResource("47_r3lgv"), ExtResource("48_5ehsd"), ExtResource("49_0l6bj"), ExtResource("50_uft02"), ExtResource("51_u2muw"), ExtResource("52_ynq6o"), ExtResource("53_xisu6"), ExtResource("54_qnxwh"), ExtResource("55_dsflj"), ExtResource("56_72466"), ExtResource("57_ai8cu"), ExtResource("58_mwahn"), ExtResource("59_777ow"), ExtResource("60_c32t2"), ExtResource("61_sffie"), ExtResource("62_js1wn"), ExtResource("63_0ep8y"), ExtResource("64_1aci3"), ExtResource("65_kmlog"), ExtResource("66_ljsgw"), ExtResource("67_x7xx5"), ExtResource("68_rxsnt"), ExtResource("69_li2f6"), ExtResource("70_dck63")])
+global_stone_scale = Vector2(0.45, 0.45)
+
+[node name="SettlementMonitor" type="Node2D" parent="." unique_id=1227193847 node_paths=PackedStringArray("string_line")]
+script = ExtResource("89_r3lgv")
+string_line = NodePath("../StringLineTrigger")
+
+[node name="HoverInputController" type="Node2D" parent="." unique_id=1664191255]
+script = ExtResource("90_5ehsd")
+move_speed = 300.0
+rotate_speed = 2.0
+
+[connection signal="button_down" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonLeft" to="." method="_on_button_left_button_down"]
+[connection signal="button_up" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonLeft" to="." method="_on_button_left_button_up"]
+[connection signal="button_down" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRotateLeft" to="." method="_on_button_rotate_left_button_down"]
+[connection signal="button_up" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRotateLeft" to="." method="_on_button_rotate_left_button_up"]
+[connection signal="pressed" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonDrop" to="." method="_on_button_drop_pressed"]
+[connection signal="button_down" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRotateRight" to="." method="_on_button_rotate_right_button_down"]
+[connection signal="button_up" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRotateRight" to="." method="_on_button_rotate_right_button_up"]
+[connection signal="button_down" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRight" to="." method="_on_button_right_button_down"]
+[connection signal="button_up" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRight" to="." method="_on_button_right_button_up"]
+[connection signal="pressed" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonMenu" to="." method="_on_button_menu_pressed"]

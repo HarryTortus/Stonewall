@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dlggjhka4648h"]
+
+[ext_resource type="Script" uid="uid://dw4275yokv0p" path="res://scripts/falling_object.gd" id="1_u1kft"]
+[ext_resource type="Texture2D" uid="uid://dpbqumb8omkno" path="res://art/stone59.png" id="2_u1kft"]
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1488835104]
+script = ExtResource("1_u1kft")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1478151581]
+texture = ExtResource("2_u1kft")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1428937247]
+polygon = PackedVector2Array(204, 257, 296, 259, 318, 196, 321, 162, 268, 74, 205, 11, 114, -98, 70, -129, 33, -145, -9, -169, -67, -197, -133, -229, -179, -237, -234, -260, -296, -255, -315, -228, -320, -195, -317, -185, -287, -152, -281, -133, -264, -119, -250, -119, -248, -102, -193, -49, -169, -42, -127, -5, -74, 44, 1, 92, 90, 167, 92, 182, 172, 238, 189, 238)

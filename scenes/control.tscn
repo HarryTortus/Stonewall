@@ -1,6 +1,93 @@
 [gd_scene format=3 uid="uid://gwadhibinenx"]
 
 [ext_resource type="Script" uid="uid://2ostbx13h4u4" path="res://scripts/control.gd" id="1_0fbet"]
+[ext_resource type="Texture2D" uid="uid://b4t1bewke0qo5" path="res://art/BarnButton.png" id="3_0jf8d"]
+[ext_resource type="FontFile" uid="uid://6bnw0m4vrnvs" path="res://fonts/Eastwood.otf" id="3_lt2xq"]
+[ext_resource type="Texture2D" uid="uid://ymthoy1s7jr4" path="res://art/BlueSky1.png" id="4_exs80"]
+[ext_resource type="Texture2D" uid="uid://1ikwm87pgmgq" path="res://art/Cloud1.2.png" id="5_apcft"]
+[ext_resource type="Texture2D" uid="uid://cwvuvnnl5xrrf" path="res://art/LongBackgroundGrass.png" id="6_6pn8l"]
+[ext_resource type="Texture2D" uid="uid://cx4bn5el3trd7" path="res://art/wall_2.png" id="6_exs80"]
+[ext_resource type="Texture2D" uid="uid://dlpck2vf1e4m7" path="res://art/BarnOpen.png" id="7_2pn8f"]
+[ext_resource type="Texture2D" uid="uid://s8x6eyvow3kh" path="res://art/wall_3.png" id="7_kql7n"]
+[ext_resource type="Texture2D" uid="uid://dj1ps7csyp3v5" path="res://art/BarnDoor1.png" id="8_tfhda"]
+[ext_resource type="Texture2D" uid="uid://c45li2rpscjho" path="res://art/wall_5.png" id="9_tac8f"]
+[ext_resource type="Texture2D" uid="uid://b3m0vqnqv0vk3" path="res://art/BarnBeam1.png" id="9_usxgj"]
+[ext_resource type="Texture2D" uid="uid://elb88mnf4sdr" path="res://art/LongGrass.png" id="11_0jf8d"]
+[ext_resource type="Texture2D" uid="uid://okvc5r7720o5" path="res://art/GrassClump3Soft.png" id="14_mmsp5"]
+[ext_resource type="Shader" uid="uid://s5et8jtwipak" path="res://scenes/grass.gdshader" id="16_an0t8"]
+[ext_resource type="PackedScene" uid="uid://cto6ipa66yjt3" path="res://scenes/sheep/Sheep1.tscn" id="17_db4rb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tx03s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3dpj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dlp81"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kp04n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8kow4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vvbtq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pn8l"]
+bg_color = Color(9.877248, 12.130976, 13.18741, 1)
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehb43"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ednal"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kaou4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lr483"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rk4e5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmsp5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_an0t8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_db4rb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6uaey"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sej5b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0jf8d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apcft"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2pn8f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tfhda"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_usxgj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5h11f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bx8n8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5iqjx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jx8tp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3nbp6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ft2n7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nksb8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ovhvi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mq1y0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1fiyt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_odlcc"]
+shader = ExtResource("16_an0t8")
+shader_parameter/saturation = 0.9410000446975
+shader_parameter/brightness = 0.7850000372875
 
 [node name="Control" type="Control" unique_id=1413454092]
 layout_mode = 3
@@ -11,77 +98,515 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0fbet")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1501640861]
+[node name="ButtonSettings" type="Button" parent="." unique_id=308913306]
+layout_mode = 0
+offset_left = 729.0
+offset_top = 608.0
+offset_right = 1063.0
+offset_bottom = 729.0
+size_flags_horizontal = 4
+offset_transform_enabled = true
+focus_mode = 0
+theme_override_colors/font_color = Color(0.31431612, 0.31431612, 0.3143161, 1)
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tx03s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_r3dpj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dlp81")
+text = "Options"
+
+[node name="Title" type="Label" parent="." unique_id=2117024624]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 145.0
+offset_right = 1200.0
+offset_bottom = 373.0
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 132
+text = "Stonewall"
+horizontal_alignment = 1
+
+[node name="ButtonPlay" type="Button" parent="." unique_id=257871267]
+layout_mode = 0
+offset_left = 687.0
+offset_top = 1018.0
+offset_right = 1056.0
+offset_bottom = 1234.0
+size_flags_horizontal = 4
+offset_transform_enabled = true
+focus_mode = 0
+theme_override_colors/font_color = Color(0.32397863, 0.7239681, 0.19714445, 1)
+theme_override_colors/font_focus_color = Color(0.76862746, 0.99607843, 0.70980394, 1)
+theme_override_colors/font_pressed_color = Color(0.76862746, 0.99607843, 0.70980394, 1)
+theme_override_colors/font_hover_color = Color(0.7686701, 0.9960081, 0.7095688, 1)
+theme_override_constants/outline_size = 18
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 180
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kp04n")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8kow4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vvbtq")
+text = "Play"
+
+[node name="ButtonFarm" type="Button" parent="." unique_id=154247036]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 626.0
+offset_right = 488.0
+offset_bottom = 866.0
+size_flags_horizontal = 4
+offset_transform_enabled = true
+focus_mode = 0
+theme_override_colors/font_color = Color(0.8538536, 0.84610987, 0.8394793, 1)
+theme_override_colors/font_focus_color = Color(0.99215686, 0.60784316, 0.69803923, 1)
+theme_override_colors/font_pressed_color = Color(0.99215686, 0.60784316, 0.69803923, 1)
+theme_override_colors/font_hover_color = Color(0.99215686, 0.60784316, 0.69803923, 1)
+theme_override_constants/outline_size = 18
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kp04n")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8kow4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vvbtq")
+text = "Farm"
+
+[node name="SettingsLayer" type="Control" parent="." unique_id=19045966]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 100
+mouse_filter = 2
+
+[node name="ColorRect2" type="ColorRect" parent="SettingsLayer" unique_id=1238803465]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7607843)
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsLayer" unique_id=1501640861]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
 theme_override_constants/margin_top = 120
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_right = 150
 theme_override_constants/margin_bottom = 100
 
-[node name="MainMenuContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1779607242]
+[node name="SettingsMenuContainer" type="VBoxContainer" parent="SettingsLayer/MarginContainer" unique_id=1631239103]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/MainMenuContainer" unique_id=170502303]
+[node name="LabelOptions" type="Label" parent="SettingsLayer/MarginContainer/SettingsMenuContainer" unique_id=813673756]
 layout_mode = 2
-theme_override_font_sizes/font_size = 72
-text = "This is A Game"
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 110
+text = "Options"
 horizontal_alignment = 1
 
-[node name="ButtonSettings" type="Button" parent="MarginContainer/MainMenuContainer" unique_id=1951386966]
+[node name="LabelMasterVolume" type="Label" parent="SettingsLayer/MarginContainer/SettingsMenuContainer" unique_id=1046289318]
 layout_mode = 2
-size_flags_horizontal = 4
-offset_transform_enabled = true
-focus_mode = 0
-theme_override_font_sizes/font_size = 48
-text = "Settings"
-
-[node name="ButtonPlay" type="Button" parent="MarginContainer/MainMenuContainer" unique_id=266068736]
-layout_mode = 2
-size_flags_horizontal = 4
-offset_transform_enabled = true
-focus_mode = 0
-theme_override_font_sizes/font_size = 48
-text = "Play"
-
-[node name="SettingsMenuContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1631239103]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="LabelSettings" type="Label" parent="MarginContainer/SettingsMenuContainer" unique_id=813673756]
-layout_mode = 2
-theme_override_font_sizes/font_size = 72
-text = "Settings"
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 58
+text = "Master Volume"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/SettingsMenuContainer" unique_id=443686216]
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsLayer/MarginContainer/SettingsMenuContainer" unique_id=443686216]
 layout_mode = 2
 
-[node name="LabelVolume" type="Label" parent="MarginContainer/SettingsMenuContainer/HBoxContainer" unique_id=1046289318]
-layout_mode = 2
-
-[node name="HSlider" type="HSlider" parent="MarginContainer/SettingsMenuContainer/HBoxContainer" unique_id=14157823]
+[node name="MasterVolumeSlider" type="HSlider" parent="SettingsLayer/MarginContainer/SettingsMenuContainer/HBoxContainer" unique_id=14157823]
+custom_minimum_size = Vector2(350, 62)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+theme_override_constants/center_grabber = 1
+theme_override_constants/grabber_offset = 0
+theme_override_icons/grabber = ExtResource("3_0jf8d")
+theme_override_icons/grabber_highlight = ExtResource("3_0jf8d")
+theme_override_icons/grabber_disabled = ExtResource("3_0jf8d")
+theme_override_styles/slider = SubResource("StyleBoxFlat_6pn8l")
 max_value = 1.0
 step = 0.05
 value = 1.0
 tick_count = 9
 
-[node name="ButtonBack" type="Button" parent="MarginContainer/SettingsMenuContainer" unique_id=684451785]
+[node name="LabelMusicVolume" type="Label" parent="SettingsLayer/MarginContainer/SettingsMenuContainer" unique_id=1045313946]
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lt2xq")
 theme_override_font_sizes/font_size = 58
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SettingsLayer/MarginContainer/SettingsMenuContainer" unique_id=1449055708]
+layout_mode = 2
+
+[node name="MusicVolumeSlider" type="HSlider" parent="SettingsLayer/MarginContainer/SettingsMenuContainer/HBoxContainer2" unique_id=1640546277]
+custom_minimum_size = Vector2(350, 62)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("3_0jf8d")
+theme_override_icons/grabber_highlight = ExtResource("3_0jf8d")
+theme_override_icons/grabber_disabled = ExtResource("3_0jf8d")
+theme_override_styles/slider = SubResource("StyleBoxFlat_6pn8l")
+max_value = 1.0
+step = 0.05
+value = 1.0
+tick_count = 9
+
+[node name="LabelSFXVolume" type="Label" parent="SettingsLayer/MarginContainer/SettingsMenuContainer" unique_id=130865502]
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 58
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="SettingsLayer/MarginContainer/SettingsMenuContainer" unique_id=481457264]
+layout_mode = 2
+
+[node name="SFXVolumeSlider" type="HSlider" parent="SettingsLayer/MarginContainer/SettingsMenuContainer/HBoxContainer3" unique_id=39619284]
+custom_minimum_size = Vector2(350, 62)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("3_0jf8d")
+theme_override_icons/grabber_highlight = ExtResource("3_0jf8d")
+theme_override_icons/grabber_disabled = ExtResource("3_0jf8d")
+theme_override_styles/slider = SubResource("StyleBoxFlat_6pn8l")
+max_value = 1.0
+step = 0.05
+value = 1.0
+tick_count = 9
+
+[node name="LabelAmbienceVolume" type="Label" parent="SettingsLayer/MarginContainer/SettingsMenuContainer" unique_id=1975269332]
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 58
+text = "Ambience Volume"
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="SettingsLayer/MarginContainer/SettingsMenuContainer" unique_id=771654170]
+layout_mode = 2
+
+[node name="AmbienceVolumeSlider" type="HSlider" parent="SettingsLayer/MarginContainer/SettingsMenuContainer/HBoxContainer4" unique_id=1360842607]
+custom_minimum_size = Vector2(350, 62)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("3_0jf8d")
+theme_override_icons/grabber_highlight = ExtResource("3_0jf8d")
+theme_override_icons/grabber_disabled = ExtResource("3_0jf8d")
+theme_override_styles/slider = SubResource("StyleBoxFlat_6pn8l")
+max_value = 1.0
+step = 0.05
+value = 1.0
+tick_count = 9
+
+[node name="Spacer" type="Control" parent="SettingsLayer/MarginContainer/SettingsMenuContainer" unique_id=976179796]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ButtonHaptics" type="Button" parent="SettingsLayer/MarginContainer/SettingsMenuContainer" unique_id=238645650]
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 58
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ehb43")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ednal")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kaou4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lr483")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rk4e5")
+
+[node name="Spacer2" type="Control" parent="SettingsLayer/MarginContainer/SettingsMenuContainer" unique_id=165529584]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="LabelMove" type="Label" parent="SettingsLayer/MarginContainer/SettingsMenuContainer" unique_id=1095967916]
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 58
+text = "Move Speed"
+horizontal_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="SettingsLayer/MarginContainer/SettingsMenuContainer" unique_id=2041573089]
+layout_mode = 2
+
+[node name="MoveSpeedSlider" type="HSlider" parent="SettingsLayer/MarginContainer/SettingsMenuContainer/HBoxContainer5" unique_id=556733196]
+custom_minimum_size = Vector2(350, 62)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("3_0jf8d")
+theme_override_icons/grabber_highlight = ExtResource("3_0jf8d")
+theme_override_icons/grabber_disabled = ExtResource("3_0jf8d")
+theme_override_styles/slider = SubResource("StyleBoxFlat_6pn8l")
+min_value = 0.5
+max_value = 2.0
+step = 0.05
+value = 1.0
+tick_count = 9
+
+[node name="LabelRotate" type="Label" parent="SettingsLayer/MarginContainer/SettingsMenuContainer" unique_id=484498788]
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 58
+text = "Rotate Speed"
+horizontal_alignment = 1
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="SettingsLayer/MarginContainer/SettingsMenuContainer" unique_id=1555118514]
+layout_mode = 2
+
+[node name="RotateSpeedSlider" type="HSlider" parent="SettingsLayer/MarginContainer/SettingsMenuContainer/HBoxContainer6" unique_id=314918561]
+custom_minimum_size = Vector2(350, 62)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("3_0jf8d")
+theme_override_icons/grabber_highlight = ExtResource("3_0jf8d")
+theme_override_icons/grabber_disabled = ExtResource("3_0jf8d")
+theme_override_styles/slider = SubResource("StyleBoxFlat_6pn8l")
+min_value = 0.5
+max_value = 2.0
+step = 0.05
+value = 1.0
+tick_count = 9
+
+[node name="ButtonBack" type="Button" parent="SettingsLayer" unique_id=684451785]
+layout_mode = 0
+offset_left = 797.0
+offset_top = 58.0
+offset_right = 1006.0
+offset_bottom = 179.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.7411765, 0.7411765, 0.7411765, 1)
+theme_override_colors/font_hover_color = Color(0.7413842, 0.7413847, 0.74138534, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mmsp5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_an0t8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_db4rb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6uaey")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sej5b")
 text = "Back"
 
-[connection signal="pressed" from="MarginContainer/MainMenuContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
-[connection signal="pressed" from="MarginContainer/MainMenuContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
-[connection signal="value_changed" from="MarginContainer/SettingsMenuContainer/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
-[connection signal="pressed" from="MarginContainer/SettingsMenuContainer/ButtonBack" to="." method="_on_button_back_pressed"]
+[node name="ButtonWipeSave" type="Button" parent="SettingsLayer" unique_id=651001003]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 1952.0
+offset_right = 933.0
+offset_bottom = 2039.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.6679007, 0, 0.12987912, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0jf8d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_apcft")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2pn8f")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tfhda")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_usxgj")
+text = "Reset Farm"
+
+[node name="ConfirmResetPopup" type="Control" parent="SettingsLayer" unique_id=135604702]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="SettingsLayer/ConfirmResetPopup" unique_id=198846056]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsLayer/ConfirmResetPopup" unique_id=1484465989]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -502.5
+offset_top = 409.0
+offset_right = 502.5
+offset_bottom = 909.0
+grow_horizontal = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="LabelConfirm" type="Label" parent="SettingsLayer/ConfirmResetPopup/VBoxContainer" unique_id=67602526]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 80
+text = "Are you sure you want to reset your farm? All of your walls and sheep will be removed permanently."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsLayer/ConfirmResetPopup/VBoxContainer" unique_id=740859442]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="ButtonConfirmYes" type="Button" parent="SettingsLayer/ConfirmResetPopup/VBoxContainer/HBoxContainer" unique_id=1877990060]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6666667, 0, 0.12941177, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5h11f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bx8n8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5iqjx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jx8tp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3nbp6")
+text = "Yes, Reset Farm"
+
+[node name="ButtonConfirmNo" type="Button" parent="SettingsLayer/ConfirmResetPopup/VBoxContainer/HBoxContainer" unique_id=1329935796]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3254902, 0.7254902, 0.19607843, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lt2xq")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ft2n7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nksb8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ovhvi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mq1y0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1fiyt")
+text = "No, Save Farm"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=18781763]
+layer = -10
+
+[node name="Sky" type="Sprite2D" parent="CanvasLayer" unique_id=1665393666]
+position = Vector2(-577, 786)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_exs80")
+
+[node name="BackGrass7" type="Sprite2D" parent="CanvasLayer" unique_id=52182038]
+position = Vector2(779, 80)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_apcft")
+
+[node name="BackGrass2" type="Sprite2D" parent="CanvasLayer" unique_id=792331492]
+position = Vector2(773, 1116)
+texture = ExtResource("6_6pn8l")
+
+[node name="BackGrass3" type="Sprite2D" parent="CanvasLayer" unique_id=390082192]
+position = Vector2(1505, 1251)
+texture = ExtResource("6_6pn8l")
+
+[node name="BackGrass4" type="Sprite2D" parent="CanvasLayer" unique_id=2009990128]
+position = Vector2(214, 1672)
+texture = ExtResource("6_6pn8l")
+
+[node name="BackGrass5" type="Sprite2D" parent="CanvasLayer" unique_id=428357096]
+position = Vector2(822, 1931)
+texture = ExtResource("6_6pn8l")
+
+[node name="BackGrass6" type="Sprite2D" parent="CanvasLayer" unique_id=709087326]
+position = Vector2(-169, 2485)
+texture = ExtResource("6_6pn8l")
+
+[node name="Barn" type="Sprite2D" parent="CanvasLayer" unique_id=1829673849]
+position = Vector2(-394.1882, 835.0001)
+scale = Vector2(0.7924658, 0.7924658)
+texture = ExtResource("7_2pn8f")
+
+[node name="Barn2" type="Sprite2D" parent="CanvasLayer" unique_id=1753556380]
+position = Vector2(159.81177, 1373)
+scale = Vector2(0.79246557, 0.79246557)
+texture = ExtResource("8_tfhda")
+
+[node name="Barn3" type="Sprite2D" parent="CanvasLayer" unique_id=1927065424]
+position = Vector2(-370.18823, 864.00006)
+scale = Vector2(0.7779142, 0.7693849)
+texture = ExtResource("9_usxgj")
+
+[node name="Wall" type="Sprite2D" parent="CanvasLayer" unique_id=1568020997]
+position = Vector2(862, 1540)
+scale = Vector2(0.3991747, 0.3991747)
+texture = ExtResource("6_exs80")
+
+[node name="Wall2" type="Sprite2D" parent="CanvasLayer" unique_id=222218162]
+visible = false
+position = Vector2(1246, 1614)
+scale = Vector2(0.3991747, 0.3991747)
+texture = ExtResource("7_kql7n")
+
+[node name="Wall4" type="Sprite2D" parent="CanvasLayer" unique_id=772828280]
+position = Vector2(1223, 1565)
+scale = Vector2(0.3991746, 0.3991746)
+texture = ExtResource("9_tac8f")
+
+[node name="Grass7" type="Sprite2D" parent="CanvasLayer" unique_id=1108156117]
+visible = false
+position = Vector2(1663.9998, 1770)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("11_0jf8d")
+
+[node name="Grass8" type="Sprite2D" parent="CanvasLayer" unique_id=820306769]
+visible = false
+position = Vector2(-534.99976, 1994)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("11_0jf8d")
+
+[node name="Grass9" type="Sprite2D" parent="CanvasLayer" unique_id=1896233805]
+visible = false
+position = Vector2(-297, 2177)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("11_0jf8d")
+
+[node name="GrassPuff" type="Sprite2D" parent="CanvasLayer" unique_id=1776735425]
+position = Vector2(586, 1878.0001)
+scale = Vector2(-0.45477307, 0.45240426)
+texture = ExtResource("14_mmsp5")
+
+[node name="FrontGrass6" type="Sprite2D" parent="CanvasLayer" unique_id=1555703064]
+material = SubResource("ShaderMaterial_odlcc")
+position = Vector2(1622, 2473)
+texture = ExtResource("11_0jf8d")
+
+[node name="Sheep1" parent="CanvasLayer" unique_id=1090804458 instance=ExtResource("17_db4rb")]
+position = Vector2(105.999985, 1762.9999)
+scale = Vector2(1.7314566, 1.7314566)
+is_preview_mode = true
+
+[connection signal="pressed" from="ButtonSettings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="ButtonPlay" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="ButtonFarm" to="." method="_on_button_farm_pressed"]
+[connection signal="value_changed" from="SettingsLayer/MarginContainer/SettingsMenuContainer/HBoxContainer/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="SettingsLayer/MarginContainer/SettingsMenuContainer/HBoxContainer2/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="SettingsLayer/MarginContainer/SettingsMenuContainer/HBoxContainer3/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="value_changed" from="SettingsLayer/MarginContainer/SettingsMenuContainer/HBoxContainer4/AmbienceVolumeSlider" to="." method="_on_ambience_volume_slider_value_changed"]
+[connection signal="pressed" from="SettingsLayer/MarginContainer/SettingsMenuContainer/ButtonHaptics" to="." method="_on_button_haptics_pressed"]
+[connection signal="value_changed" from="SettingsLayer/MarginContainer/SettingsMenuContainer/HBoxContainer5/MoveSpeedSlider" to="." method="_on_move_speed_slider_value_changed"]
+[connection signal="value_changed" from="SettingsLayer/MarginContainer/SettingsMenuContainer/HBoxContainer6/RotateSpeedSlider" to="." method="_on_rotate_speed_slider_value_changed"]
+[connection signal="pressed" from="SettingsLayer/ButtonBack" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="SettingsLayer/ButtonWipeSave" to="." method="_on_button_wipe_save_pressed"]
+[connection signal="pressed" from="SettingsLayer/ConfirmResetPopup/VBoxContainer/HBoxContainer/ButtonConfirmYes" to="." method="_on_button_confirm_yes_pressed"]
+[connection signal="pressed" from="SettingsLayer/ConfirmResetPopup/VBoxContainer/HBoxContainer/ButtonConfirmNo" to="." method="_on_button_confirm_no_pressed"]

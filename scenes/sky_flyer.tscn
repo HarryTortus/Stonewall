@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://f5hox60ynjub"]
+
+[ext_resource type="Script" uid="uid://daue1kyegl22p" path="res://scripts/sky_flyer.gd" id="1_c8kp2"]
+
+[node name="SkyFlyer" type="Node2D" unique_id=1511906153]
+script = ExtResource("1_c8kp2")
+
+[node name="Visual" type="Sprite2D" parent="." unique_id=2040918520]
