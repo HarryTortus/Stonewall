@@ -97,11 +97,11 @@ func _on_button_back_pressed() -> void:
 	_set_main_menu_visible(true)
 
 
-func _set_main_menu_visible(is_visible: bool) -> void:
-	if is_instance_valid(button_settings): button_settings.visible = is_visible
-	if is_instance_valid(button_play): button_play.visible = is_visible
-	if is_instance_valid(button_farm): button_farm.visible = is_visible
-	if is_instance_valid(title): title.visible = is_visible
+func _set_main_menu_visible(p_visible: bool) -> void:
+	if is_instance_valid(button_settings): button_settings.visible = p_visible
+	if is_instance_valid(button_play): button_play.visible = p_visible
+	if is_instance_valid(button_farm): button_farm.visible = p_visible
+	if is_instance_valid(title): title.visible = p_visible
 
 
 # --- SLIDER SIGNAL HANDLERS ---

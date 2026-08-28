@@ -10,18 +10,18 @@
 [ext_resource type="PackedScene" uid="uid://hq78qademf4q" path="res://scenes/stones/stone4.tscn" id="5_o6v7o"]
 [ext_resource type="Texture2D" uid="uid://c52knlwe7ooxy" path="res://art/Cloud2.1.png" id="5_ynq6o"]
 [ext_resource type="PackedScene" uid="uid://8w8fw0th87q2" path="res://scenes/stones/stone5.tscn" id="6_wjob3"]
+[ext_resource type="Texture2D" uid="uid://c30pm310w8e7n" path="res://art/LeftArrow4.3.png" id="7_5ehsd"]
 [ext_resource type="PackedScene" uid="uid://c7dnw4ex6i7fi" path="res://scenes/stones/stone6.tscn" id="7_8xp80"]
+[ext_resource type="Texture2D" uid="uid://c8w62do2wsqiy" path="res://art/RotateLeft1.2.png" id="8_5ehsd"]
 [ext_resource type="PackedScene" uid="uid://crqvf78i3rjnx" path="res://scenes/stones/stone7.tscn" id="8_ihbck"]
+[ext_resource type="Texture2D" uid="uid://rvw8kcrasr8a" path="res://art/LeftArrow6.3.png" id="9_0l6bj"]
 [ext_resource type="PackedScene" uid="uid://cf4dydt0ftu1v" path="res://scenes/stones/stone8.tscn" id="9_vnsdt"]
-[ext_resource type="Texture2D" uid="uid://dapbwxvthcxc2" path="res://art/LeftArrow4.png" id="10_sp04v"]
+[ext_resource type="Texture2D" uid="uid://cgwu6uae4fn8s" path="res://art/RotateRight3.1.png" id="10_uft02"]
 [ext_resource type="PackedScene" uid="uid://cy5be5riqbxwb" path="res://scenes/stones/stone9.tscn" id="10_yu8cv"]
 [ext_resource type="PackedScene" uid="uid://dh0cffsrubvxg" path="res://scenes/stones/stone10.tscn" id="11_ibnub"]
-[ext_resource type="Texture2D" uid="uid://vymohvcjbi6g" path="res://art/RotateLeft1.png" id="11_ihbck"]
+[ext_resource type="Texture2D" uid="uid://dbpul8y3rds4u" path="res://art/LeftArrow1.2.png" id="11_u2muw"]
 [ext_resource type="PackedScene" uid="uid://cxh6tic6kvhdd" path="res://scenes/stones/stone11.tscn" id="12_5wboo"]
-[ext_resource type="Texture2D" uid="uid://u5bs1nnyilpb" path="res://art/LeftArrow6.png" id="12_vnsdt"]
 [ext_resource type="PackedScene" uid="uid://b57tuu0en88h" path="res://scenes/stones/stone12.tscn" id="13_cybgu"]
-[ext_resource type="Texture2D" uid="uid://d2e6ww2lag3qi" path="res://art/RotateRight3.png" id="13_ikqpi"]
-[ext_resource type="Texture2D" uid="uid://d0wjvvpm2jjot" path="res://art/LeftArrow1.png" id="14_5luka"]
 [ext_resource type="PackedScene" uid="uid://lximywvreven" path="res://scenes/stones/stone13.tscn" id="14_wdxbp"]
 [ext_resource type="PackedScene" uid="uid://dm2btjvnj15c0" path="res://scenes/stones/stone14.tscn" id="15_on6n6"]
 [ext_resource type="Texture2D" uid="uid://c7iukhnxwfjhk" path="res://art/LongBackgroundGrass2.png" id="15_uft02"]
@@ -286,17 +286,16 @@ custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
 
 [node name="ButtonLeft" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=942454256]
-custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 11.0
-offset_top = -306.0
-offset_right = 443.00006
-offset_bottom = -6.0
+offset_left = -4.0
+offset_top = -275.0
+offset_right = 478.0
+offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.45, 0.45)
@@ -305,7 +304,7 @@ focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5h11f")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_5iqjx")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_bx8n8")
-icon = ExtResource("10_sp04v")
+icon = ExtResource("7_5ehsd")
 
 [node name="ButtonRotateLeft" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=341498008]
 custom_minimum_size = Vector2(40, 40)
@@ -328,7 +327,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_jx8tp")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_3nbp6")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ft2n7")
 action_mode = 0
-icon = ExtResource("11_ihbck")
+icon = ExtResource("8_5ehsd")
 
 [node name="ButtonDrop" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=748643021]
 layout_mode = 1
@@ -337,10 +336,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 408.0
-offset_top = -101.0
-offset_right = 758.0
-offset_bottom = 172.0
+offset_left = 397.0
+offset_top = -72.0
+offset_right = 777.0
+offset_bottom = 227.0
 grow_horizontal = 2
 grow_vertical = 0
 rotation = -1.5707964
@@ -351,7 +350,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_nksb8")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_1fiyt")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_mq1y0")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_htswi")
-icon = ExtResource("12_vnsdt")
+icon = ExtResource("9_0l6bj")
 
 [node name="ButtonRotateRight" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=90415034]
 custom_minimum_size = Vector2(40, 40)
@@ -361,9 +360,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 607.99994
-offset_top = -314.0
-offset_right = 1057.0
+offset_left = 601.0
+offset_top = -345.0
+offset_right = 1081.0
 offset_bottom = 126.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -374,7 +373,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ovhvi")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_isu2l")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_0okwp")
 action_mode = 0
-icon = ExtResource("13_ikqpi")
+icon = ExtResource("10_uft02")
 
 [node name="ButtonRight" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=790328937]
 layout_mode = 1
@@ -383,10 +382,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 993.0
-offset_top = -149.0
-offset_right = 1360.0
-offset_bottom = 181.0
+offset_left = 1001.0
+offset_top = -109.0
+offset_right = 1395.0
+offset_bottom = 246.0
 grow_horizontal = 2
 grow_vertical = 0
 rotation = 3.1415927
@@ -396,7 +395,7 @@ focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5se2m")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_fpeu6")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_vghsm")
-icon = ExtResource("14_5luka")
+icon = ExtResource("11_u2muw")
 
 [node name="ButtonMenu" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=1715892492]
 custom_minimum_size = Vector2(40, 40)

@@ -43,14 +43,13 @@ enum State { IDLE, GRAZE, WALK, STAND_STILL }
 @export var walk_speed_y: float = 22.0
 @export var separation_radius: float = 160.0
 @export var separation_strength: float = 65.0
-## Inward margin from screen/farm edges to keep sheep fully on-screen
 @export var edge_padding_x: float = 140.0
 @export var edge_padding_y: float = 60.0
 
-var min_x: float = 640.0    # Adjusted inward from 500.0
-var max_x: float = 1860.0   # Adjusted inward from 2000.0
+var min_x: float = 640.0
+var max_x: float = 1860.0
 var min_y: float = 1600.0
-var max_y: float = 2400.0
+var max_y: float = 2250.0
 
 var current_state: State = State.IDLE
 var state_timer: float = 0.0
@@ -77,7 +76,6 @@ func _ready() -> void:
 	else:
 		_set_wool_parts_color(wool_color)
 
-	# If marked as preview in the inspector, apply hard lock immediately
 	if is_preview_mode:
 		set_as_preview()
 		return
@@ -129,7 +127,6 @@ func set_as_preview() -> void:
 	current_state = State.IDLE
 	velocity = Vector2.ZERO
 	
-	# Drop out of group so other sheep calculations ignore this one
 	if is_in_group("sheep"):
 		remove_from_group("sheep")
 	
@@ -137,7 +134,6 @@ func set_as_preview() -> void:
 	if is_instance_valid(col_shape):
 		col_shape.set_deferred("disabled", true)
 		
-	# Force play the idle animation and ensure it loops continuously
 	if is_instance_valid(animation_player):
 		if animation_player.has_animation("idle"):
 			var anim = animation_player.get_animation("idle")
@@ -170,9 +166,9 @@ func _set_wool_parts_color(c: Color) -> void:
 
 func set_bounds(p_min_x: float, p_max_x: float, p_min_y: float, p_max_y: float) -> void:
 	min_x = p_min_x + edge_padding_x
-	max_x = p_max_x - edge_padding_x
+	max_x = max(min_x + 50.0, p_max_x - edge_padding_x)
 	min_y = p_min_y + edge_padding_y
-	max_y = p_max_y - edge_padding_y
+	max_y = max(min_y + 50.0, p_max_y - edge_padding_y)
 
 
 func _physics_process(delta: float) -> void:
@@ -266,7 +262,6 @@ func _get_avoidance_vector() -> Vector2:
 
 
 func _pick_next_state(forced_duration: float = -1.0) -> void:
-	# Hard safeguard: never pick or switch states if in preview mode
 	if is_preview_mode:
 		return
 
@@ -307,7 +302,6 @@ func _play_anim(anim_name: String, fallback: String) -> void:
 	if not is_instance_valid(animation_player): 
 		return
 
-	# If in preview mode, refuse to play any animation other than idle
 	if is_preview_mode:
 		if animation_player.current_animation != "idle" and animation_player.has_animation("idle"):
 			animation_player.play("idle")
