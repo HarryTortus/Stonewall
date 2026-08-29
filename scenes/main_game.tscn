@@ -496,6 +496,8 @@ rotate_speed = 2.0
 [connection signal="button_up" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonLeft" to="." method="_on_button_left_button_up"]
 [connection signal="button_down" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRotateLeft" to="." method="_on_button_rotate_left_button_down"]
 [connection signal="button_up" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRotateLeft" to="." method="_on_button_rotate_left_button_up"]
+[connection signal="button_down" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonDrop" to="." method="_on_button_drop_button_down"]
+[connection signal="button_up" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonDrop" to="." method="_on_button_drop_button_up"]
 [connection signal="pressed" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonDrop" to="." method="_on_button_drop_pressed"]
 [connection signal="button_down" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRotateRight" to="." method="_on_button_rotate_right_button_down"]
 [connection signal="button_up" from="Buttons/MarginContainer/HBoxContainer/Control/ButtonRotateRight" to="." method="_on_button_rotate_right_button_up"]

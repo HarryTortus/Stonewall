@@ -14,7 +14,6 @@ var drag_start_pos: Vector2 = Vector2.ZERO
 @export var farm_wall_scale: Vector2 = Vector2(0.35, 0.35)
 @export var farm_ground_y: float = 1200.0 # Grass baseline
 @export var wall_start_x: float = 50.0   # Horizontal starting point
-@export var farm_end_padding: float = 300.0 # Extra right-side pasture room
 
 
 func _ready() -> void:
@@ -58,6 +57,9 @@ func spawn_all_saved_walls() -> void:
 			continue
 
 		var img: Image = Image.load_from_file(image_path)
+		if img == null:
+			continue
+
 		var texture: ImageTexture = ImageTexture.create_from_image(img)
 		var used_rect: Rect2i = img.get_used_rect()
 
@@ -105,9 +107,8 @@ func update_camera_limits() -> void:
 				total_farm_width += child.texture.get_width() * child.scale.x
 	
 	camera.limit_left = 0
-	# Add pasture end padding so sheep and camera aren't cut off at the final wall
 	var min_screen_width: float = get_viewport_rect().size.x
-	camera.limit_right = int(max(min_screen_width, total_farm_width + farm_end_padding))
+	camera.limit_right = int(max(min_screen_width, total_farm_width))
 
 
 ## Smooth Touch / Mouse Drag Scrolling
