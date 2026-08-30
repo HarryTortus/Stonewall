@@ -8,6 +8,13 @@ extends Node2D
 @export var settlement_monitor: Node2D
 @export var hover_input_controller: Node2D
 
+# Button references for touch opacity feedback
+@onready var btn_left: Button = $Buttons/MarginContainer/HBoxContainer/Control/ButtonLeft
+@onready var btn_right: Button = $Buttons/MarginContainer/HBoxContainer/Control/ButtonRight
+@onready var btn_rot_left: Button = $Buttons/MarginContainer/HBoxContainer/Control/ButtonRotateLeft
+@onready var btn_rot_right: Button = $Buttons/MarginContainer/HBoxContainer/Control/ButtonRotateRight
+@onready var btn_drop: Button = $Buttons/MarginContainer/HBoxContainer/Control/ButtonDrop
+
 var wall_stones: Array[RigidBody2D] = []
 var current_stone: RigidBody2D = null
 var is_saving_wall: bool = false
@@ -57,32 +64,47 @@ func _on_wall_goal_reached() -> void:
 	save_current_wall()
 
 
-# --- UI BUTTON SIGNALS ---
+# --- UI BUTTON SIGNALS (TOUCH FEEDBACK) ---
 
 func _on_button_left_button_down() -> void:
+	if is_instance_valid(btn_left): btn_left.modulate.a = 0.5
 	if is_instance_valid(hover_input_controller): hover_input_controller.on_left_down()
 
 func _on_button_left_button_up() -> void:
+	if is_instance_valid(btn_left): btn_left.modulate.a = 1.0
 	if is_instance_valid(hover_input_controller): hover_input_controller.on_left_up()
 
 func _on_button_right_button_down() -> void:
+	if is_instance_valid(btn_right): btn_right.modulate.a = 0.5
 	if is_instance_valid(hover_input_controller): hover_input_controller.on_right_down()
 
 func _on_button_right_button_up() -> void:
+	if is_instance_valid(btn_right): btn_right.modulate.a = 1.0
 	if is_instance_valid(hover_input_controller): hover_input_controller.on_right_up()
 
 func _on_button_rotate_left_button_down() -> void:
+	if is_instance_valid(btn_rot_left): btn_rot_left.modulate.a = 0.5
 	if is_instance_valid(hover_input_controller): hover_input_controller.on_rotate_left_down()
 
 func _on_button_rotate_left_button_up() -> void:
+	if is_instance_valid(btn_rot_left): btn_rot_left.modulate.a = 1.0
 	if is_instance_valid(hover_input_controller): hover_input_controller.on_rotate_left_up()
 
 func _on_button_rotate_right_button_down() -> void:
+	if is_instance_valid(btn_rot_right): btn_rot_right.modulate.a = 0.5
 	if is_instance_valid(hover_input_controller): hover_input_controller.on_rotate_right_down()
 
 func _on_button_rotate_right_button_up() -> void:
+	if is_instance_valid(btn_rot_right): btn_rot_right.modulate.a = 1.0
 	if is_instance_valid(hover_input_controller): hover_input_controller.on_rotate_right_up()
 
+func _on_button_drop_button_down() -> void:
+	if is_instance_valid(btn_drop):
+		btn_drop.modulate.a = 0.5
+
+func _on_button_drop_button_up() -> void:
+	if is_instance_valid(btn_drop):
+		btn_drop.modulate.a = 1.0
 
 func _on_button_drop_pressed() -> void:
 	if is_saving_wall or not is_wall_settled:

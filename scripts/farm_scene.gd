@@ -13,7 +13,7 @@ var drag_start_pos: Vector2 = Vector2.ZERO
 # Spacing & Scaling configuration
 @export var farm_wall_scale: Vector2 = Vector2(0.35, 0.35)
 @export var farm_ground_y: float = 1200.0 # Grass baseline
-@export var wall_start_x: float = 50.0 # Horizontal starting point
+@export var wall_start_x: float = 50.0   # Horizontal starting point
 
 
 func _ready() -> void:
@@ -32,7 +32,7 @@ func _on_sheep_spawner_request_name_popup(new_sheep_ids: Array) -> void:
 	if is_instance_valid(name_popup):
 		if name_popup.has_method("open_for_sheep_queue"):
 			name_popup.open_for_sheep_queue(new_sheep_ids)
-		elif name_popup.has_method("open_for_sheep"):
+		elif name_popup.has_method("open_for_sheep") and not new_sheep_ids.is_empty():
 			name_popup.open_for_sheep(new_sheep_ids[0])
 
 
@@ -57,6 +57,9 @@ func spawn_all_saved_walls() -> void:
 			continue
 
 		var img: Image = Image.load_from_file(image_path)
+		if img == null:
+			continue
+
 		var texture: ImageTexture = ImageTexture.create_from_image(img)
 		var used_rect: Rect2i = img.get_used_rect()
 
@@ -104,7 +107,8 @@ func update_camera_limits() -> void:
 				total_farm_width += child.texture.get_width() * child.scale.x
 	
 	camera.limit_left = 0
-	camera.limit_right = int(max(get_viewport_rect().size.x, total_farm_width))
+	var min_screen_width: float = get_viewport_rect().size.x
+	camera.limit_right = int(max(min_screen_width, total_farm_width))
 
 
 ## Smooth Touch / Mouse Drag Scrolling
