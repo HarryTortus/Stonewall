@@ -2,25 +2,33 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
+		<script src="coi-serviceworker.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="theme-color" content="#4b80ca">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 		<title>Stonewall</title>
 		<style>
-html, body, #canvas {
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
 
-body {
-	color: white;
-	background-color: black;
-	overflow: hidden;
-	touch-action: none;
-}
+html, body {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        width: 100vw;
+        height: 100dvh; /* dvh fills dynamic viewport on mobile browsers without the top notch gap */
+        overflow: hidden;
+        background-color: transparent;
+    }
 
-#canvas {
-	display: block;
-}
+    #canvas {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+    }
 
 #canvas:focus {
 	outline: none;
