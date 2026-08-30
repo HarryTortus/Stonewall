@@ -82,7 +82,6 @@
 [ext_resource type="PackedScene" uid="uid://c5h6qq72ilcu6" path="res://scenes/stones/stone67.tscn" id="68_rxsnt"]
 [ext_resource type="PackedScene" uid="uid://borjkmi44vnj" path="res://scenes/stones/stone68.tscn" id="69_li2f6"]
 [ext_resource type="PackedScene" uid="uid://c5yqm2jegosrg" path="res://scenes/stones/stone69.tscn" id="70_dck63"]
-[ext_resource type="Texture2D" uid="uid://cwvuvnnl5xrrf" path="res://art/LongBackgroundGrass.png" id="75_u2muw"]
 [ext_resource type="Texture2D" uid="uid://d2p0vbrww8xtl" path="res://art/StakeStraightThin2.png" id="86_5ehsd"]
 [ext_resource type="Texture2D" uid="uid://c8img1em0yj3y" path="res://art/String1.png" id="86_htswi"]
 [ext_resource type="Texture2D" uid="uid://d4ihxw3dn273f" path="res://art/StakeStraight2.png" id="86_r3lgv"]
@@ -231,20 +230,87 @@ offset_bottom = 1999.9999
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.02866761
-texture = ExtResource("75_u2muw")
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass8" type="TextureRect" parent="WorldArt" unique_id=2010650830]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1022.00073
+offset_top = 980.0
+offset_right = 4825.001
+offset_bottom = 1941.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.02866761
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass9" type="TextureRect" parent="WorldArt" unique_id=1469121524]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4111.0005
+offset_top = 943.99994
+offset_right = 7914.001
+offset_bottom = 1905.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.035456557
+texture = ExtResource("15_uft02")
 stretch_mode = 4
 
 [node name="Grass5" type="TextureRect" parent="WorldArt" unique_id=690909148]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -903.0
-offset_top = 1329.0
-offset_right = 2900.0
-offset_bottom = 2290.0
+offset_left = -931.0
+offset_top = 1357.0
+offset_right = 2872.0
+offset_bottom = 2318.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("75_u2muw")
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass10" type="TextureRect" parent="WorldArt" unique_id=1701461015]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4942.0
+offset_top = 1398.0
+offset_right = 8745.0
+offset_bottom = 2359.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass6" type="TextureRect" parent="WorldArt" unique_id=718369820]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2000.0
+offset_top = 1387.0
+offset_right = 5803.0
+offset_bottom = 2348.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass7" type="TextureRect" parent="WorldArt" unique_id=1385800247]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4103.0
+offset_top = 1362.0
+offset_right = -300.0
+offset_bottom = 2323.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_uft02")
 stretch_mode = 4
 
 [node name="CollisionContainer" type="CanvasLayer" parent="." unique_id=1961393567]
@@ -464,13 +530,109 @@ material = SubResource("ShaderMaterial_ofp31")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -842.0001
-offset_top = 2036.0
-offset_right = 1851.0
-offset_bottom = 452.0
+offset_left = -1436.0
+offset_top = 2050.0
+offset_right = 1257.0
+offset_bottom = 466.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -0.031316686
+rotation = -0.04488062
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass10" type="TextureRect" parent="ForegroundArt" unique_id=968459952]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 965.9999
+offset_top = 1958.0001
+offset_right = 3659.0
+offset_bottom = 374.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.009077262
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass11" type="TextureRect" parent="ForegroundArt" unique_id=2115136993]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3042.9995
+offset_top = 1989.9999
+offset_right = 5735.9995
+offset_bottom = 406.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.009077262
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass12" type="TextureRect" parent="ForegroundArt" unique_id=1801983714]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5241.0
+offset_top = 2018.0002
+offset_right = 7934.0
+offset_bottom = 434.00024
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.009077262
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass13" type="TextureRect" parent="ForegroundArt" unique_id=2138862248]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -688.0
+offset_top = 2420.0002
+offset_right = 2005.0
+offset_bottom = 836.00024
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0012348695
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass14" type="TextureRect" parent="ForegroundArt" unique_id=74848066]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1329.0
+offset_top = 2440.0
+offset_right = 4022.0
+offset_bottom = 856.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0012348695
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass15" type="TextureRect" parent="ForegroundArt" unique_id=338478700]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3603.0
+offset_top = 2467.0
+offset_right = 6296.0
+offset_bottom = 883.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0012348695
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("15_uft02")
 stretch_mode = 4
