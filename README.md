@@ -1,3 +1,3 @@
-# TestGodotGame
+# Stonewall
 
-Mickey's Godot test game sandbox.
+Cozy farm building puzzle game. Collect unique sheep.
