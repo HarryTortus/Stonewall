@@ -24,6 +24,7 @@ var preview_sheep_instance: Node2D = null
 
 var target_sheep_id: int = -1
 var pending_sheep_queue: Array = []
+var js_text_callback: JavaScriptObject = null
 
 
 func _ready() -> void:
@@ -38,6 +39,41 @@ func _ready() -> void:
 
 	if is_instance_valid(name_line_edit):
 		name_line_edit.text_submitted.connect(func(_text): _on_confirm_pressed())
+
+	# Initialize transparent HTML DOM input overlay for mobile browsers
+	if OS.has_feature("web"):
+		_init_web_overlay()
+
+
+func _init_web_overlay() -> void:
+	# Create a JS callback that routes real DOM typing events directly into Godot's LineEdit
+	js_text_callback = JavaScriptBridge.create_callback(_on_web_text_input)
+	
+	# Inject a transparent off-screen/overlay input box into the page DOM
+	var js_init = """
+		(function() {
+			if (document.getElementById('godot_mobile_input')) return;
+			var input = document.createElement('input');
+			input.id = 'godot_mobile_input';
+			input.type = 'text';
+			input.style.position = 'fixed';
+			input.style.opacity = '0';
+			input.style.pointerEvents = 'none';
+			input.style.left = '0px';
+			input.style.top = '0px';
+			input.style.width = '100px';
+			input.style.height = '40px';
+			input.style.fontSize = '16px'; // Prevents auto-zoom on iOS Safari
+			input.style.zIndex = '1000';
+			document.body.appendChild(input);
+		})();
+	"""
+	JavaScriptBridge.eval(js_init)
+
+
+func _on_web_text_input(args: Array) -> void:
+	if args.size() > 0 and is_instance_valid(name_line_edit):
+		name_line_edit.text = str(args[0])
 
 
 ## Call this to handle single sheep or a batch queue of sheep
@@ -69,7 +105,7 @@ func open_for_sheep(sheep_id: int, forced_name: String = "") -> void:
 		name_line_edit.deselect()
 		name_line_edit.caret_column = suggested_name.length()
 
-	# 2. Retrieve the exact rolled wool color from saved data
+	# 2. Retrieve wool color
 	var saved_sheep_list: Array = SaveSystem.save_data.get("sheep", [])
 	var sheep_color_hex: String = "ffffff"
 	for s in saved_sheep_list:
@@ -81,7 +117,7 @@ func open_for_sheep(sheep_id: int, forced_name: String = "") -> void:
 	_spawn_preview_sheep(sheep_color_hex)
 	visible = true
 
-	# 4. Mobile Keyboard Handling
+	# 4. Keyboard Hook
 	if OS.has_feature("web"):
 		_setup_web_line_edit_handler()
 	elif OS.has_feature("mobile"):
@@ -96,6 +132,10 @@ func _setup_web_line_edit_handler() -> void:
 	if not is_instance_valid(name_line_edit):
 		return
 		
+	# Disable canvas text eating while retaining mouse events
+	name_line_edit.editable = false
+	name_line_edit.focus_mode = Control.FOCUS_NONE
+
 	if name_line_edit.gui_input.is_connected(_on_web_line_edit_gui_input):
 		name_line_edit.gui_input.disconnect(_on_web_line_edit_gui_input)
 		
@@ -108,13 +148,29 @@ func _on_web_line_edit_gui_input(event: InputEvent) -> void:
 
 	var is_tap = (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT) or (event is InputEventScreenTouch and event.pressed)
 	if is_tap:
+		name_line_edit.accept_event()
 		var current_val = name_line_edit.text if name_line_edit.text != "" else name_line_edit.placeholder_text
-		var js_code = "prompt('Name your new sheep:', '%s');" % current_val.c_escape()
-		var result = JavaScriptBridge.eval(js_code)
 		
-		if result != null and typeof(result) == TYPE_STRING and result.strip_edges() != "":
-			name_line_edit.text = str(result).strip_edges()
-			name_line_edit.release_focus()
+		# Bind the input element to forward keystrokes directly to Godot
+		var window = JavaScriptBridge.get_interface("window")
+		window.godot_input_bridge = js_text_callback
+
+		var js_focus = """
+			(function() {
+				var el = document.getElementById('godot_mobile_input');
+				if (el) {
+					el.value = '%s';
+					el.oninput = function() {
+						if (window.godot_input_bridge) {
+							window.godot_input_bridge(el.value);
+						}
+					};
+					el.focus();
+					el.setSelectionRange(el.value.length, el.value.length);
+				}
+			})();
+		""" % current_val.c_escape()
+		JavaScriptBridge.eval(js_focus)
 
 
 func _spawn_preview_sheep(color_hex: String) -> void:
@@ -156,18 +212,20 @@ func _on_confirm_pressed() -> void:
 		chosen_name = name_line_edit.text.strip_edges()
 		name_line_edit.release_focus()
 
-	# Dismiss native mobile keyboard
-	if DisplayServer.has_feature(DisplayServer.FEATURE_VIRTUAL_KEYBOARD):
+	# Defocus & dismiss mobile keyboard cleanly
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("var el = document.getElementById('godot_mobile_input'); if (el) { el.blur(); }")
+	elif DisplayServer.has_feature(DisplayServer.FEATURE_VIRTUAL_KEYBOARD):
 		DisplayServer.virtual_keyboard_hide()
 
 	if chosen_name == "":
 		chosen_name = name_line_edit.placeholder_text if name_line_edit.placeholder_text != "" else ("Sheep #" + str(target_sheep_id + 1))
 
-	# 1. Update JSON save data on disk
+	# 1. Update JSON save data
 	SaveSystem.update_sheep_name(target_sheep_id, chosen_name)
 	sheep_named.emit(target_sheep_id, chosen_name)
 
-	# 2. Update the live sheep running in the pasture immediately
+	# 2. Update live sheep in pasture
 	var all_sheep = get_tree().get_nodes_in_group("sheep")
 	for s in all_sheep:
 		if is_instance_valid(s) and "sheep_id" in s and s.sheep_id == target_sheep_id:
@@ -178,7 +236,6 @@ func _on_confirm_pressed() -> void:
 	if is_instance_valid(preview_sheep_instance):
 		preview_sheep_instance.queue_free()
 
-	# If more sheep are waiting in the queue, open for the next one; otherwise close
 	if not pending_sheep_queue.is_empty():
 		_process_next_in_queue()
 	else:
