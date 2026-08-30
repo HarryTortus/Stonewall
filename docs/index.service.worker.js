@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1788107587|1702830529';
+const CACHE_VERSION = '1788113370|7486150736';
 /** @type {string} */
 const CACHE_PREFIX = 'Stonewall-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;

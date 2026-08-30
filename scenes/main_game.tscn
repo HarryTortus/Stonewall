@@ -236,6 +236,20 @@ rotation = -0.02866761
 texture = ExtResource("15_uft02")
 stretch_mode = 4
 
+[node name="Grass11" type="TextureRect" parent="WorldArt" unique_id=273402659]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5051.0
+offset_top = 1086.0
+offset_right = -1248.0
+offset_bottom = 2047.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.02866761
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
 [node name="Grass8" type="TextureRect" parent="WorldArt" unique_id=2010650830]
 anchors_preset = 15
 anchor_right = 1.0
@@ -384,6 +398,22 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("15_uft02")
 stretch_mode = 4
 
+[node name="Grass17" type="TextureRect" parent="GameBoard" unique_id=1006846306]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3602.9998
+offset_top = 1963.0
+offset_right = 170.00024
+offset_bottom = 2779.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.010936394
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
 [node name="Grass10" type="TextureRect" parent="GameBoard" unique_id=968459952]
 material = SubResource("ShaderMaterial_ofp31")
 anchors_preset = 15
@@ -448,6 +478,38 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("15_uft02")
 stretch_mode = 4
 
+[node name="Grass16" type="TextureRect" parent="GameBoard" unique_id=1601319038]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2960.0
+offset_top = 2403.0
+offset_right = 813.0
+offset_bottom = 3219.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0012348695
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass18" type="TextureRect" parent="GameBoard" unique_id=1061485581]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5224.0
+offset_top = 2403.0
+offset_right = -1451.0
+offset_bottom = 3219.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0012348695
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
 [node name="Grass14" type="TextureRect" parent="GameBoard" unique_id=74848066]
 material = SubResource("ShaderMaterial_ofp31")
 anchors_preset = 15
@@ -505,6 +567,7 @@ position = Vector2(1222, 1164)
 shape = SubResource("RectangleShape2D_ft2n7")
 
 [node name="StringLineTrigger" type="Area2D" parent="GameBoard" unique_id=1500347345]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/StringLineTrigger" unique_id=307323575]

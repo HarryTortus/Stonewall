@@ -81,17 +81,40 @@ func open_for_sheep(sheep_id: int, forced_name: String = "") -> void:
 	_spawn_preview_sheep(sheep_color_hex)
 	visible = true
 
-	# 4. Mobile Focus & Virtual Keyboard Fix
-	if is_instance_valid(name_line_edit):
-		# Wait 2 process frames so the mobile viewport confirms the node is rendered & active
+	# 4. Mobile Keyboard Handling
+	if OS.has_feature("web"):
+		_setup_web_line_edit_handler()
+	elif OS.has_feature("mobile"):
 		await get_tree().process_frame
-		await get_tree().process_frame
+		if is_instance_valid(name_line_edit):
+			name_line_edit.grab_focus()
+			if DisplayServer.has_feature(DisplayServer.FEATURE_VIRTUAL_KEYBOARD):
+				DisplayServer.virtual_keyboard_show(name_line_edit.text)
+
+
+func _setup_web_line_edit_handler() -> void:
+	if not is_instance_valid(name_line_edit):
+		return
 		
-		name_line_edit.grab_focus()
+	if name_line_edit.gui_input.is_connected(_on_web_line_edit_gui_input):
+		name_line_edit.gui_input.disconnect(_on_web_line_edit_gui_input)
 		
-		# Explicitly prompt mobile OS (iOS Safari / Android) to display the virtual keyboard
-		if DisplayServer.has_feature(DisplayServer.FEATURE_VIRTUAL_KEYBOARD):
-			DisplayServer.virtual_keyboard_show(name_line_edit.text)
+	name_line_edit.gui_input.connect(_on_web_line_edit_gui_input)
+
+
+func _on_web_line_edit_gui_input(event: InputEvent) -> void:
+	if not OS.has_feature("web"):
+		return
+
+	var is_tap = (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT) or (event is InputEventScreenTouch and event.pressed)
+	if is_tap:
+		var current_val = name_line_edit.text if name_line_edit.text != "" else name_line_edit.placeholder_text
+		var js_code = "prompt('Name your new sheep:', '%s');" % current_val.c_escape()
+		var result = JavaScriptBridge.eval(js_code)
+		
+		if result != null and typeof(result) == TYPE_STRING and result.strip_edges() != "":
+			name_line_edit.text = str(result).strip_edges()
+			name_line_edit.release_focus()
 
 
 func _spawn_preview_sheep(color_hex: String) -> void:
@@ -133,7 +156,7 @@ func _on_confirm_pressed() -> void:
 		chosen_name = name_line_edit.text.strip_edges()
 		name_line_edit.release_focus()
 
-	# Dismiss mobile keyboard
+	# Dismiss native mobile keyboard
 	if DisplayServer.has_feature(DisplayServer.FEATURE_VIRTUAL_KEYBOARD):
 		DisplayServer.virtual_keyboard_hide()
 

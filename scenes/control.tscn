@@ -3,10 +3,9 @@
 [ext_resource type="Script" uid="uid://2ostbx13h4u4" path="res://scripts/control.gd" id="1_0fbet"]
 [ext_resource type="Texture2D" uid="uid://b4t1bewke0qo5" path="res://art/BarnButton.png" id="3_0jf8d"]
 [ext_resource type="FontFile" uid="uid://6bnw0m4vrnvs" path="res://fonts/Eastwood.otf" id="3_lt2xq"]
-[ext_resource type="Texture2D" uid="uid://ymthoy1s7jr4" path="res://art/BlueSky1.png" id="4_exs80"]
+[ext_resource type="Texture2D" uid="uid://c7olm7dty5jev" path="res://art/BlueSkySoftEdge1.png" id="4_6pn8l"]
 [ext_resource type="Texture2D" uid="uid://1ikwm87pgmgq" path="res://art/Cloud1.2.png" id="5_apcft"]
 [ext_resource type="Texture2D" uid="uid://c7iukhnxwfjhk" path="res://art/LongBackgroundGrass2.png" id="6_0jf8d"]
-[ext_resource type="Texture2D" uid="uid://cwvuvnnl5xrrf" path="res://art/LongBackgroundGrass.png" id="6_6pn8l"]
 [ext_resource type="Texture2D" uid="uid://cx4bn5el3trd7" path="res://art/wall_2.png" id="6_exs80"]
 [ext_resource type="Texture2D" uid="uid://dlpck2vf1e4m7" path="res://art/BarnOpen.png" id="7_2pn8f"]
 [ext_resource type="Texture2D" uid="uid://dj1ps7csyp3v5" path="res://art/BarnDoor1.png" id="8_tfhda"]
@@ -503,9 +502,24 @@ text = "No, Save Farm"
 layer = -10
 
 [node name="Sky" type="Sprite2D" parent="CanvasLayer" unique_id=1665393666]
-position = Vector2(1594, 824)
+position = Vector2(-477.00012, 1031)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("4_exs80")
+texture = ExtResource("4_6pn8l")
+
+[node name="Sky2" type="Sprite2D" parent="CanvasLayer" unique_id=2025210646]
+position = Vector2(3167, 1031)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_6pn8l")
+
+[node name="Sky4" type="Sprite2D" parent="CanvasLayer" unique_id=1131246305]
+position = Vector2(6699, 1018)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_6pn8l")
+
+[node name="Sky3" type="Sprite2D" parent="CanvasLayer" unique_id=1836211817]
+position = Vector2(-4417, 1031)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_6pn8l")
 
 [node name="Cloud" type="Sprite2D" parent="CanvasLayer" unique_id=52182038]
 position = Vector2(779, 80)
@@ -514,6 +528,10 @@ texture = ExtResource("5_apcft")
 
 [node name="BackGrass2" type="Sprite2D" parent="CanvasLayer" unique_id=792331492]
 position = Vector2(773, 1116)
+texture = ExtResource("6_0jf8d")
+
+[node name="BackGrass14" type="Sprite2D" parent="CanvasLayer" unique_id=1715327922]
+position = Vector2(-2408, 1161)
 texture = ExtResource("6_0jf8d")
 
 [node name="BackGrass7" type="Sprite2D" parent="CanvasLayer" unique_id=1039291758]
@@ -530,7 +548,11 @@ texture = ExtResource("6_0jf8d")
 
 [node name="BackGrass4" type="Sprite2D" parent="CanvasLayer" unique_id=2009990128]
 position = Vector2(214, 1672)
-texture = ExtResource("6_6pn8l")
+texture = ExtResource("6_0jf8d")
+
+[node name="BackGrass13" type="Sprite2D" parent="CanvasLayer" unique_id=2024910888]
+position = Vector2(-2872, 1659)
+texture = ExtResource("6_0jf8d")
 
 [node name="BackGrass10" type="Sprite2D" parent="CanvasLayer" unique_id=707448872]
 position = Vector2(3513, 1723)
@@ -538,6 +560,10 @@ texture = ExtResource("6_0jf8d")
 
 [node name="BackGrass5" type="Sprite2D" parent="CanvasLayer" unique_id=428357096]
 position = Vector2(822, 1931)
+texture = ExtResource("6_0jf8d")
+
+[node name="BackGrass12" type="Sprite2D" parent="CanvasLayer" unique_id=1305629331]
+position = Vector2(-2055, 2039)
 texture = ExtResource("6_0jf8d")
 
 [node name="BackGrass9" type="Sprite2D" parent="CanvasLayer" unique_id=848178510]
@@ -605,6 +631,11 @@ texture = ExtResource("11_0jf8d")
 [node name="FrontGrass10" type="Sprite2D" parent="CanvasLayer" unique_id=1138402397]
 material = SubResource("ShaderMaterial_odlcc")
 position = Vector2(3985, 2716)
+texture = ExtResource("11_0jf8d")
+
+[node name="FrontGrass14" type="Sprite2D" parent="CanvasLayer" unique_id=493366066]
+material = SubResource("ShaderMaterial_odlcc")
+position = Vector2(-2728, 2732)
 texture = ExtResource("11_0jf8d")
 
 [node name="FrontGrass11" type="Sprite2D" parent="CanvasLayer" unique_id=1587766262]
