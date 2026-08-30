@@ -10,7 +10,7 @@ signal sheep_named(sheep_id: int, sheep_name: String)
 	"Ronnie", "Sir Ritchfield", "Cloud", "Zora", "Mopple", 
 	"Wool-Eyes", "Sebastian", "Lily", "Daisy", "Oliver", 
 	"Pickles", "The Winter Lamb", "Shaun", "Shirley", "Timmy", 
-	"Mareep", "Lamb Chop", "Dawn", "Lambie", "Dolly", "Dee", 
+	"Mareep", "Dawn", "Lambie", "Dolly", "Dee", 
 	"Dennis", "Mac", "Charlie", "Frank", "Dua Sheepa", 
 	"Fluffy", "Billy", "Cardigan", "Marcie", "Opal", 
 	"Betty", "Sheep", "Mochi", "Moon", "Fiona", 

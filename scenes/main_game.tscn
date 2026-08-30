@@ -10,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://hq78qademf4q" path="res://scenes/stones/stone4.tscn" id="5_o6v7o"]
 [ext_resource type="Texture2D" uid="uid://c52knlwe7ooxy" path="res://art/Cloud2.1.png" id="5_ynq6o"]
 [ext_resource type="PackedScene" uid="uid://8w8fw0th87q2" path="res://scenes/stones/stone5.tscn" id="6_wjob3"]
-[ext_resource type="Texture2D" uid="uid://c30pm310w8e7n" path="res://art/LeftArrow4.3.png" id="7_5ehsd"]
+[ext_resource type="Texture2D" uid="uid://dn7dq0qkd4yuc" path="res://art/LeftArrow1.2flip.png" id="7_5ehsd"]
 [ext_resource type="PackedScene" uid="uid://c7dnw4ex6i7fi" path="res://scenes/stones/stone6.tscn" id="7_8xp80"]
-[ext_resource type="Texture2D" uid="uid://c8w62do2wsqiy" path="res://art/RotateLeft1.2.png" id="8_5ehsd"]
 [ext_resource type="PackedScene" uid="uid://crqvf78i3rjnx" path="res://scenes/stones/stone7.tscn" id="8_ihbck"]
+[ext_resource type="Texture2D" uid="uid://6npihq4yd3ut" path="res://art/RotateRight3.1flip.png" id="8_r3lgv"]
 [ext_resource type="Texture2D" uid="uid://rvw8kcrasr8a" path="res://art/LeftArrow6.3.png" id="9_0l6bj"]
 [ext_resource type="PackedScene" uid="uid://cf4dydt0ftu1v" path="res://scenes/stones/stone8.tscn" id="9_vnsdt"]
 [ext_resource type="Texture2D" uid="uid://cgwu6uae4fn8s" path="res://art/RotateRight3.1.png" id="10_uft02"]
@@ -293,12 +293,12 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -4.0
-offset_top = -275.0
-offset_right = 478.0
-offset_bottom = 65.0
+offset_top = -288.0
+offset_right = 391.0
+offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.45, 0.45)
+scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 3
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5h11f")
@@ -314,20 +314,20 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 234.0
-offset_top = -316.0
-offset_right = 719.0
-offset_bottom = 255.0
+offset_left = 197.0
+offset_top = -364.0
+offset_right = 682.0
+offset_bottom = 207.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.32, 0.32)
+scale = Vector2(0.4, 0.4)
 size_flags_horizontal = 3
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jx8tp")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_3nbp6")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ft2n7")
 action_mode = 0
-icon = ExtResource("8_5ehsd")
+icon = ExtResource("8_r3lgv")
 
 [node name="ButtonDrop" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=748643021]
 layout_mode = 1
@@ -336,10 +336,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 397.0
-offset_top = -72.0
-offset_right = 777.0
-offset_bottom = 227.0
+offset_left = 399.00003
+offset_top = -78.0
+offset_right = 779.0
+offset_bottom = 221.0
 grow_horizontal = 2
 grow_vertical = 0
 rotation = -1.5707964
@@ -360,10 +360,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 601.0
-offset_top = -345.0
-offset_right = 1081.0
-offset_bottom = 126.0
+offset_left = 606.0
+offset_top = -344.0
+offset_right = 1086.0
+offset_bottom = 127.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.4, 0.4)
