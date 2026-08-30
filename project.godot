@@ -27,7 +27,7 @@ window/size/viewport_height=2400
 window/size/window_width_override=540
 window/size/window_height_override=1200
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_width"
+window/stretch/aspect="expand"
 window/handheld/orientation=1
 
 [input_devices]
