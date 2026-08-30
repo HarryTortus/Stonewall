@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://6npihq4yd3ut" path="res://art/RotateRight3.1flip.png" id="8_r3lgv"]
 [ext_resource type="Texture2D" uid="uid://rvw8kcrasr8a" path="res://art/LeftArrow6.3.png" id="9_0l6bj"]
 [ext_resource type="PackedScene" uid="uid://cf4dydt0ftu1v" path="res://scenes/stones/stone8.tscn" id="9_vnsdt"]
+[ext_resource type="Texture2D" uid="uid://bcwva6yt2y178" path="res://art/String2.png" id="10_r3lgv"]
 [ext_resource type="Texture2D" uid="uid://cgwu6uae4fn8s" path="res://art/RotateRight3.1.png" id="10_uft02"]
 [ext_resource type="PackedScene" uid="uid://cy5be5riqbxwb" path="res://scenes/stones/stone9.tscn" id="10_yu8cv"]
 [ext_resource type="PackedScene" uid="uid://dh0cffsrubvxg" path="res://scenes/stones/stone10.tscn" id="11_ibnub"]
@@ -83,12 +84,16 @@
 [ext_resource type="PackedScene" uid="uid://borjkmi44vnj" path="res://scenes/stones/stone68.tscn" id="69_li2f6"]
 [ext_resource type="PackedScene" uid="uid://c5yqm2jegosrg" path="res://scenes/stones/stone69.tscn" id="70_dck63"]
 [ext_resource type="Texture2D" uid="uid://d2p0vbrww8xtl" path="res://art/StakeStraightThin2.png" id="86_5ehsd"]
-[ext_resource type="Texture2D" uid="uid://c8img1em0yj3y" path="res://art/String1.png" id="86_htswi"]
 [ext_resource type="Texture2D" uid="uid://d4ihxw3dn273f" path="res://art/StakeStraight2.png" id="86_r3lgv"]
 [ext_resource type="Script" uid="uid://7pl5le2in7l7" path="res://scripts/wall_capture_service.gd" id="87_3mkrk"]
 [ext_resource type="Script" uid="uid://hjl101u8sulr" path="res://scripts/settlement_monitor.gd" id="89_r3lgv"]
 [ext_resource type="Script" uid="uid://dw27t8jepmfqy" path="res://scripts/hover_input_controller.gd" id="90_5ehsd"]
 [ext_resource type="Shader" uid="uid://s5et8jtwipak" path="res://scenes/grass.gdshader" id="92_ynq6o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ofp31"]
+shader = ExtResource("92_ynq6o")
+shader_parameter/saturation = 1.0000000475
+shader_parameter/brightness = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5h11f"]
 size = Vector2(1927, 533.5)
@@ -98,6 +103,9 @@ size = Vector2(354, 3157)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ft2n7"]
 size = Vector2(384, 3038)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx8n8"]
+size = Vector2(2778.5, 15)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5h11f"]
 
@@ -131,17 +139,9 @@ size = Vector2(384, 3038)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vghsm"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ofp31"]
-shader = ExtResource("92_ynq6o")
-shader_parameter/saturation = 1.0000000475
-shader_parameter/brightness = 1.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx8n8"]
-size = Vector2(2778.5, 15)
-
 [node name="MainGame" type="Node2D" unique_id=1114634166 node_paths=PackedStringArray("floor_node", "drop_button", "stone_spawner", "wall_capture_service", "settlement_monitor", "hover_input_controller")]
 script = ExtResource("2_n8b2x")
-floor_node = NodePath("Container/FloorShape")
+floor_node = NodePath("GameBoard/Container/FloorShape")
 drop_button = NodePath("Buttons/MarginContainer/HBoxContainer/Control/ButtonDrop")
 stone_spawner = NodePath("StoneSpawner")
 wall_capture_service = NodePath("WallCaptureService")
@@ -149,6 +149,9 @@ settlement_monitor = NodePath("SettlementMonitor")
 hover_input_controller = NodePath("HoverInputController")
 metadata/_edit_vertical_guides_ = [50.0, 1030.0, 540.0]
 metadata/_edit_horizontal_guides_ = [2134.0]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1887744481]
+position = Vector2(540, 1200)
 
 [node name="WorldArt" type="Node2D" parent="." unique_id=198611863]
 
@@ -313,32 +316,213 @@ grow_vertical = 2
 texture = ExtResource("15_uft02")
 stretch_mode = 4
 
-[node name="CollisionContainer" type="CanvasLayer" parent="." unique_id=1961393567]
-layer = -1
+[node name="StoneSpawner" type="Node2D" parent="." unique_id=1479664925]
+script = ExtResource("19_v2gn3")
+stone_scenes = Array[PackedScene]([ExtResource("2_2l77h"), ExtResource("3_nqdth"), ExtResource("4_5cypo"), ExtResource("5_o6v7o"), ExtResource("6_wjob3"), ExtResource("7_8xp80"), ExtResource("8_ihbck"), ExtResource("9_vnsdt"), ExtResource("10_yu8cv"), ExtResource("11_ibnub"), ExtResource("12_5wboo"), ExtResource("13_cybgu"), ExtResource("14_wdxbp"), ExtResource("15_on6n6"), ExtResource("16_x3ega"), ExtResource("17_urnot"), ExtResource("18_4e2rb"), ExtResource("19_q875d"), ExtResource("20_dvo3n"), ExtResource("21_1vioj"), ExtResource("22_g2o8j"), ExtResource("23_oojmo"), ExtResource("24_5noht"), ExtResource("25_g2o8j"), ExtResource("26_oojmo"), ExtResource("27_5noht"), ExtResource("28_oojmo"), ExtResource("29_krfhu"), ExtResource("30_x3a3x"), ExtResource("31_sgocm"), ExtResource("32_pk1le"), ExtResource("33_1al3e"), ExtResource("34_sh8gf"), ExtResource("35_4h0lf"), ExtResource("36_3ikos"), ExtResource("37_pjtuq"), ExtResource("38_3f3c0"), ExtResource("39_7q0na"), ExtResource("40_aduj5"), ExtResource("41_l8gia"), ExtResource("42_ids5a"), ExtResource("43_qr7ox"), ExtResource("44_3fkkw"), ExtResource("45_3mkrk"), ExtResource("46_v2gn3"), ExtResource("47_r3lgv"), ExtResource("48_5ehsd"), ExtResource("49_0l6bj"), ExtResource("50_uft02"), ExtResource("51_u2muw"), ExtResource("52_ynq6o"), ExtResource("53_xisu6"), ExtResource("54_qnxwh"), ExtResource("55_dsflj"), ExtResource("56_72466"), ExtResource("57_ai8cu"), ExtResource("58_mwahn"), ExtResource("59_777ow"), ExtResource("60_c32t2"), ExtResource("61_sffie"), ExtResource("62_js1wn"), ExtResource("63_0ep8y"), ExtResource("64_1aci3"), ExtResource("65_kmlog"), ExtResource("66_ljsgw"), ExtResource("67_x7xx5"), ExtResource("68_rxsnt"), ExtResource("69_li2f6"), ExtResource("70_dck63")])
+global_stone_scale = Vector2(0.45, 0.45)
 
-[node name="Container" type="StaticBody2D" parent="." unique_id=220810507]
+[node name="GameBoard" type="Node2D" parent="." unique_id=75100747]
+z_index = 10
 
-[node name="FloorShape" type="CollisionShape2D" parent="Container" unique_id=820916916]
+[node name="StakeL" type="TextureRect" parent="GameBoard" unique_id=1700110521]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = 403.0
+offset_right = 133.0
+offset_bottom = 3507.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("86_5ehsd")
+stretch_mode = 4
+
+[node name="StakeR" type="TextureRect" parent="GameBoard" unique_id=304510429]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1025.0
+offset_top = 392.0
+offset_right = 1246.0
+offset_bottom = 3496.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5399994)
+texture = ExtResource("86_r3lgv")
+stretch_mode = 4
+
+[node name="StakeL2" type="TextureRect" parent="GameBoard" unique_id=803220914]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = 2072.0
+offset_right = 275.0
+offset_bottom = 5176.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.1415927
+scale = Vector2(0.5, 0.5399994)
+texture = ExtResource("86_r3lgv")
+stretch_mode = 4
+
+[node name="Grass9" type="TextureRect" parent="GameBoard" unique_id=682421075]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1436.0
+offset_top = 2050.0
+offset_right = 2337.0
+offset_bottom = 2866.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.04488062
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass10" type="TextureRect" parent="GameBoard" unique_id=968459952]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 965.9999
+offset_top = 1958.0
+offset_right = 4739.0
+offset_bottom = 2774.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.009077262
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass11" type="TextureRect" parent="GameBoard" unique_id=2115136993]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3042.9995
+offset_top = 1989.9999
+offset_right = 6815.9995
+offset_bottom = 2806.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.009077262
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass12" type="TextureRect" parent="GameBoard" unique_id=1801983714]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5241.0
+offset_top = 2018.0002
+offset_right = 9014.0
+offset_bottom = 2834.0002
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.009077262
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass13" type="TextureRect" parent="GameBoard" unique_id=2138862248]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -688.0
+offset_top = 2420.0002
+offset_right = 3085.0
+offset_bottom = 3236.0002
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0012348695
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass14" type="TextureRect" parent="GameBoard" unique_id=74848066]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1329.0
+offset_top = 2440.0
+offset_right = 5102.0
+offset_bottom = 3256.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0012348695
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="Grass15" type="TextureRect" parent="GameBoard" unique_id=338478700]
+material = SubResource("ShaderMaterial_ofp31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3603.0
+offset_top = 2467.0
+offset_right = 7376.0
+offset_bottom = 3283.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0012348695
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_uft02")
+stretch_mode = 4
+
+[node name="String" type="TextureRect" parent="GameBoard" unique_id=40574352]
+offset_left = -67.0
+offset_top = 508.0
+offset_right = -21.0
+offset_bottom = 1816.0
+rotation = -1.5654622
+scale = Vector2(0.55103785, 0.9377495)
+texture = ExtResource("10_r3lgv")
+
+[node name="Container" type="StaticBody2D" parent="GameBoard" unique_id=220810507]
+visible = false
+
+[node name="FloorShape" type="CollisionShape2D" parent="GameBoard/Container" unique_id=820916916]
 position = Vector2(557.5, 2274.25)
 shape = SubResource("RectangleShape2D_5h11f")
 
-[node name="LeftWallShape" type="CollisionShape2D" parent="Container" unique_id=366364136]
+[node name="LeftWallShape" type="CollisionShape2D" parent="GameBoard/Container" unique_id=366364136]
 position = Vector2(-127, 1126.5)
 shape = SubResource("RectangleShape2D_3nbp6")
 
-[node name="RightWallShape" type="CollisionShape2D" parent="Container" unique_id=1119688685]
+[node name="RightWallShape" type="CollisionShape2D" parent="GameBoard/Container" unique_id=1119688685]
 position = Vector2(1222, 1164)
 shape = SubResource("RectangleShape2D_ft2n7")
+
+[node name="StringLineTrigger" type="Area2D" parent="GameBoard" unique_id=1500347345]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/StringLineTrigger" unique_id=307323575]
+position = Vector2(0, 500.5)
+shape = SubResource("RectangleShape2D_bx8n8")
 
 [node name="Buttons" type="CanvasLayer" parent="." unique_id=80796513]
 layer = 10
 
 [node name="MarginContainer" type="MarginContainer" parent="Buttons" unique_id=1667812380]
-anchors_preset = 12
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -40.0
 offset_top = -32.0
+offset_right = 40.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_left = 40
@@ -359,10 +543,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -288.0
-offset_right = 391.0
-offset_bottom = 68.0
+offset_left = -503.0
+offset_top = -302.0
+offset_right = -108.0
+offset_bottom = 54.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
@@ -381,10 +565,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 197.0
-offset_top = -364.0
-offset_right = 682.0
-offset_bottom = 207.0
+offset_left = -301.99997
+offset_top = -378.0
+offset_right = 183.00003
+offset_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.4, 0.4)
@@ -403,10 +587,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 399.00003
-offset_top = -78.0
-offset_right = 779.0
-offset_bottom = 221.0
+offset_left = -100.0
+offset_top = -92.0
+offset_right = 280.0
+offset_bottom = 207.0
 grow_horizontal = 2
 grow_vertical = 0
 rotation = -1.5707964
@@ -427,10 +611,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 606.0
-offset_top = -344.0
-offset_right = 1086.0
-offset_bottom = 127.0
+offset_left = 107.00003
+offset_top = -358.0
+offset_right = 587.0
+offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.4, 0.4)
@@ -449,10 +633,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 1001.0
-offset_top = -109.0
-offset_right = 1395.0
-offset_bottom = 246.0
+offset_left = 502.0
+offset_top = -123.0
+offset_right = 896.0
+offset_bottom = 232.0
 grow_horizontal = 2
 grow_vertical = 0
 rotation = 3.1415927
@@ -467,10 +651,10 @@ icon = ExtResource("11_u2muw")
 [node name="ButtonMenu" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=1715892492]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
-offset_left = 7.0
-offset_top = -2333.0
-offset_right = 480.0
-offset_bottom = -2020.0
+offset_left = -492.0
+offset_top = -2347.0
+offset_right = -19.0
+offset_bottom = -2034.0
 scale = Vector2(0.45, 0.45)
 size_flags_horizontal = 3
 focus_mode = 0
@@ -479,192 +663,12 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_5iqjx")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_bx8n8")
 icon = ExtResource("24_rr87q")
 
-[node name="ForegroundArt" type="CanvasLayer" parent="." unique_id=1317586991]
-layer = 9
-
-[node name="StakeL" type="TextureRect" parent="ForegroundArt" unique_id=1700110521]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -88.0
-offset_top = 403.0
-offset_right = -947.0
-offset_bottom = 1107.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("86_5ehsd")
-stretch_mode = 4
-
-[node name="StakeR" type="TextureRect" parent="ForegroundArt" unique_id=304510429]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1025.0
-offset_top = 392.0
-offset_right = 166.0
-offset_bottom = 1096.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5399994)
-texture = ExtResource("86_r3lgv")
-stretch_mode = 4
-
-[node name="StakeL2" type="TextureRect" parent="ForegroundArt" unique_id=803220914]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 54.0
-offset_top = 2072.0
-offset_right = -805.0
-offset_bottom = 2776.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -3.1415927
-scale = Vector2(0.5, 0.5399994)
-texture = ExtResource("86_r3lgv")
-stretch_mode = 4
-
-[node name="Grass9" type="TextureRect" parent="ForegroundArt" unique_id=682421075]
-material = SubResource("ShaderMaterial_ofp31")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1436.0
-offset_top = 2050.0
-offset_right = 1257.0
-offset_bottom = 466.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.04488062
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("15_uft02")
-stretch_mode = 4
-
-[node name="Grass10" type="TextureRect" parent="ForegroundArt" unique_id=968459952]
-material = SubResource("ShaderMaterial_ofp31")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 965.9999
-offset_top = 1958.0001
-offset_right = 3659.0
-offset_bottom = 374.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.009077262
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("15_uft02")
-stretch_mode = 4
-
-[node name="Grass11" type="TextureRect" parent="ForegroundArt" unique_id=2115136993]
-material = SubResource("ShaderMaterial_ofp31")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3042.9995
-offset_top = 1989.9999
-offset_right = 5735.9995
-offset_bottom = 406.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.009077262
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("15_uft02")
-stretch_mode = 4
-
-[node name="Grass12" type="TextureRect" parent="ForegroundArt" unique_id=1801983714]
-material = SubResource("ShaderMaterial_ofp31")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5241.0
-offset_top = 2018.0002
-offset_right = 7934.0
-offset_bottom = 434.00024
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.009077262
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("15_uft02")
-stretch_mode = 4
-
-[node name="Grass13" type="TextureRect" parent="ForegroundArt" unique_id=2138862248]
-material = SubResource("ShaderMaterial_ofp31")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -688.0
-offset_top = 2420.0002
-offset_right = 2005.0
-offset_bottom = 836.00024
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.0012348695
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("15_uft02")
-stretch_mode = 4
-
-[node name="Grass14" type="TextureRect" parent="ForegroundArt" unique_id=74848066]
-material = SubResource("ShaderMaterial_ofp31")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1329.0
-offset_top = 2440.0
-offset_right = 4022.0
-offset_bottom = 856.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.0012348695
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("15_uft02")
-stretch_mode = 4
-
-[node name="Grass15" type="TextureRect" parent="ForegroundArt" unique_id=338478700]
-material = SubResource("ShaderMaterial_ofp31")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3603.0
-offset_top = 2467.0
-offset_right = 6296.0
-offset_bottom = 883.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.0012348695
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("15_uft02")
-stretch_mode = 4
-
-[node name="String" type="TextureRect" parent="ForegroundArt" unique_id=40574352]
-offset_left = -1574.0
-offset_top = 500.0
-offset_right = -1512.0
-offset_bottom = 3227.0
-rotation = -1.5798788
-scale = Vector2(-0.5163175, 1)
-texture = ExtResource("86_htswi")
-
-[node name="StringLineTrigger" type="Area2D" parent="." unique_id=1500347345]
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StringLineTrigger" unique_id=307323575]
-position = Vector2(0, 500.5)
-shape = SubResource("RectangleShape2D_bx8n8")
-
 [node name="WallCaptureService" type="Node2D" parent="." unique_id=1628402180]
 script = ExtResource("87_3mkrk")
 
-[node name="StoneSpawner" type="Node2D" parent="." unique_id=1479664925]
-script = ExtResource("19_v2gn3")
-stone_scenes = Array[PackedScene]([ExtResource("2_2l77h"), ExtResource("3_nqdth"), ExtResource("4_5cypo"), ExtResource("5_o6v7o"), ExtResource("6_wjob3"), ExtResource("7_8xp80"), ExtResource("8_ihbck"), ExtResource("9_vnsdt"), ExtResource("10_yu8cv"), ExtResource("11_ibnub"), ExtResource("12_5wboo"), ExtResource("13_cybgu"), ExtResource("14_wdxbp"), ExtResource("15_on6n6"), ExtResource("16_x3ega"), ExtResource("17_urnot"), ExtResource("18_4e2rb"), ExtResource("19_q875d"), ExtResource("20_dvo3n"), ExtResource("21_1vioj"), ExtResource("22_g2o8j"), ExtResource("23_oojmo"), ExtResource("24_5noht"), ExtResource("25_g2o8j"), ExtResource("26_oojmo"), ExtResource("27_5noht"), ExtResource("28_oojmo"), ExtResource("29_krfhu"), ExtResource("30_x3a3x"), ExtResource("31_sgocm"), ExtResource("32_pk1le"), ExtResource("33_1al3e"), ExtResource("34_sh8gf"), ExtResource("35_4h0lf"), ExtResource("36_3ikos"), ExtResource("37_pjtuq"), ExtResource("38_3f3c0"), ExtResource("39_7q0na"), ExtResource("40_aduj5"), ExtResource("41_l8gia"), ExtResource("42_ids5a"), ExtResource("43_qr7ox"), ExtResource("44_3fkkw"), ExtResource("45_3mkrk"), ExtResource("46_v2gn3"), ExtResource("47_r3lgv"), ExtResource("48_5ehsd"), ExtResource("49_0l6bj"), ExtResource("50_uft02"), ExtResource("51_u2muw"), ExtResource("52_ynq6o"), ExtResource("53_xisu6"), ExtResource("54_qnxwh"), ExtResource("55_dsflj"), ExtResource("56_72466"), ExtResource("57_ai8cu"), ExtResource("58_mwahn"), ExtResource("59_777ow"), ExtResource("60_c32t2"), ExtResource("61_sffie"), ExtResource("62_js1wn"), ExtResource("63_0ep8y"), ExtResource("64_1aci3"), ExtResource("65_kmlog"), ExtResource("66_ljsgw"), ExtResource("67_x7xx5"), ExtResource("68_rxsnt"), ExtResource("69_li2f6"), ExtResource("70_dck63")])
-global_stone_scale = Vector2(0.45, 0.45)
-
 [node name="SettlementMonitor" type="Node2D" parent="." unique_id=1227193847 node_paths=PackedStringArray("string_line")]
 script = ExtResource("89_r3lgv")
-string_line = NodePath("../StringLineTrigger")
+string_line = NodePath("../GameBoard/StringLineTrigger")
 
 [node name="HoverInputController" type="Node2D" parent="." unique_id=1664191255]
 script = ExtResource("90_5ehsd")
