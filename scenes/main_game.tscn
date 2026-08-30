@@ -156,7 +156,7 @@ metadata/_edit_horizontal_guides_ = [2134.0]
 [node name="Parallax2D" type="Parallax2D" parent="WorldArt" unique_id=68648050]
 repeat_size = Vector2(1500, 0)
 autoscroll = Vector2(5, 0)
-repeat_times = 3
+repeat_times = 7
 
 [node name="Sky" type="TextureRect" parent="WorldArt/Parallax2D" unique_id=426920958]
 anchors_preset = 15
@@ -176,7 +176,7 @@ stretch_mode = 4
 texture_repeat = 2
 repeat_size = Vector2(10000, 0)
 autoscroll = Vector2(20, 0)
-repeat_times = 2
+repeat_times = 7
 
 [node name="Cloud1" type="TextureRect" parent="WorldArt/Parallax2D2" unique_id=1680862187]
 anchors_preset = 15
@@ -416,13 +416,14 @@ icon = ExtResource("24_rr87q")
 layer = 9
 
 [node name="StakeL" type="TextureRect" parent="ForegroundArt" unique_id=1700110521]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -88.0
 offset_top = 403.0
-offset_right = 2019.0
-offset_bottom = 3507.0
+offset_right = -947.0
+offset_bottom = 1107.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -435,11 +436,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1025.0
 offset_top = 392.0
-offset_right = 3132.0
-offset_bottom = 3496.0
+offset_right = 166.0
+offset_bottom = 1096.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.5, 0.5399994)
+texture = ExtResource("86_r3lgv")
+stretch_mode = 4
+
+[node name="StakeL2" type="TextureRect" parent="ForegroundArt" unique_id=803220914]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = 2072.0
+offset_right = -805.0
+offset_bottom = 2776.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.1415927
+scale = Vector2(0.5, 0.5399994)
 texture = ExtResource("86_r3lgv")
 stretch_mode = 4
 
@@ -448,10 +464,10 @@ material = SubResource("ShaderMaterial_ofp31")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1188.0
-offset_top = 2041.0
-offset_right = 2594.0
-offset_bottom = 2815.0
+offset_left = -842.0001
+offset_top = 2036.0
+offset_right = 1851.0
+offset_bottom = 452.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.031316686
@@ -460,12 +476,12 @@ texture = ExtResource("15_uft02")
 stretch_mode = 4
 
 [node name="String" type="TextureRect" parent="ForegroundArt" unique_id=40574352]
-offset_left = -1248.0001
-offset_top = 502.00003
-offset_right = -1186.0001
-offset_bottom = 3229.0
-rotation = -1.5581435
-scale = Vector2(0.7200403, 1)
+offset_left = -1574.0
+offset_top = 500.0
+offset_right = -1512.0
+offset_bottom = 3227.0
+rotation = -1.5798788
+scale = Vector2(-0.5163175, 1)
 texture = ExtResource("86_htswi")
 
 [node name="StringLineTrigger" type="Area2D" parent="." unique_id=1500347345]

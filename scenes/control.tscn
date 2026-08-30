@@ -5,10 +5,10 @@
 [ext_resource type="FontFile" uid="uid://6bnw0m4vrnvs" path="res://fonts/Eastwood.otf" id="3_lt2xq"]
 [ext_resource type="Texture2D" uid="uid://ymthoy1s7jr4" path="res://art/BlueSky1.png" id="4_exs80"]
 [ext_resource type="Texture2D" uid="uid://1ikwm87pgmgq" path="res://art/Cloud1.2.png" id="5_apcft"]
+[ext_resource type="Texture2D" uid="uid://c7iukhnxwfjhk" path="res://art/LongBackgroundGrass2.png" id="6_0jf8d"]
 [ext_resource type="Texture2D" uid="uid://cwvuvnnl5xrrf" path="res://art/LongBackgroundGrass.png" id="6_6pn8l"]
 [ext_resource type="Texture2D" uid="uid://cx4bn5el3trd7" path="res://art/wall_2.png" id="6_exs80"]
 [ext_resource type="Texture2D" uid="uid://dlpck2vf1e4m7" path="res://art/BarnOpen.png" id="7_2pn8f"]
-[ext_resource type="Texture2D" uid="uid://s8x6eyvow3kh" path="res://art/wall_3.png" id="7_kql7n"]
 [ext_resource type="Texture2D" uid="uid://dj1ps7csyp3v5" path="res://art/BarnDoor1.png" id="8_tfhda"]
 [ext_resource type="Texture2D" uid="uid://c45li2rpscjho" path="res://art/wall_5.png" id="9_tac8f"]
 [ext_resource type="Texture2D" uid="uid://b3m0vqnqv0vk3" path="res://art/BarnBeam1.png" id="9_usxgj"]
@@ -503,34 +503,54 @@ text = "No, Save Farm"
 layer = -10
 
 [node name="Sky" type="Sprite2D" parent="CanvasLayer" unique_id=1665393666]
-position = Vector2(-577, 786)
+position = Vector2(1594, 824)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_exs80")
 
-[node name="BackGrass7" type="Sprite2D" parent="CanvasLayer" unique_id=52182038]
+[node name="Cloud" type="Sprite2D" parent="CanvasLayer" unique_id=52182038]
 position = Vector2(779, 80)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_apcft")
 
 [node name="BackGrass2" type="Sprite2D" parent="CanvasLayer" unique_id=792331492]
 position = Vector2(773, 1116)
-texture = ExtResource("6_6pn8l")
+texture = ExtResource("6_0jf8d")
+
+[node name="BackGrass7" type="Sprite2D" parent="CanvasLayer" unique_id=1039291758]
+position = Vector2(3917, 1152)
+texture = ExtResource("6_0jf8d")
 
 [node name="BackGrass3" type="Sprite2D" parent="CanvasLayer" unique_id=390082192]
 position = Vector2(1505, 1251)
-texture = ExtResource("6_6pn8l")
+texture = ExtResource("6_0jf8d")
+
+[node name="BackGrass11" type="Sprite2D" parent="CanvasLayer" unique_id=112106751]
+position = Vector2(4190, 1234)
+texture = ExtResource("6_0jf8d")
 
 [node name="BackGrass4" type="Sprite2D" parent="CanvasLayer" unique_id=2009990128]
 position = Vector2(214, 1672)
 texture = ExtResource("6_6pn8l")
 
+[node name="BackGrass10" type="Sprite2D" parent="CanvasLayer" unique_id=707448872]
+position = Vector2(3513, 1723)
+texture = ExtResource("6_0jf8d")
+
 [node name="BackGrass5" type="Sprite2D" parent="CanvasLayer" unique_id=428357096]
 position = Vector2(822, 1931)
-texture = ExtResource("6_6pn8l")
+texture = ExtResource("6_0jf8d")
+
+[node name="BackGrass9" type="Sprite2D" parent="CanvasLayer" unique_id=848178510]
+position = Vector2(3293, 1952)
+texture = ExtResource("6_0jf8d")
 
 [node name="BackGrass6" type="Sprite2D" parent="CanvasLayer" unique_id=709087326]
 position = Vector2(-169, 2485)
-texture = ExtResource("6_6pn8l")
+texture = ExtResource("6_0jf8d")
+
+[node name="BackGrass8" type="Sprite2D" parent="CanvasLayer" unique_id=1044126739]
+position = Vector2(2973, 2485)
+texture = ExtResource("6_0jf8d")
 
 [node name="Barn" type="Sprite2D" parent="CanvasLayer" unique_id=1829673849]
 position = Vector2(-394.1882, 835.0001)
@@ -552,34 +572,10 @@ position = Vector2(862, 1540)
 scale = Vector2(0.3991747, 0.3991747)
 texture = ExtResource("6_exs80")
 
-[node name="Wall2" type="Sprite2D" parent="CanvasLayer" unique_id=222218162]
-visible = false
-position = Vector2(1246, 1614)
-scale = Vector2(0.3991747, 0.3991747)
-texture = ExtResource("7_kql7n")
-
 [node name="Wall4" type="Sprite2D" parent="CanvasLayer" unique_id=772828280]
 position = Vector2(1223, 1565)
 scale = Vector2(0.3991746, 0.3991746)
 texture = ExtResource("9_tac8f")
-
-[node name="Grass7" type="Sprite2D" parent="CanvasLayer" unique_id=1108156117]
-visible = false
-position = Vector2(1663.9998, 1770)
-scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("11_0jf8d")
-
-[node name="Grass8" type="Sprite2D" parent="CanvasLayer" unique_id=820306769]
-visible = false
-position = Vector2(-534.99976, 1994)
-scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("11_0jf8d")
-
-[node name="Grass9" type="Sprite2D" parent="CanvasLayer" unique_id=1896233805]
-visible = false
-position = Vector2(-297, 2177)
-scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("11_0jf8d")
 
 [node name="GrassPuff" type="Sprite2D" parent="CanvasLayer" unique_id=1776735425]
 position = Vector2(586, 1878.0001)
@@ -589,6 +585,41 @@ texture = ExtResource("14_mmsp5")
 [node name="FrontGrass6" type="Sprite2D" parent="CanvasLayer" unique_id=1555703064]
 material = SubResource("ShaderMaterial_odlcc")
 position = Vector2(1622, 2473)
+texture = ExtResource("11_0jf8d")
+
+[node name="FrontGrass9" type="Sprite2D" parent="CanvasLayer" unique_id=963672574]
+material = SubResource("ShaderMaterial_odlcc")
+position = Vector2(5255, 2500)
+texture = ExtResource("11_0jf8d")
+
+[node name="FrontGrass8" type="Sprite2D" parent="CanvasLayer" unique_id=1792470126]
+material = SubResource("ShaderMaterial_odlcc")
+position = Vector2(-2004, 2469)
+texture = ExtResource("11_0jf8d")
+
+[node name="FrontGrass7" type="Sprite2D" parent="CanvasLayer" unique_id=547298729]
+material = SubResource("ShaderMaterial_odlcc")
+position = Vector2(339, 2655)
+texture = ExtResource("11_0jf8d")
+
+[node name="FrontGrass10" type="Sprite2D" parent="CanvasLayer" unique_id=1138402397]
+material = SubResource("ShaderMaterial_odlcc")
+position = Vector2(3985, 2716)
+texture = ExtResource("11_0jf8d")
+
+[node name="FrontGrass11" type="Sprite2D" parent="CanvasLayer" unique_id=1587766262]
+material = SubResource("ShaderMaterial_odlcc")
+position = Vector2(-1474, 2893)
+texture = ExtResource("11_0jf8d")
+
+[node name="FrontGrass12" type="Sprite2D" parent="CanvasLayer" unique_id=666114991]
+material = SubResource("ShaderMaterial_odlcc")
+position = Vector2(2116, 2939)
+texture = ExtResource("11_0jf8d")
+
+[node name="FrontGrass13" type="Sprite2D" parent="CanvasLayer" unique_id=80154626]
+material = SubResource("ShaderMaterial_odlcc")
+position = Vector2(5718, 2990)
 texture = ExtResource("11_0jf8d")
 
 [node name="Sheep1" parent="CanvasLayer" unique_id=1090804458 instance=ExtResource("17_db4rb")]

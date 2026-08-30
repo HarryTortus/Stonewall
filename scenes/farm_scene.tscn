@@ -58,7 +58,7 @@ position_smoothing_enabled = true
 scroll_scale = Vector2(0.05, 0)
 repeat_size = Vector2(1850, 0)
 autoscroll = Vector2(8, 0)
-repeat_times = 3
+repeat_times = 7
 
 [node name="Sky" type="Sprite2D" parent="SkyParallax2D" unique_id=2089217885]
 texture_repeat = 2
@@ -70,7 +70,7 @@ texture = ExtResource("2_2qrsd")
 scroll_scale = Vector2(0.07, 0)
 repeat_size = Vector2(10000, 0)
 autoscroll = Vector2(-30, 0)
-repeat_times = 3
+repeat_times = 7
 
 [node name="Cloud" type="Sprite2D" parent="CloudParallax2D" unique_id=1058442279]
 position = Vector2(1602, 158)
@@ -136,7 +136,7 @@ max_spawn_delay = 20000.0
 texture_repeat = 2
 scroll_scale = Vector2(0.3, 0)
 repeat_size = Vector2(3000, 0)
-repeat_times = 3
+repeat_times = 7
 
 [node name="MidgroundHills" type="Sprite2D" parent="MidgroundHillsParallax2D" unique_id=2045737291]
 position = Vector2(1676, 1185)
@@ -145,7 +145,7 @@ texture = ExtResource("11_mv30j")
 [node name="ForgroundParallax2D" type="Parallax2D" parent="." unique_id=2137258103]
 texture_repeat = 2
 repeat_size = Vector2(3000, 0)
-repeat_times = 3
+repeat_times = 7
 
 [node name="FarmGrassBack" type="Sprite2D" parent="ForgroundParallax2D" unique_id=1506580936]
 position = Vector2(-128, 1381)
@@ -279,7 +279,7 @@ min_sheep_spacing = 500.0
 texture_repeat = 2
 scroll_scale = Vector2(1.5, 1)
 repeat_size = Vector2(2150, 0)
-repeat_times = 3
+repeat_times = 7
 
 [node name="FrontDetailedGrass" type="Sprite2D" parent="DetailedGrassParallax2D" unique_id=648591459]
 material = SubResource("ShaderMaterial_qnxwh")
