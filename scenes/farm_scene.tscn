@@ -9,9 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cto6ipa66yjt3" path="res://scenes/sheep/Sheep1.tscn" id="5_es4xi"]
 [ext_resource type="Script" uid="uid://c0xmgi8danetx" path="res://scripts/sky_ambient_spawner.gd" id="6_0sxts"]
 [ext_resource type="Texture2D" uid="uid://dmtbxqs0g233b" path="res://art/Bird1.png" id="7_2qrsd"]
-[ext_resource type="Texture2D" uid="uid://cumjiq4j6v228" path="res://art/Bird2.png" id="8_mv30j"]
 [ext_resource type="Shader" uid="uid://s5et8jtwipak" path="res://scenes/grass.gdshader" id="8_vhyi2"]
-[ext_resource type="Texture2D" uid="uid://g7qixg7imdk7" path="res://art/Bird3.png" id="9_247op"]
 [ext_resource type="Texture2D" uid="uid://ca1qoqp7gi8s5" path="res://art/HotAirBalloon2.png" id="10_2qrsd"]
 [ext_resource type="Texture2D" uid="uid://c7iukhnxwfjhk" path="res://art/LongBackgroundGrass2.png" id="11_mv30j"]
 [ext_resource type="Script" uid="uid://huoofdlqt3xl" path="res://scripts/sheep_spawner.gd" id="11_vhyi2"]
@@ -32,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://cpyd0hl56hxag" path="res://art/stone23.png" id="25_wx5g6"]
 [ext_resource type="Texture2D" uid="uid://bjvaijrlg2tw" path="res://art/stone37.png" id="26_7gvla"]
 [ext_resource type="PackedScene" uid="uid://kjuthjo8i2lk" path="res://scenes/name_sheep_popup.tscn" id="32_eo7vp"]
+[ext_resource type="FontFile" uid="uid://6bnw0m4vrnvs" path="res://fonts/Eastwood.otf" id="33_5xbho"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qnxwh"]
 shader = ExtResource("8_vhyi2")
@@ -43,6 +42,16 @@ shader_parameter/brightness = 0.78400003724
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bx8n8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5iqjx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jx8tp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3nbp6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ft2n7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nksb8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1fiyt"]
 
 [node name="FarmScene" type="Node2D" unique_id=1014368745]
 script = ExtResource("1_4o0t3")
@@ -124,13 +133,16 @@ texture = ExtResource("5_247op")
 
 [node name="SkyAmbientSpawner" type="Node2D" parent="." unique_id=869246656]
 script = ExtResource("6_0sxts")
-bird_textures = Array[Texture2D]([ExtResource("7_2qrsd"), ExtResource("8_mv30j"), ExtResource("9_247op")])
+bird_textures = Array[Texture2D]([ExtResource("7_2qrsd")])
 balloon_textures = Array[Texture2D]([ExtResource("10_2qrsd")])
-balloon_spawn_chance = 0.25
+balloon_spawn_chance = 0.02
+balloon_scale = Vector2(0.2, 0.2)
+bird_speed_min = 90.0
+bird_speed_max = 110.0
 min_sky_y = 500.0
-max_sky_y = 250.0
-min_spawn_delay = 10000.0
-max_spawn_delay = 20000.0
+max_sky_y = 150.0
+min_spawn_delay = 0.5
+max_spawn_delay = 8.0
 
 [node name="MidgroundHillsParallax2D" type="Parallax2D" parent="." unique_id=2135497012]
 texture_repeat = 2
@@ -283,7 +295,7 @@ repeat_times = 7
 
 [node name="FrontDetailedGrass" type="Sprite2D" parent="DetailedGrassParallax2D" unique_id=648591459]
 material = SubResource("ShaderMaterial_qnxwh")
-position = Vector2(792, 2400)
+position = Vector2(834, 2295)
 texture = ExtResource("13_247op")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1622965079]
@@ -308,19 +320,33 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_bx8n8")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5iqjx")
 icon = ExtResource("3_c85ry")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="UI" unique_id=1651707663]
-layer = 0
-
-[node name="Control" type="Control" parent="UI" unique_id=1272544451]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+[node name="BuildButton" type="Button" parent="UI" unique_id=289404145]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -261.5
+offset_top = -250.0
+offset_right = 261.5
+offset_bottom = -129.0
 grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.59717613, 0.59717613, 0.5971761, 1)
+theme_override_colors/font_hover_color = Color(0.8776155, 0.87761575, 0.87761605, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("33_5xbho")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jx8tp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3nbp6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ft2n7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_nksb8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1fiyt")
+text = "Build Wall"
 
 [node name="NameSheepPopup" parent="." unique_id=131821288 instance=ExtResource("32_eo7vp")]
 visible = false
 
 [connection signal="pressed" from="UI/ButtonBackToMenu" to="." method="_on_button_back_to_menu_pressed"]
+[connection signal="pressed" from="UI/BuildButton" to="." method="_on_build_button_pressed"]

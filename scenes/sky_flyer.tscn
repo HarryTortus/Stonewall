@@ -1,8 +1,97 @@
 [gd_scene format=3 uid="uid://f5hox60ynjub"]
 
 [ext_resource type="Script" uid="uid://daue1kyegl22p" path="res://scripts/sky_flyer.gd" id="1_c8kp2"]
+[ext_resource type="Texture2D" uid="uid://tu0igpxdt06b" path="res://art/BirdBody1.png" id="2_tusk7"]
+[ext_resource type="Texture2D" uid="uid://qnbigrinn5w0" path="res://art/BirdWingDown1.png" id="3_4jkro"]
+
+[sub_resource type="Animation" id="Animation_5p83e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bird/WingDown1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bird/WingUp2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ewinn"]
+resource_name = "default"
+length = 1.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bird/WingDown1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6333333, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bird/WingUp2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jpytu"]
+_data = {
+&"RESET": SubResource("Animation_5p83e"),
+&"default": SubResource("Animation_ewinn")
+}
 
 [node name="SkyFlyer" type="Node2D" unique_id=1511906153]
 script = ExtResource("1_c8kp2")
 
 [node name="Visual" type="Sprite2D" parent="." unique_id=2040918520]
+visible = false
+
+[node name="Bird" type="Node2D" parent="." unique_id=771466596]
+visible = false
+rotation = -0.08726646
+
+[node name="Body1" type="Sprite2D" parent="Bird" unique_id=293864906]
+texture = ExtResource("2_tusk7")
+
+[node name="WingDown1" type="Sprite2D" parent="Bird" unique_id=1510976022]
+visible = false
+position = Vector2(-23, 129)
+rotation = 0.2617994
+scale = Vector2(0.7084081, 0.7084081)
+texture = ExtResource("3_4jkro")
+
+[node name="WingUp2" type="Sprite2D" parent="Bird" unique_id=827103861]
+visible = false
+position = Vector2(60.34338, -93.094986)
+rotation = 0.2617994
+scale = Vector2(0.74675363, -0.31067678)
+texture = ExtResource("3_4jkro")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1354882538]
+libraries/ = SubResource("AnimationLibrary_jpytu")

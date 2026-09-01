@@ -143,3 +143,6 @@ func _on_dev_clear_save_pressed() -> void:
 
 func _on_button_back_to_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/control.tscn")
+
+func _on_build_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_game.tscn")

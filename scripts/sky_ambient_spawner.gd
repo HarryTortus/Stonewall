@@ -14,8 +14,9 @@ extends Node2D
 
 # Scale Adjusters
 @export_group("Visual Scales")
-@export var bird_scale: Vector2 = Vector2(0.35, 0.35)
-@export var balloon_scale: Vector2 = Vector2(0.5, 0.5)
+@export var bird_scale_min: float = 0.10
+@export var bird_scale_max: float = 0.15
+@export var balloon_scale: Vector2 = Vector2(0.15, 0.15)
 
 # Speeds
 @export_group("Flight Speeds")
@@ -56,7 +57,6 @@ func _spawn_random_sky_element() -> void:
 	if not flyer_scene:
 		return
 
-	# Roll rarity: Check if balloon spawns, otherwise spawn bird
 	var roll: float = randf()
 	var is_balloon: bool = (roll < balloon_spawn_chance) and not balloon_textures.is_empty()
 	
@@ -67,7 +67,6 @@ func _spawn_random_sky_element() -> void:
 	var chosen_texture: Texture2D = texture_pool.pick_random()
 	var flyer = flyer_scene.instantiate()
 
-	# Read dynamic horizontal limits from FarmScene camera
 	var farm_scene = get_tree().current_scene
 	var min_limit_x: float = 0.0
 	var max_limit_x: float = 3000.0
@@ -76,16 +75,24 @@ func _spawn_random_sky_element() -> void:
 		min_limit_x = float(farm_scene.camera.limit_left)
 		max_limit_x = float(farm_scene.camera.limit_right)
 
-	# Decide travel direction (50/50 Left or Right)
+	# Dynamic screen half-width calculation for wide displays
+	var viewport_width: float = get_viewport_rect().size.x
+	var spawn_padding: float = 400.0
+
+	# Mirror the offset evenly across both left and right flanks
+	var effective_left: float = min_limit_x - (viewport_width * 0.5) - spawn_padding
+	var effective_right: float = max_limit_x + spawn_padding
+
 	var fly_right: bool = randf() > 0.5
-	var start_x: float = (min_limit_x - 200.0) if fly_right else (max_limit_x + 200.0)
-	var target_despawn_x: float = (max_limit_x + 250.0) if fly_right else (min_limit_x - 250.0)
+	var start_x: float = effective_left if fly_right else effective_right
+	var target_despawn_x: float = (effective_right + 50.0) if fly_right else (effective_left - 50.0)
 	var fly_dir: float = 1.0 if fly_right else -1.0
 
-	# Apply speed, scale, and altitude
 	var spawn_y: float = randf_range(min_sky_y, max_sky_y)
 	var speed: float = randf_range(balloon_speed_min, balloon_speed_max) if is_balloon else randf_range(bird_speed_min, bird_speed_max)
-	var active_scale: Vector2 = balloon_scale if is_balloon else bird_scale
+	
+	var random_bird_factor: float = randf_range(bird_scale_min, bird_scale_max)
+	var active_scale: Vector2 = balloon_scale if is_balloon else Vector2(random_bird_factor, random_bird_factor)
 
+	flyer.setup(chosen_texture, Vector2(start_x, spawn_y), fly_dir, speed, target_despawn_x, active_scale, is_balloon)
 	add_child(flyer)
-	flyer.setup(chosen_texture, Vector2(start_x, spawn_y), fly_dir, speed, target_despawn_x, active_scale)

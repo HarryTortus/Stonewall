@@ -10,11 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://hq78qademf4q" path="res://scenes/stones/stone4.tscn" id="5_o6v7o"]
 [ext_resource type="Texture2D" uid="uid://c52knlwe7ooxy" path="res://art/Cloud2.1.png" id="5_ynq6o"]
 [ext_resource type="PackedScene" uid="uid://8w8fw0th87q2" path="res://scenes/stones/stone5.tscn" id="6_wjob3"]
+[ext_resource type="Script" uid="uid://c0xmgi8danetx" path="res://scripts/sky_ambient_spawner.gd" id="7_0l6bj"]
 [ext_resource type="Texture2D" uid="uid://dn7dq0qkd4yuc" path="res://art/LeftArrow1.2flip.png" id="7_5ehsd"]
 [ext_resource type="PackedScene" uid="uid://c7dnw4ex6i7fi" path="res://scenes/stones/stone6.tscn" id="7_8xp80"]
 [ext_resource type="PackedScene" uid="uid://crqvf78i3rjnx" path="res://scenes/stones/stone7.tscn" id="8_ihbck"]
 [ext_resource type="Texture2D" uid="uid://6npihq4yd3ut" path="res://art/RotateRight3.1flip.png" id="8_r3lgv"]
+[ext_resource type="Texture2D" uid="uid://dmtbxqs0g233b" path="res://art/Bird1.png" id="8_uft02"]
 [ext_resource type="Texture2D" uid="uid://rvw8kcrasr8a" path="res://art/LeftArrow6.3.png" id="9_0l6bj"]
+[ext_resource type="Texture2D" uid="uid://ca1qoqp7gi8s5" path="res://art/HotAirBalloon2.png" id="9_u2muw"]
 [ext_resource type="PackedScene" uid="uid://cf4dydt0ftu1v" path="res://scenes/stones/stone8.tscn" id="9_vnsdt"]
 [ext_resource type="Texture2D" uid="uid://bcwva6yt2y178" path="res://art/String2.png" id="10_r3lgv"]
 [ext_resource type="Texture2D" uid="uid://cgwu6uae4fn8s" path="res://art/RotateRight3.1.png" id="10_uft02"]
@@ -329,6 +332,19 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("15_uft02")
 stretch_mode = 4
+
+[node name="Node2D" type="Node2D" parent="WorldArt" unique_id=1314675348]
+script = ExtResource("7_0l6bj")
+bird_textures = Array[Texture2D]([ExtResource("8_uft02")])
+balloon_textures = Array[Texture2D]([ExtResource("9_u2muw")])
+bird_scale_min = 0.15
+bird_scale_max = 0.2
+balloon_scale = Vector2(0.25, 0.25)
+bird_speed_min = 100.0
+bird_speed_max = 120.0
+max_sky_y = 700.0
+min_spawn_delay = 5.0
+max_spawn_delay = 20.0
 
 [node name="StoneSpawner" type="Node2D" parent="." unique_id=1479664925]
 script = ExtResource("19_v2gn3")
