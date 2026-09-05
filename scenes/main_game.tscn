@@ -728,6 +728,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_vghsm")
 icon = ExtResource("11_u2muw")
 
 [node name="ButtonMenu" type="Button" parent="Buttons/MarginContainer/HBoxContainer/Control" unique_id=1715892492]
+modulate = Color(1, 1, 1, 0.50980395)
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 offset_left = -492.0

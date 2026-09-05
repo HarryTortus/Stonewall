@@ -135,7 +135,7 @@ offset_bottom = 1234.0
 size_flags_horizontal = 4
 offset_transform_enabled = true
 focus_mode = 0
-theme_override_colors/font_color = Color(0.32397863, 0.7239681, 0.19714445, 1)
+theme_override_colors/font_color = Color(0.3254902, 0.7254902, 0.19607843, 1)
 theme_override_colors/font_focus_color = Color(0.76862746, 0.99607843, 0.70980394, 1)
 theme_override_colors/font_pressed_color = Color(0.76862746, 0.99607843, 0.70980394, 1)
 theme_override_colors/font_hover_color = Color(0.7686701, 0.9960081, 0.7095688, 1)
@@ -502,23 +502,28 @@ text = "No, Save Farm"
 layer = -10
 
 [node name="Sky" type="Sprite2D" parent="CanvasLayer" unique_id=1665393666]
-position = Vector2(-477.00012, 1031)
-scale = Vector2(1.5, 1.5)
+position = Vector2(-1332, 626.0001)
+scale = Vector2(0.9455851, 0.9455851)
 texture = ExtResource("4_6pn8l")
 
 [node name="Sky2" type="Sprite2D" parent="CanvasLayer" unique_id=2025210646]
-position = Vector2(3167, 1031)
-scale = Vector2(1.5, 1.5)
+position = Vector2(729.0005, 626.0001)
+scale = Vector2(0.9455851, 0.9455851)
 texture = ExtResource("4_6pn8l")
 
 [node name="Sky4" type="Sprite2D" parent="CanvasLayer" unique_id=1131246305]
-position = Vector2(6699, 1018)
-scale = Vector2(1.5, 1.5)
+position = Vector2(2906.0002, 626)
+scale = Vector2(0.9455851, 0.9455851)
+texture = ExtResource("4_6pn8l")
+
+[node name="Sky5" type="Sprite2D" parent="CanvasLayer" unique_id=861347098]
+position = Vector2(4546.0005, 626)
+scale = Vector2(0.9455851, 0.9455851)
 texture = ExtResource("4_6pn8l")
 
 [node name="Sky3" type="Sprite2D" parent="CanvasLayer" unique_id=1836211817]
-position = Vector2(-4417, 1031)
-scale = Vector2(1.5, 1.5)
+position = Vector2(-3365, 608.0001)
+scale = Vector2(0.9455851, 0.9455851)
 texture = ExtResource("4_6pn8l")
 
 [node name="Cloud" type="Sprite2D" parent="CanvasLayer" unique_id=52182038]
